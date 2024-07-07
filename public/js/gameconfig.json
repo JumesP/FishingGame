@@ -1,0 +1,12 @@
+{
+  "fish_chances" :{
+    "cod": 60,
+    "salmon": 20,
+    "goldfish" : 10,
+    "trash": 6,
+    "treasure": 2,
+    "jellyfish": 1.89,
+    "shark": 0.1,
+    "whale": 0.01
+  }
+}
