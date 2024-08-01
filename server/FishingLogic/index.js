@@ -1,4 +1,4 @@
-import Fish from "./classes/fish.js"
+import Fish from "../classes/fish.js"
 import getRandomFish from "./fishGame/probability.js"
 
 const fish = getRandomFish()
