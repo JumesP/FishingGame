@@ -1,17 +1,11 @@
 import FishTank from './index';
 import Fish from "../../atoms/fish";
 
-import path from 'path';
-
 import bluefish from '../../../../public/images/blue.png';
 import salmonfish from '../../../../public/images/salmon.png';
 import codfish from '../../../../public/images/cod.png';
 import sharkfish from '../../../../public/images/shark.png';
 import whalefish from '../../../../public/images/whale.png';
-
-const absolutePath = path.resolve('../../../../public/images/whale.png');
-
-console.log("abs path: " + absolutePath);
 
 const fishImages = {
     salmon: salmonfish,

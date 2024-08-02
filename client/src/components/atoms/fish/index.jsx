@@ -2,30 +2,6 @@ import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
 
-// import bluefish from '../../../../public/images/blue.png';
-// import salmonfish from '../../../../public/images/salmon.png';
-// import codfish from '../../../../public/images/cod.png';
-// import sharkfish from '../../../../public/images/shark.png';
-// import whalefish from '../../../../public/images/whale.png';
-
-// const absolutePath= path.resolve('../../../../public/images/whale.png');
-//
-// console.log("abs path: " + absolutePath);
-
-// const fishImages = {
-//     salmon: salmonfish,
-//     blue: bluefish,
-//     cod: codfish,
-//     shark: sharkfish,
-//     whale: whalefish,
-// }
-//
-// const fishStyles = {
-//     SALMON: "salmon",
-//     BLUE: "blue",
-//     COD: "cod",
-// }
-
 const FishStyled = styled.div`
   background: url(${props => props.path || "/images/blue.png"}) no-repeat;
   background-size: contain;
