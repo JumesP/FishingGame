@@ -2,28 +2,32 @@ import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
 
-import bluefish from '../../../../public/images/blue.png';
-import salmonfish from '../../../../public/images/salmon.png';
-import codfish from '../../../../public/images/cod.png';
-import sharkfish from '../../../../public/images/shark.png';
-import whalefish from '../../../../public/images/whale.png';
+// import bluefish from '../../../../public/images/blue.png';
+// import salmonfish from '../../../../public/images/salmon.png';
+// import codfish from '../../../../public/images/cod.png';
+// import sharkfish from '../../../../public/images/shark.png';
+// import whalefish from '../../../../public/images/whale.png';
 
-const fishImages = {
-    salmon: salmonfish,
-    blue: bluefish,
-    cod: codfish,
-    shark: sharkfish,
-    whale: whalefish,
-}
+// const absolutePath= path.resolve('../../../../public/images/whale.png');
+//
+// console.log("abs path: " + absolutePath);
 
-const fishStyles = {
-    SALMON: "salmon",
-    BLUE: "blue",
-    COD: "cod",
-}
+// const fishImages = {
+//     salmon: salmonfish,
+//     blue: bluefish,
+//     cod: codfish,
+//     shark: sharkfish,
+//     whale: whalefish,
+// }
+//
+// const fishStyles = {
+//     SALMON: "salmon",
+//     BLUE: "blue",
+//     COD: "cod",
+// }
 
 const FishStyled = styled.div`
-   background: url(${props => fishImages[props.fishType] || bluefish}) no-repeat;
+  background: url(${props => props.path || "/images/blue.png"}) no-repeat;
   background-size: contain;
   width: ${props => props.width || '100px'};
   height: ${props => props.height || '100px'};
@@ -76,8 +80,6 @@ const Fish = props => {
             className={FishClasses}
             style={{ top: `${position.top}px`, left: `${position.left}px` }}
         >
-            {/*<img styles={{ width: '100%', height: '100%' }} src={process.env.PUBLIC_URL + '/images/little_blue_fish.png'}/>*/}
-            {/*<img styles={{ width: '100%', height: '100%' }} src={} />*/}
         </FishStyled>
     )
 }

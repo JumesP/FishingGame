@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react';
 import FishTank from "./components/molecules/fishTank";
 import Fish from "./components/atoms/fish";
 
+// import cod from '../public/images/cod.png';
+import cod from './images/cod.png';
+
 function App() {
 
   const [backendData, setBackendData] = useState([{}]);
@@ -12,33 +15,29 @@ function App() {
       .then((data) => setBackendData(data));
   }, []);
 
-  const content =
+  // const content =
 
 
-  console.log(backendData.fish)
+  // console.log(backendData.fish)
 
   return (
     <div>
       {(typeof backendData.fish === 'undefined') ?
         <p>Loading...</p> :
         <>
-          <h1 className="text-3xl font-bold underline">Fetched Users!</h1>
+
+          <FishTank
+              children={backendData.fish.map((fish, number) => (
+                  <Fish fishType={fish} path={"/images/" + fish + ".png"}/>
+              ))}
+          />
+
+          <h1 className="text-3xl font-bold underline">Fetched Fishes! All Fishes owned:</h1>
           <ul>
             {backendData.fish.map((user, number) => (
               <li key={number}>{user}</li>
             ))}
           </ul>
-
-          <FishTank
-            children={backendData.fish.map((fish, number) => (
-                <Fish fishType={fish} />
-            ))}
-          />
-
-
-
-
-
         </>
       }
     </div>
