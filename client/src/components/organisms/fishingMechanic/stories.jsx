@@ -11,8 +11,8 @@ const Template = (props) => {
 }
 
 
-export const Default = Template.bind({});
-Default.args = {
+export const Original = Template.bind({});
+Original.args = {
     lowerNumber: 55,
     higherNumber: 60,
 }
