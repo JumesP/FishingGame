@@ -16,16 +16,19 @@ Original.args = {
             title: "Card 1",
             description: "This is a card",
             url: "/images/salmon.png",
+            rarity: "superlegendary",
         },
         {
-            title: "Card 2",
+            title: "Shark 2",
             description: "This is a card",
-            url: "/images/salmon.png",
+            url: "/images/shark.png",
+            rarity: "rare",
         },
         {
             title: "Card 3",
             description: "This is a card",
             url: "/images/salmon.png",
+            rarity: "legendary",
         },
     ]
 }

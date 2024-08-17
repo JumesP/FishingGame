@@ -19,10 +19,10 @@ const CardStyled = styled.div`
   
     border: 5px solid black;
     border-radius: 50px;
-  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
-  width: 400px;
-  height: 600px;
-  padding: 5px;
+    box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
+    width: 400px;
+    height: 600px;
+    padding: 5px;
 `;
 
 const Card = props => {
@@ -60,7 +60,7 @@ const Card = props => {
             className={CardClasses}
         >
             <h1 className="title">{props.content.title}</h1>
-            <img src={props.content.url}></img>
+            <img src={props.content.url} alt=""></img>
             <p className="desc">{props.content.description}</p>
 
         </CardStyled>

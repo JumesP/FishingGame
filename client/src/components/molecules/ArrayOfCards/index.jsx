@@ -1,42 +1,39 @@
-import React, { useEffect, useState } from 'react';
-import classNames from "classnames";
+import React from 'react';
 import styled from "styled-components";
-
-// import Card from "../../atoms/index";
 import Card from "../../atoms/card";
 
 const ArrayOfCardsStyled = styled.div`
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     height: 100%;
 `;
 
-const ArrayOfCards = ({ content = [], ...props }) => {
-    const [cards, setCards] = useState([]);
+const ArrayOfCards = ({ cards = [], ...props }) => {
+    const cardComponents = cards.map((card, index) => {
+        const cardData = {
+            title: card.title,
+            description: card.description,
+            url: card.url,
+        };
 
-    useEffect(() => {
-        const cards = content.map((card, index) => {
-            return (
-                <Card
-                    key={index}
-                    {...card}
-                />
-            )
-        });
-
-        setCards(cards);
-    }, [content]);
+        return (
+            <Card
+                key={index}
+                content={cardData}
+                rarity={card.rarity}
+                {...card}
+            />
+        );
+    });
 
     return (
-        <ArrayOfCardsStyled
-            {...props}
-        >
-            {cards}
+        <ArrayOfCardsStyled {...props}>
+            {cardComponents}
         </ArrayOfCardsStyled>
-    )
-}
+    );
+};
 
 export default ArrayOfCards;
