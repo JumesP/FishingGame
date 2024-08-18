@@ -8,5 +8,15 @@
     "jellyfish": 1.89,
     "shark": 0.1,
     "whale": 0.01
+  },
+  "fish_values": {
+      "cod": 10,
+      "salmon": 20,
+      "goldfish": 50,
+      "trash": 0,
+      "treasure": 100,
+      "jellyfish": 200,
+      "shark": 500,
+      "whale": 1000
   }
 }

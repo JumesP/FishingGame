@@ -16,7 +16,7 @@ Original.args = {
             title: "Card 1",
             description: "This is a card",
             url: "/images/salmon.png",
-            rarity: "superlegendary",
+            rarity: "mystical",
         },
         {
             title: "Shark 2",

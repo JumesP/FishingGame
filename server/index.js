@@ -9,7 +9,7 @@ const getRandomFish = require('./FishingLogic/Probability.js');
 const getAllFishByUserID = require('./classes/Users/user.js');
 
 const app = express();
-const port = 5000;
+const port = 5001;
 const openDatabase = require('./db.js');
 
 // openDatabase().then(async (db) => {

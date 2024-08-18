@@ -22,6 +22,7 @@ function App() {
 
   return (
     <div>
+      {console.log(backendData)}
       {(typeof backendData.fish === 'undefined') ?
         <p>Loading...</p> :
         <>

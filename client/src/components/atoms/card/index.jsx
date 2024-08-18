@@ -6,8 +6,9 @@ const Rarity = {
     COMMON: "common",
     UNCOMMON: "uncommon",
     RARE: "rare",
+    EPIC: "epic",
     LEGENDARY: "legendary",
-    SUPERLEGENDARY: "superlegendary",
+    MYSTICAL: "mystical",
 }
 
 const CardStyled = styled.div`

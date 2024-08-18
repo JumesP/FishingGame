@@ -6,7 +6,9 @@
     "build": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "dev2": "ts-node index.ts",
+    "dev-watch": "ts-node-dev --respawn --transpile-only --watch ./**/*.ts ./index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +21,9 @@
     "sqlite3": "^5.1.7"
   },
   "devDependencies": {
-    "nodemon": "^3.1.4"
+    "nodemon": "^3.1.4",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.5.4"
   }
 }

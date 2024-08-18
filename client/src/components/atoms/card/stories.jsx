@@ -25,11 +25,21 @@ const Template = (props) => {
 
 export const Shark = Template.bind({});
 Shark.args = {
-    rarity: 'superlegendary',
+    rarity: 'mystical',
     content: {
         title: 'Shark',
         description: 'Super Rare Shark',
         url: '/images/shark.png',
+    }
+}
+
+export const JellyFish = Template.bind({});
+JellyFish.args = {
+    rarity: 'epic',
+    content: {
+        title: 'Jelly Fish',
+        description: 'Jelly Fish',
+        url: '/images/jellyfish.png',
     }
 }
 

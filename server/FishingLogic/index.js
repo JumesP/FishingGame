@@ -1,5 +1,5 @@
 import Fish from "../classes/fish.js"
-import getRandomFish from "./fishGame/probability.js"
+import getRandomFish from "./Probability.js"
 
 const fish = getRandomFish()
 const fish2 = getRandomFish()
@@ -25,12 +25,4 @@ fishButton.addEventListener("click", function(){
 	para.appendChild(node);
 	fishtank.appendChild(para);
 })
-
-// const fishp = document.getElementById("fish")
-// const fishp2 = document.getElementById("fish2")
-// const fishp3 = document.getElementById("fish3")
-//
-// fishp.textContent = fish
-// fishp2.textContent = fish2
-// fishp3.textContent = fish3
 
