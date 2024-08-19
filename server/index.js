@@ -5,12 +5,14 @@ const express = require('express');
 
 const FishClass = require('./classes/fish.js');
 const UserClass = require('./classes/Users/user.js');
-const getRandomFish = require('./FishingLogic/Probability.js');
+const getRandomFish = require('./FishingLogic/CatchProbability.js');
 const getAllFishByUserID = require('./classes/Users/user.js');
 
 const app = express();
 const port = 5001;
 const openDatabase = require('./db.js');
+// const getRandomReward = require('./FishingLogic/TreasureProbability.js').default;
+const TripleGetRandomReward = require("./FishingLogic/TreasureProbability").default;
 
 // openDatabase().then(async (db) => {
 //
@@ -59,12 +61,19 @@ app.get('/api/catchFish', async (req, res) => {
 
 app.get('/api/populate', async (req, res) => {
     try {
-        const result = await james.populateFishTank();
-        res.json({"fish": result});
+        const fishResult = await james.populateFishTank();
+        const rewardResult = TripleGetRandomReward();
+        res.json({
+            "fish": fishResult,
+            "reward": rewardResult
+        });
     } catch (err) {
         console.log(err);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+// getRandomReward()
 
 app.listen(port, () => {
     console.log('Server is running on port ' + port + '...');

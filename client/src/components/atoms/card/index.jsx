@@ -15,6 +15,7 @@ const CardStyled = styled.div`
     display: grid;
     grid-template-rows: 1fr 5fr 2fr;
     justify-content: center;
+    justify-items: center;
     align-items: center;
   
   
