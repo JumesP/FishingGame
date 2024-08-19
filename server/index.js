@@ -12,7 +12,7 @@ const app = express();
 const port = 5001;
 const openDatabase = require('./db.js');
 // const getRandomReward = require('./FishingLogic/TreasureProbability.js').default;
-const TripleGetRandomReward = require("./FishingLogic/TreasureProbability").default;
+const FiveGetRandomReward = require("./FishingLogic/TreasureProbability").default;
 
 // openDatabase().then(async (db) => {
 //
@@ -62,7 +62,7 @@ app.get('/api/catchFish', async (req, res) => {
 app.get('/api/populate', async (req, res) => {
     try {
         const fishResult = await james.populateFishTank();
-        const rewardResult = TripleGetRandomReward();
+        const rewardResult = FiveGetRandomReward();
         res.json({
             "fish": fishResult,
             "reward": rewardResult

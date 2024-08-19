@@ -68,7 +68,7 @@ type probability_field = {
 //
 
 
-const treasure_rarity: treasure_rarity = {
+const treasure_rarity: treasure_rarity = { // make rarer
     common: 65,
     uncommon: 15,
     rare: 10,
@@ -183,8 +183,14 @@ export function getRandomReward() {
 //     }
 // }
 
-export default function TripleGetRandomReward() {
+export function ThreeGetRandomReward() {
     const rewards = [getRandomReward(), getRandomReward(), getRandomReward()];
+    console.log(rewards);
+    return rewards;
+}
+
+export default function FiveGetRandomReward() {
+    const rewards = [getRandomReward(), getRandomReward(), getRandomReward(), getRandomReward(), getRandomReward()];
     console.log(rewards);
     return rewards;
 }

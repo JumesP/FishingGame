@@ -93,12 +93,12 @@ exports.getRandomReward = getRandomReward;
 //         rarity: reward.selectedRarity,
 //     }
 // }
-function TripleGetRandomReward() {
-    var rewards = [getRandomReward(), getRandomReward(), getRandomReward()];
+function FiveGetRandomReward() {
+    var rewards = [getRandomReward(), getRandomReward(), getRandomReward(), getRandomReward(), getRandomReward()];
     console.log(rewards);
     return rewards;
 }
-exports.default = TripleGetRandomReward;
+exports.default = FiveGetRandomReward;
 // getRandomReward();
 // getRandomReward();
 // getRandomReward();
