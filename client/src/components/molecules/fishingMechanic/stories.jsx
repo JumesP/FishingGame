@@ -1,8 +1,8 @@
 import {FishingMechanic} from "./index";
-import FishTank from "../../molecules/fishTank";
+import FishTank from "../fishTank";
 
 export default {
-    title: "Organisms/FishingMechanic",
+    title: "Molecules/FishingMechanic",
     component: FishingMechanic,
 }
 

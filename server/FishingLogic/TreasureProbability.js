@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRandomReward = void 0;
+exports.ThreeGetRandomReward = exports.getRandomReward = void 0;
 //
 var treasure_rarity = {
     common: 65,
@@ -62,7 +62,7 @@ function getRandomReward() {
         return "none";
     }
     var quantity = function (min, max) {
-        return Math.random() * (max - min) + min;
+        return Math.round(Math.random() * (max - min) + min);
     };
     var selectedTreasure = treasure[selectedRarity + "_treasure"];
     for (var item in selectedTreasure) {
@@ -73,7 +73,7 @@ function getRandomReward() {
                 console.log(item);
                 itemObject.title = item;
                 itemObject.description = quantity(selectedTreasure[item][1][0], selectedTreasure[item][1][1]);
-                itemObject.url = "https://via.placeholder.com/150";
+                itemObject.url = "/images/" + item + ".png";
                 // return {item, selectedRarity} as const;
             }
         }
@@ -93,6 +93,12 @@ exports.getRandomReward = getRandomReward;
 //         rarity: reward.selectedRarity,
 //     }
 // }
+function ThreeGetRandomReward() {
+    var rewards = [getRandomReward(), getRandomReward(), getRandomReward()];
+    console.log(rewards);
+    return rewards;
+}
+exports.ThreeGetRandomReward = ThreeGetRandomReward;
 function FiveGetRandomReward() {
     var rewards = [getRandomReward(), getRandomReward(), getRandomReward(), getRandomReward(), getRandomReward()];
     console.log(rewards);

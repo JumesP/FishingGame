@@ -159,7 +159,7 @@ export function getRandomReward() {
                 console.log(item);
                 itemObject.title = item;
                 itemObject.description = quantity(selectedTreasure[item as keyof typeof selectedTreasure][1][0], selectedTreasure[item as keyof typeof selectedTreasure][1][1]);
-                itemObject.url = "https://via.placeholder.com/150";
+                itemObject.url = "/images/" + item + ".png";
                 // return {item, selectedRarity} as const;
             }
         }

@@ -2,7 +2,11 @@
 }
 
 .card > img {
-    height: 60%;
+  ;
+  height: 60%;
+  width: 200px;
+  max-width: 100%;
+  aspect-ratio: auto
 }
 
 .card > p, h1 {
@@ -44,3 +48,4 @@
 .rarity-mythical {
     background: red;
 }
+
