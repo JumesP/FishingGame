@@ -43,18 +43,16 @@ var treasure = {
     }
 };
 function getRandomReward() {
-    var itemObject = { title: "", rarity: "", description: 0, url: "" };
+    var itemObject = { title: "", rarity: "common", description: 0, url: "" };
     var randomNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
     var randomNum2 = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
-    console.log(randomNum);
-    console.log(randomNum2);
+    console.log(randomNum, randomNum2);
     var selectedRarity = undefined;
-    for (var rarity in treasure_rarity) {
+    for (var rarity in treasure_rarity) { // works out the rarity
         randomNum -= treasure_rarity[rarity];
         if (randomNum <= 0) {
             selectedRarity = rarity;
             itemObject.rarity = selectedRarity;
-            console.log(selectedRarity);
             break;
         }
     }
@@ -67,32 +65,22 @@ function getRandomReward() {
     var selectedTreasure = treasure[selectedRarity + "_treasure"];
     for (var item in selectedTreasure) {
         if (selectedTreasure.hasOwnProperty(item)) {
-            var _a = selectedTreasure[item], probability = _a[0], _ = _a[1];
+            var _a = selectedTreasure[item], probability = _a[0], _b = _a[1], min = _b[0], max = _b[1];
             randomNum2 -= probability;
+            console.log(randomNum2, item);
             if (randomNum2 <= 0) {
                 console.log(item);
                 itemObject.title = item;
-                itemObject.description = quantity(selectedTreasure[item][1][0], selectedTreasure[item][1][1]);
+                itemObject.description = quantity(min, max);
                 itemObject.url = "/images/" + item + ".png";
-                // return {item, selectedRarity} as const;
+                break;
             }
         }
     }
-    // itemObject.quantity = quantity(1, 1);
     console.log(itemObject);
     return itemObject;
-    // return "none";
 }
 exports.getRandomReward = getRandomReward;
-// export default function FormattedReward() {
-//     const reward = getRandomReward();
-//     const card = {
-//         title: "",
-//         description: "",
-//         image: "",
-//         rarity: reward.selectedRarity,
-//     }
-// }
 function ThreeGetRandomReward() {
     var rewards = [getRandomReward(), getRandomReward(), getRandomReward()];
     console.log(rewards);
@@ -105,7 +93,7 @@ function FiveGetRandomReward() {
     return rewards;
 }
 exports.default = FiveGetRandomReward;
-// getRandomReward();
+getRandomReward();
 // getRandomReward();
 // getRandomReward();
 // getRandomReward();

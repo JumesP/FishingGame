@@ -1,5 +1,7 @@
 import {Fish} from "./CatchProbability";
 
+// PLZ FIX THE NAME OF THE TYPES ;-;
+
 type treasure_rarity = {
     common: number,
     uncommon: number,
@@ -118,25 +120,25 @@ const treasure: probability_field = {
 
 //
 
-type itemObject = {item: string, selectedRarity: rarity, quantity : number, image: string}
+type itemObject = {title: string, rarity: rarity, description : number, url: string}
 
 export function getRandomReward() {
-    const itemObject= {title: "", rarity: "", description: 0, url: ""};
+    const itemObject: itemObject= {title: "", rarity: "common", description: 0, url: ""};
 
     let randomNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
     let randomNum2 = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
 
-    console.log(randomNum);
-    console.log(randomNum2);
+    console.log(randomNum, randomNum2)
+
 
     let selectedRarity: rarity | undefined = undefined;
 
-    for (const rarity in treasure_rarity) {
+
+    for (const rarity in treasure_rarity) { // works out the rarity
         randomNum -= treasure_rarity[rarity as keyof typeof treasure_rarity];
         if (randomNum <= 0) {
             selectedRarity = rarity as keyof typeof treasure_rarity;
             itemObject.rarity = selectedRarity;
-            console.log(selectedRarity);
             break;
         }
     }
@@ -145,43 +147,29 @@ export function getRandomReward() {
         return "none";
     }
 
-    const quantity = (min: number, max: number) => {
-        return Math.random() * (max - min) + min;
+    const quantity = (min: number, max: number) => { // works out the quantity
+        return Math.round(Math.random() * (max - min) + min);
     }
 
     const selectedTreasure = treasure[selectedRarity + "_treasure" as keyof typeof treasure];
 
     for (const item in selectedTreasure) {
         if (selectedTreasure.hasOwnProperty(item)) {
-            const [probability, _] = selectedTreasure[item as keyof typeof selectedTreasure];
+            const [probability, [min, max]] = selectedTreasure[item as keyof typeof selectedTreasure];
             randomNum2 -= probability;
+            console.log(randomNum2, item)
             if (randomNum2 <= 0) {
                 console.log(item);
                 itemObject.title = item;
-                itemObject.description = quantity(selectedTreasure[item as keyof typeof selectedTreasure][1][0], selectedTreasure[item as keyof typeof selectedTreasure][1][1]);
+                itemObject.description = quantity(min, max);
                 itemObject.url = "/images/" + item + ".png";
-                // return {item, selectedRarity} as const;
+                break;
             }
         }
     }
-
-
-
-    // itemObject.quantity = quantity(1, 1);
     console.log(itemObject)
     return itemObject;
-    // return "none";
 }
-
-// export default function FormattedReward() {
-//     const reward = getRandomReward();
-//     const card = {
-//         title: "",
-//         description: "",
-//         image: "",
-//         rarity: reward.selectedRarity,
-//     }
-// }
 
 export function ThreeGetRandomReward() {
     const rewards = [getRandomReward(), getRandomReward(), getRandomReward()];
@@ -195,7 +183,7 @@ export default function FiveGetRandomReward() {
     return rewards;
 }
 
-// getRandomReward();
+getRandomReward();
 // getRandomReward();
 // getRandomReward();
 // getRandomReward();
