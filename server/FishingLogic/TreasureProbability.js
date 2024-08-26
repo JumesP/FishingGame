@@ -1,7 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ThreeGetRandomReward = exports.getRandomReward = void 0;
-//
 var treasure_rarity = {
     common: 65,
     uncommon: 15,
@@ -10,7 +9,6 @@ var treasure_rarity = {
     legendary: 3,
     mythical: 1,
 };
-//
 var treasure = {
     common_treasure: {
         coins: [100, [1, 200]],
@@ -93,7 +91,3 @@ function FiveGetRandomReward() {
     return rewards;
 }
 exports.default = FiveGetRandomReward;
-getRandomReward();
-// getRandomReward();
-// getRandomReward();
-// getRandomReward();

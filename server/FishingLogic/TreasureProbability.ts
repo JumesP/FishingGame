@@ -16,7 +16,6 @@ type rarity = "common" | "uncommon" | "rare" | "epic" | "legendary" | "mythical"
 // probability ( /100 ), [min, max] amounts
 type reward = [number, [number, number]];
 
-// type rewardTypes = keyof treasure_rarity;
 
 
 type treasure_chances = {
@@ -67,7 +66,6 @@ type probability_field = {
     mythical_treasure: mythical_treasure,
 }
 
-//
 
 
 const treasure_rarity: treasure_rarity = { // make rarer
@@ -80,7 +78,7 @@ const treasure_rarity: treasure_rarity = { // make rarer
 }
 
 
-//
+
 const treasure: probability_field = {
     common_treasure: {
         coins: [100, [1, 200]],
@@ -118,7 +116,7 @@ const treasure: probability_field = {
     }
 }
 
-//
+
 
 type itemObject = {title: string, rarity: rarity, description : number, url: string}
 
@@ -182,8 +180,3 @@ export default function FiveGetRandomReward() {
     console.log(rewards);
     return rewards;
 }
-
-getRandomReward();
-// getRandomReward();
-// getRandomReward();
-// getRandomReward();
