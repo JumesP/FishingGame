@@ -30,7 +30,7 @@ const FiveGetRandomReward = require("./FishingLogic/TreasureProbability").defaul
 // });
 
 let fish = new FishClass("salmon", 10,5,20)
-let james = new UserClass("James", "james123", 25, 4)
+let james = new UserClass("James", "james123", 25, 1, 4)
 
 
 app.get('/api', (req, res) => {
@@ -61,11 +61,13 @@ app.get('/api/catchFish', async (req, res) => {
 
 app.get('/api/populate', async (req, res) => {
     try {
+        const user = james
         const fishResult = await james.populateFishTank();
         const rewardResult = FiveGetRandomReward();
         res.json({
             "fish": fishResult,
-            "reward": rewardResult
+            "reward": rewardResult,
+            "user": user,
         });
     } catch (err) {
         console.log(err);

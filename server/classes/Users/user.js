@@ -3,10 +3,11 @@ const getRandomFish = require("../../FishingLogic/CatchProbability")
 const Fish = require("../fish");
 
 class User {
-  constructor(name, username, age, tankID) {
+  constructor(name, username, age, level, tankID) {
     this.name = name;
     this.username = username;
     this.age = age;
+    this.level = level;
     this.tankID = tankID;
   }
 

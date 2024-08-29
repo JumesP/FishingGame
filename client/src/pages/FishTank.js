@@ -15,11 +15,18 @@ const Main = () => {
 	return (
 		<div>
 			{console.log(backendData)}
-			{/*{(typeof backendData.fish === 'undefined' || typeof backendData.cards === 'undefined') ?*/}
 			{(typeof backendData.fish === 'undefined') ?
 				<p>Loading...</p> :
 				<>
-
+					{backendData.user && (
+						<div>
+							<h1>Name: {backendData.user.name}</h1>
+							<h2>Username: {backendData.user.username}</h2>
+							<h3>Age: {backendData.user.age}</h3>
+							<h4>Level: {backendData.user.level}</h4>
+							<h4>TankID: {backendData.user.tankID}</h4>
+						</div>
+					)}
 					<FishTank
 						children={backendData.fish.map((fish, number) => (
 							<Fish fishType={fish} path={"/images/" + fish + ".png"}/>
