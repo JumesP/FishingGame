@@ -19,6 +19,9 @@ const Layout = () => {
 		  <li>
 		    <Link to="/Rewards">Rewards</Link>
 		  </li>
+		  <li>
+		    <Link to="/Catch">Fish</Link>
+		  </li>
 		</ul>
 	  </nav>
 	  <Outlet />

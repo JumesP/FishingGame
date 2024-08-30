@@ -7,6 +7,7 @@ import Landing from './pages/Landing';
 import Main from './pages/Main';
 import FishTank from './pages/FishTank';
 import Rewards from "./pages/Rewards";
+import Catch from "./pages/Catch";
 
 
 import ArrayOfCards from "./components/molecules/ArrayOfCards";
@@ -31,9 +32,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Landing />} />
-            <Route path="/Main" element={<Main />}/>
-            <Route path="/FishTank" element={<FishTank />}/>
-            <Route path="/Rewards" element={<Rewards />}/>
+            <Route path="/Main" element={<Main />} />
+            <Route path="/FishTank" element={<FishTank />} />
+            <Route path="/Rewards" element={<Rewards />} />
+            <Route path="/Catch" element={<Catch />} />
           </Route>
         </Routes>
       </BrowserRouter>
