@@ -13,8 +13,10 @@ const UserDetailsStyled = styled.div`
 	border-radius: 50px;
 	box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.2), 0 12px 40px 0 rgba(0, 0, 0, 0.19);
 	width: 300px;
-	height: 200px;
+	//height: 200px;
 	padding: 5px;
+	
+	min-height: fit-content;
 `;
 
 const UserDetails = props => {
