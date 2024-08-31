@@ -1,0 +1,21 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 94vh;
+    background-color: #282c34;
+    color: white;
+}
+
+.left {
+    background-color: #999999;
+    width: 50%;
+    height: 100%;
+}
+
+.right {
+    background-color: #666666;
+    width: 50%;
+    height: 100%;
+}
