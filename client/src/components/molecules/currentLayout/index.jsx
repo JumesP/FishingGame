@@ -3,8 +3,6 @@ import classNames from "classnames";
 import styled from "styled-components";
 
 const CurrentLayoutStyled = styled.div`
-	display: grid;
-	grid-template-rows: 1fr 5fr 2fr;
 	justify-content: center;
 	justify-items: center;
 	align-items: center;
@@ -20,6 +18,7 @@ const CurrentLayoutStyled = styled.div`
 
 const CurrentLayout = props => {
 	const CurrentLayoutClasses = classNames([
+		(props.width) ? `w-${props.width}` : null,
 		'currentLayout',
 	])
 
@@ -28,6 +27,7 @@ const CurrentLayout = props => {
 			className={CurrentLayoutClasses}
 		>
 			<form name="form1" id="form1">
+				<h1>Choose your Items!</h1>
 				Fishing Rods:
 				<select name="Rods" id="Rods">
 					{Array.isArray(props.inventory?.rods) ? (
