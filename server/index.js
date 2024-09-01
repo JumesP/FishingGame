@@ -51,7 +51,7 @@ app.get('/api/getfish', async (req, res) => {
 });
 
 app.get('/api/catchFish', async (req, res) => {
-    try {
+    try { // make this remove durability
         const result = await james.catchFish();
         res.json(result);
     } catch (err) {
@@ -74,6 +74,12 @@ app.get('/api/populate', async (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 });
+
+//create an API that lists a users inventory
+
+//create an API to assign select items to current inventory
+
+
 
 // getRandomReward()
 
