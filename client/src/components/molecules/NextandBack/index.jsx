@@ -8,7 +8,7 @@ const NextandBackStyled = styled.div`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 10px;
+    //padding: 10px;
     width: 100%;
     height: auto;
     //height: 75px;
