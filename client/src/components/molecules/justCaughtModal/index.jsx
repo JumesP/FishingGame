@@ -1,4 +1,5 @@
 // this will pop up after a catch,
+// this will show all the stats of the fish
 // give the option to sell, money goes into the bank,
 // or save and it goes to the fish tanks`
 
@@ -17,7 +18,7 @@ const JustCaughtModalStyled = styled.dialog`
     padding: 10px;
     z-index: 100;
     width: 80%;
-    height: 40%;
+    height: fit-content;
 `;
 
 const JustCaughtModal = props => {
@@ -32,6 +33,17 @@ const JustCaughtModal = props => {
         "justCaughtModal"
     ]);
 
+    const content = {
+        name: props.fish.name,
+        price: props.fish.price,
+        weight: props.fish.weight,
+        length: props.fish.length,
+        value: props.fish.value,
+        health: props.fish.health,
+    }
+
+
+
     return (
         <>
             <JustCaughtModalStyled
@@ -41,8 +53,14 @@ const JustCaughtModal = props => {
             >
                 <button onClick={toggleModal}>Close</button>
                 <hr></hr>
-                <div>
-                    {props.children}
+                <div className={"JCcontent"}>
+                    <img src={props.fish.url} alt="Fish" className="JCFish"/>
+                    <ul>
+
+                        {Object.entries(content).map(([key, value], index) => (
+                                <li>{key}: {value}</li>
+                        ))}
+                    </ul>
                 </div>
                 <hr></hr>
                 <div className="buttonContainer">

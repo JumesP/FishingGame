@@ -12,4 +12,13 @@ const Template = (props) => {
 export const Default = Template.bind({});
 Default.args = {
     // children: 'JustCaughtModal',
+    fish: {
+        url: "images/goldfish.png",
+        name: "goldfish",
+        price: 10,
+        weight: 5,
+        length: 10,
+        value: 10,
+        health: 10,
+    }
 }
