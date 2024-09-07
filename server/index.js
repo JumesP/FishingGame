@@ -1,37 +1,31 @@
 // require('dotenv').config();
 
 const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 // const path = require('path');
 
 const FishClass = require('./classes/fish.js');
 const UserClass = require('./classes/Users/user.js');
+const AccountClass = require('./classes/Users/accounts.js');
 const getRandomFish = require('./FishingLogic/CatchProbability.js');
 const getAllFishByUserID = require('./classes/Users/user.js');
 
 const app = express();
 const port = 5001;
+
+app.use(cors({ origin: 'http://localhost:3000' }));
+app.use(bodyParser.json());
+
 const openDatabase = require('./db.js');
-// const getRandomReward = require('./FishingLogic/TreasureProbability.js').default;
 const FiveGetRandomReward = require("./FishingLogic/TreasureProbability").default;
 
-// openDatabase().then(async (db) => {
-//
-//     openDatabase().then(async (db) => {
-//         await db.exec(`
-//                 CREATE TABLE IF NOT EXISTS users (
-//                     id INTEGER PRIMARY KEY AUTOINCREMENT,
-//                     name TEXT NOT NULL
-//                 );
-//             `);
-//
-//         const result = await db.all('SELECT * FROM users');
-//         console.log(result);
-//     });
-// });
 
 let fish = new FishClass("salmon", 10,5,20)
 let james = new UserClass("James", "james123", 25, 1, 4, 1)
+// let user = new UserClass()
 
+// this needs to fetch data from the login, and then pass it to the user class
 
 app.get('/api', (req, res) => {
     res.json({"users": ["userOne", "userTwo", "userThree"]})
@@ -96,6 +90,20 @@ app.get('/api/updateCurrentInventory', async (req, res) => {
         res.json(result);
     } catch (err) {
         console.log(err);
+    }
+});
+
+app.post('/api/Login', async (req, res) => {
+    const { username, password } = req.body;
+    console.log(username, password);
+    try {
+        console.log("fetching username and password");
+        const result = await AccountClass.Login(username, password);
+        console.log(result);
+        res.json(result);
+    } catch (err) {
+        console.log(err.message);
+        res.status(401).json({ error: 'Invalid username or password' });
     }
 });
 
