@@ -24,7 +24,8 @@ const Login = () => {
             }
             const data = await response.json();
             setUserData(data);
-            console.log(userData);
+            console.log('Success:', data);
+            console.log(userData)
         } catch (error) {
             console.error('Error:', error);
         }
@@ -54,11 +55,15 @@ const Login = () => {
                 </label>
                 <button type="submit">Login</button>
             </form>
-            {userData && (
+            {userData && userData.length > 0 ? (
                 <div>
                     <h2>User Data</h2>
                     <p>Username: {userData[0].Username}</p>
+                    <p>Password: {userData[0].Password}</p>
+                    <p>UserID: {userData[0].UserID}</p>
                 </div>
+            ) : (
+                <p>No data</p>
             )}
         </div>
     );
