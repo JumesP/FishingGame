@@ -71,6 +71,8 @@ const CurrentLayout = props => {
 						<option value="">No boats available</option>
 					)}
 				</select>
+
+				<button type="submit">Submit</button>
 			</form>
 		</CurrentLayoutStyled>
 	);

@@ -3,12 +3,13 @@ const getRandomFish = require("../../FishingLogic/CatchProbability")
 const Fish = require("../fish");
 
 class User {
-  constructor(name, username, age, level, tankID) {
+  constructor(name, username, age, level, tankID, inventoryID) {
     this.name = name;
     this.username = username;
     this.age = age;
     this.level = level;
     this.tankID = tankID;
+    this.InventoryID = inventoryID
   }
 
   // getter
@@ -56,6 +57,7 @@ class User {
     });
   }
 
+  // get all users fish
   getFishTankByID() {
     return openDatabase().then(async (db) => {
       const result = await db.all("SELECT * FROM Fish WHERE TankID = ?", this.tankID);
@@ -64,6 +66,7 @@ class User {
     });
   }
 
+  // get types of fish
   populateFishTank() {
     return openDatabase().then(async (db) => {
       const fishList = await db.all("SELECT Type FROM Fish WHERE TankID = ?", this.tankID);
@@ -73,8 +76,54 @@ class User {
     });
   }
 
+  // get users currentLayout
+  getCurrentLayout() {
+    return openDatabase().then(async (db) => {
+      // const result = await db.all("SELECT Layout FROM Users WHERE ID = ?", this.tankID);
+
+      const query =
+          `  
+          select I.InventoryID, ItemID, ItemName, Enchants, Rarity, Durability, Type
+          from CurrentInventory CI, Inventory I
+          where I.InventoryID = CI.InventoryID and I.InventoryID = ?;
+          `
+
+      const result = await db.all(query, this.InventoryID);
+      console.log(result);
+      return result;
+
+
+      // this will return rod object, bait object, pet object and boat object in a list
+
+    });
+  }
+
+  // get users Inventory
+
+  // updates users current layout
+    updateCurrentLayout(rodItemID, baitItemID, petItemID, boatItemID) {
+      return openDatabase().then(async (db) => {
+        try {
+          const query = `
+            UPDATE CurrentInventory
+            SET CurrentRodsItemID = ?, CurrentBaitsItemID = ?, CurrentPetsItemID = ?, CurrentBoatsItemID = ?
+            WHERE InventoryID = ?;
+          `;
+          await db.run(query, rodItemID, baitItemID, petItemID, boatItemID, this.InventoryID);
+          return true;
+        } catch (error) {
+          console.error("Error updating current layout:", error);
+          throw error;
+        } finally {
+          await db.close();
+        }
+      }
+      );
+  }
+
   // static
 
+  // get TankID by UserID
   static getTankIDbyUserID(userID) {
     return openDatabase().then(async (db) => {
       const result = await db.all("SELECT TankID FROM Users WHERE ID = ?", userID);

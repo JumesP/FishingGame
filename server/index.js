@@ -30,7 +30,7 @@ const FiveGetRandomReward = require("./FishingLogic/TreasureProbability").defaul
 // });
 
 let fish = new FishClass("salmon", 10,5,20)
-let james = new UserClass("James", "james123", 25, 1, 4)
+let james = new UserClass("James", "james123", 25, 1, 4, 1)
 
 
 app.get('/api', (req, res) => {
@@ -78,6 +78,26 @@ app.get('/api/populate', async (req, res) => {
 //create an API that lists a users inventory
 
 //create an API to assign select items to current inventory
+
+// create an API to fetch current inventory
+app.get('/api/currentInventory', async (req, res) => {
+    try {
+        const result = await james.getCurrentLayout();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+app.get('/api/updateCurrentInventory', async (req, res) => {
+    try {
+        await james.updateCurrentLayout(6,3,2,1);
+        const result = await james.getCurrentLayout();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
 
 
 
