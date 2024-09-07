@@ -3,7 +3,7 @@
 import { Preview } from '@storybook/react';
 import "../src/components/styles.scss";
 
-import '../src/output.css'; // replace with the name of your tailwind css file
+import '../src/components/styles.scss';
 
 const preview = {
   parameters: {
