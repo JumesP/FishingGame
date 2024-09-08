@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
+import sendCookieDataToBackend from "../utils/sendCookieDataToBackend";
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -24,10 +25,12 @@ const Login = () => {
                 const data = await response.json();
                 setUserData(data);
                 // Save user data to cookies
-                Cookies.set('UserID', JSON.stringify(userData[0].UserID), { expires: 7 }); // Expires in 7 days
+                Cookies.set('UserID', JSON.stringify(data[0].UserID), { expires: 7 }); // Expires in 7 days
                 console.log('User logged in and saved to cookies:', data);
                 console.log('Success:', data);
                 console.log(userData)
+                // Send Cookies to Backend
+                sendCookieDataToBackend();
             } else {
                 throw new Error('Network response was not ok');
             }

@@ -23,11 +23,10 @@ const UserDetails = props => {
 
 	const content = {
 		"title": "User Details",
-		"name": "Name: " + props.user.name,
+		"UserID": "UserID: " + props.user.UserID,
 		"username": "Username: " + props.user.username,
-		"age": "Age: " + props.user.age,
-		"level": "Level: " + props.user.level,
 		"tankID": "TankID: " + props.user.tankID,
+		"inventoryID": "InventoryID: " + props.user.inventoryID
 	}
 
 	const userDetailsClasses = classNames([

@@ -44,6 +44,7 @@ app.post('/api/receiveUserID', (req, res) => {
         userIDReceived = true;
         console.log('Received UserID:', UserID);
         console.log('Set userData:', userData);
+        initializeUser();
         res.status(200).json({ message: 'UserID received successfully' });
     } catch (error) {
         console.error('Error parsing JSON data:', error);
