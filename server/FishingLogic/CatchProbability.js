@@ -86,6 +86,3 @@ function getRandomFish(rodName) {
     return "none";
 }
 exports.default = getRandomFish;
-getRandomFish("Standard Rod");
-getRandomFish("Standard Rod");
-getRandomFish("Standard Rod");

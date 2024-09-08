@@ -1,5 +1,5 @@
 const openDatabase = require("../../db");
-const getRandomFish = require("../../FishingLogic/CatchProbability")
+const getRandomFish = require("../../FishingLogic/CatchProbability").default;
 const Fish = require("../fish");
 
 class User {
@@ -36,7 +36,7 @@ class User {
 
   catchFish() {
     // pick a fish
-    const type = getRandomFish();
+    const type = getRandomFish("Standard Rod");
     const weight = Math.floor(Math.random() * 10) + 1;
     const value = Math.floor(Math.random() * 100) + 1;
     const length = Math.floor(Math.random() * 10) + 1;

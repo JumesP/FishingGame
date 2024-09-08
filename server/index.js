@@ -95,7 +95,7 @@ app.get('/api/getfish', async (req, res) => {
 
 app.get('/api/catchFish', async (req, res) => {
     try { // make this remove durability
-        const result = await user.catchFish();
+        const result = await user.catchFish("Standard Rod");
         res.json(result);
     } catch (err) {
         console.log(err);
