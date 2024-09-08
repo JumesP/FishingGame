@@ -9,7 +9,8 @@ const FishClass = require('./classes/fish.js');
 const UserClass = require('./classes/Users/user.js');
 const AccountClass = require('./classes/Users/accounts.js');
 const getRandomFish = require('./FishingLogic/CatchProbability.js');
-const getAllFishByUserID = require('./classes/Users/user.js');
+const FiveGetRandomReward = require("./FishingLogic/TreasureProbability").default;
+const openDatabase = require('./db.js');
 
 const app = express();
 const port = 5001;
@@ -17,13 +18,60 @@ const port = 5001;
 app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(bodyParser.json());
 
-const openDatabase = require('./db.js');
-const FiveGetRandomReward = require("./FishingLogic/TreasureProbability").default;
 
 
-let fish = new FishClass("salmon", 10,5,20)
-let james = new UserClass("James", "james123", 25, 1, 4, 1)
-// let user = new UserClass()
+
+// let fish = new FishClass("salmon", 10,5,20)
+// let james = new UserClass("James", "james123", 1, 1)
+
+// let userData = UserClass.getUserByID(1)
+// let user = new UserClass(userData)
+
+// console.log(james)
+// console.log("User: " + user)
+// console.log("UserData: " + userData)
+
+
+let user;
+let userData;
+let userIDReceived = false;
+
+app.post('/api/receiveUserID', (req, res) => {
+    console.log("Endpoint /api/receiveUserID called");
+    try {
+        const { UserID } = req.body;
+        userData = UserID;
+        userIDReceived = true;
+        console.log('Received UserID:', UserID);
+        console.log('Set userData:', userData);
+        res.status(200).json({ message: 'UserID received successfully' });
+    } catch (error) {
+        console.error('Error parsing JSON data:', error);
+        res.status(400).json({ error: 'Invalid JSON data' });
+    }
+});
+
+const initializeUser = async () => {
+    if (userData) {
+        const userFullData = await UserClass.getUserByID(userData);
+        console.log("User Full Data: ", userFullData);
+        user = new UserClass(userFullData[0]["UserID"], userFullData[0]["Username"], userFullData[0]["TankID"], userFullData[0]["InventoryID"]);
+        console.log("Initialized user:", user);
+    } else {
+        console.log('No userData available to initialize user');
+    }
+};
+
+app.use(async (req, res, next) => {
+    if (!userIDReceived) {
+        return res.status(400).json({ error: 'UserID not received yet' });
+    }
+    if (!user) {
+        await initializeUser();
+    }
+    next();
+});
+
 
 // this needs to fetch data from the login, and then pass it to the user class
 
@@ -37,7 +85,7 @@ app.get('/api/fish', (req, res) => {
 
 app.get('/api/getfish', async (req, res) => {
     try {
-        const result = await james.getFishTankByID();
+        const result = await user.getFishTankByID();
         res.json(result);
     } catch (err) {
         console.log(err);
@@ -46,7 +94,7 @@ app.get('/api/getfish', async (req, res) => {
 
 app.get('/api/catchFish', async (req, res) => {
     try { // make this remove durability
-        const result = await james.catchFish();
+        const result = await user.catchFish();
         res.json(result);
     } catch (err) {
         console.log(err);
@@ -54,14 +102,15 @@ app.get('/api/catchFish', async (req, res) => {
 });
 
 app.get('/api/populate', async (req, res) => {
+    console.log(user)
     try {
-        const user = james
-        const fishResult = await james.populateFishTank();
-        const rewardResult = FiveGetRandomReward();
+        const users = user;
+        const fishResult = await users.populateFishTank();
+        // const rewardResult = FiveGetRandomReward();
         res.json({
             "fish": fishResult,
-            "reward": rewardResult,
-            "user": user,
+            // "reward": rewardResult,
+            "user": users,
         });
     } catch (err) {
         console.log(err);
@@ -76,7 +125,7 @@ app.get('/api/populate', async (req, res) => {
 // create an API to fetch current inventory
 app.get('/api/currentInventory', async (req, res) => {
     try {
-        const result = await james.getCurrentLayout();
+        const result = await user.getCurrentLayout();
         res.json(result);
     } catch (err) {
         console.log(err);
@@ -85,8 +134,8 @@ app.get('/api/currentInventory', async (req, res) => {
 
 app.get('/api/updateCurrentInventory', async (req, res) => {
     try {
-        await james.updateCurrentLayout(6,3,2,1);
-        const result = await james.getCurrentLayout();
+        await user.updateCurrentLayout(6,3,2,1);
+        const result = await user.getCurrentLayout();
         res.json(result);
     } catch (err) {
         console.log(err);
@@ -99,15 +148,13 @@ app.post('/api/Login', async (req, res) => {
     try {
         console.log("fetching username and password");
         const result = await AccountClass.Login(username, password);
-        console.log(result);
+        console.log("results: "+ result);
         res.json(result);
     } catch (err) {
         console.log(err.message);
         res.status(401).json({ error: 'Invalid username or password' });
     }
 });
-
-
 
 // getRandomReward()
 

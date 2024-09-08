@@ -6,6 +6,7 @@ import UserDetais from "../components/atoms/userDetais";
 
 const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
+	const [userData, setUserData] = useState(null);
 
 	useEffect(() => {
 		fetch('/api/populate')

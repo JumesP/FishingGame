@@ -3,19 +3,18 @@ const getRandomFish = require("../../FishingLogic/CatchProbability")
 const Fish = require("../fish");
 
 class User {
-  constructor(name, username, age, level, tankID, inventoryID) {
-    this.name = name;
+  constructor(UserID, username, tankID, inventoryID) {
+    this.UserID = UserID;
     this.username = username;
-    this.age = age;
-    this.level = level;
+    // this.level = level;
     this.tankID = tankID;
     this.InventoryID = inventoryID
   }
 
   // getter
-  getName() {
-    console.log(this.name);
-    return this.name;
+  getUserID() {
+    console.log(this.UserID);
+    return this.UserID;
   }
 
   getUsername() {
@@ -32,7 +31,7 @@ class User {
 
   // methods
   getInfo() {
-    return { name: this.name, age: this.age };
+    return { UserID: this.UserID, tankID: this.tankID, inventoryID: this.InventoryID };
   }
 
   catchFish() {
@@ -127,6 +126,22 @@ class User {
   static getTankIDbyUserID(userID) {
     return openDatabase().then(async (db) => {
       const result = await db.all("SELECT TankID FROM Users WHERE ID = ?", userID);
+      console.log(result);
+      return result;
+    });
+  }
+
+  static getInventoryIDbyUserID(userID) {
+    return openDatabase().then(async (db) => {
+      const result = await db.all("SELECT InventoryID FROM Users WHERE ID = ?", userID);
+      console.log(result);
+      return result;
+    });
+  }
+
+  static getUserByID(userID) {
+    return openDatabase().then(async (db) => {
+      const result = await db.all("SELECT * FROM Users WHERE UserID = ?", userID);
       console.log(result);
       return result;
     });

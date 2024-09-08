@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Cookies from 'js-cookie';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -19,13 +20,18 @@ const Login = () => {
                 },
                 body: JSON.stringify({ username, password }),
             });
-            if (!response.ok) {
+            if (response.ok) {
+                const data = await response.json();
+                setUserData(data);
+                // Save user data to cookies
+                Cookies.set('UserID', JSON.stringify(userData[0].UserID), { expires: 7 }); // Expires in 7 days
+                console.log('User logged in and saved to cookies:', data);
+                console.log('Success:', data);
+                console.log(userData)
+            } else {
                 throw new Error('Network response was not ok');
             }
-            const data = await response.json();
-            setUserData(data);
-            console.log('Success:', data);
-            console.log(userData)
+
         } catch (error) {
             console.error('Error:', error);
         }

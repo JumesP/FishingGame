@@ -10,7 +10,7 @@ import Rewards from "./pages/Rewards";
 import Catch from "./pages/Catch";
 import Login from "./pages/Login";
 
-
+import sendCookieDataToBackend from './utils/sendCookieDataToBackend';
 import ArrayOfCards from "./components/molecules/ArrayOfCards";
 import Fish from "./components/atoms/fish";
 import cod from './images/cod.png';
@@ -28,7 +28,10 @@ function App() {
   //     .then((data) => setBackendData(data));
   // }, []);
 
-  return (
+    sendCookieDataToBackend();
+
+
+    return (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Layout />}>
@@ -41,7 +44,7 @@ function App() {
           </Route>
         </Routes>
       </BrowserRouter>
-  )
+    )
 
 
 
