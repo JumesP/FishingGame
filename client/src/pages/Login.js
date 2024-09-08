@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import sendCookieDataToBackend from "../utils/sendCookieDataToBackend";
+import LoginForm from '../components/atoms/login';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -43,27 +44,13 @@ const Login = () => {
     return (
         <div>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    Username:
-                    <input
-                        type="text"
-                        name="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
-                    />
-                </label>
-                <label>
-                    Password:
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </label>
-                <button type="submit">Login</button>
-            </form>
+            <LoginForm
+                username={username}
+                setUsername={setUsername}
+                password={password}
+                setPassword={setPassword}
+                handleSubmit={handleSubmit}
+            />
             {userData && userData.length > 0 ? (
                 <div>
                     <h2>User Data</h2>
