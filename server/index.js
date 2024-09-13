@@ -93,9 +93,20 @@ app.get('/api/getfish', async (req, res) => {
     }
 });
 
-app.get('/api/catchFish', async (req, res) => {
+app.post('/api/catchFish', async (req, res) => {
+    const { equipment } = req.body;
+    console.log(equipment);
     try { // make this remove durability
-        const result = await user.catchFish("Standard Rod");
+        const result = await FishClass.catchFish("Standard Rod");
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+app.get('/api/catchFishNoDB', async (req, res) => {
+    try {
+        const result = getRandomFish("Standard Rod");
         res.json(result);
     } catch (err) {
         console.log(err);

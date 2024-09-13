@@ -1,13 +1,8 @@
-// this will pop up after a catch,
-// this will show all the stats of the fish
-// give the option to sell, money goes into the bank,
-// or save and it goes to the fish tanks`
+// Update the JustCaughtModal component in `client/src/components/molecules/justCaughtModal/index.jsx`
+import React from 'react';
+import styled from 'styled-components';
 
-import React, { useEffect, useState } from 'react';
-import classNames from "classnames";
-import styled from "styled-components";
-
-const JustCaughtModalStyled = styled.dialog`
+const JustCaughtModalStyled = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
@@ -21,17 +16,8 @@ const JustCaughtModalStyled = styled.dialog`
     height: fit-content;
 `;
 
-const JustCaughtModal = props => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleModal = () => {
-        setIsOpen(!isOpen);
-    }
-
-
-    const JustCaughtClasses = classNames([
-        "justCaughtModal"
-    ]);
+const JustCaughtModal = (props) => {
+    const { fish, onClose, resetRodCast } = props;
 
     const content = {
         name: props.fish.name,
@@ -42,35 +28,42 @@ const JustCaughtModal = props => {
         health: props.fish.health,
     }
 
+    // ADDED DATABASE FUNCTIONALITY TO EITHER SELL OR SAVE THE FISH!!!!
 
+
+    const handleSell = () => {
+        // Handle selling the fish
+        alert('Fish sold!');
+        resetRodCast(); // Call the function to reset isRodCast
+        onClose();
+    };
+
+    const handleSave = () => {
+        // Handle saving the fish
+        alert('Fish saved!');
+        resetRodCast(); // Call the function to reset isRodCast
+        onClose();
+    };
 
     return (
-        <>
-            <JustCaughtModalStyled
-                {...props}
-                className={JustCaughtClasses}
-                open={isOpen}
-            >
-                <button onClick={toggleModal}>Close</button>
-                <hr></hr>
-                <div className={"JCcontent"}>
-                    <img src={props.fish.url} alt="Fish" className="JCFish"/>
-                    <ul>
-
-                        {Object.entries(content).map(([key, value], index) => (
-                                <li>{key}: {value}</li>
-                        ))}
-                    </ul>
-                </div>
-                <hr></hr>
-                <div className="buttonContainer">
-                    <button>Sell</button>
-                    <button>Save</button>
-                </div>
-            </JustCaughtModalStyled>
-            <button onClick={toggleModal}>Show the Dialog</button>
-        </>
-    )
-}
+        <JustCaughtModalStyled>
+            <button onClick={onClose}>Close</button>
+            <hr />
+            <div className="JCcontent">
+                <img src={fish.url} alt="Fish" className="JCFish" />
+                <ul>
+                    {Object.entries(fish).map(([key, value], index) => (
+                        <li key={index}>{key}: {value}</li>
+                    ))}
+                </ul>
+            </div>
+            <hr />
+            <div className="buttonContainer">
+                <button onClick={handleSell}>Sell</button>
+                <button onClick={handleSave}>Save</button>
+            </div>
+        </JustCaughtModalStyled>
+    );
+};
 
 export default JustCaughtModal;

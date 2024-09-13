@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
-import classNames from "classnames";
-import styled from "styled-components";
-
-import Marker from "../../atoms/Marker";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components';
+import Marker from '../../atoms/Marker';
 
 const FishingMechanicStyled = styled.div`
   position: relative;
@@ -14,21 +12,22 @@ const FishingMechanicStyled = styled.div`
   border: 1px solid black;
   border-radius: 5px;
   background: linear-gradient(
-          to top,
-          red,
-          red ${props  => props.lowerNumber || 20}%,
-          green ${props => props.lowerNumber || 20}%,
-          green ${props => props.higherNumber || 80}%,
-          red ${props => props.higherNumber || 80}%,
-          red 100%
-  )
+    to top,
+    red,
+    red ${props => props.lowerNumber || 20}%,
+    green ${props => props.lowerNumber || 20}%,
+    green ${props => props.higherNumber || 80}%,
+    red ${props => props.higherNumber || 80}%,
+    red 100%
+  );
 `;
 
-export const FishingMechanic = props => {
-    const [ScaleNumber, setScaleNumber] = useState(0);
+const FishingMechanic = (props) => {
+    const { lowerNumber, higherNumber, onCatch } = props;
+    const [scaleNumber, setScaleNumber] = useState(0);
     const [direction, setDirection] = useState('up');
-    const [selectedNumber, setSelectedNumber] = useState();
-    const [SuccessfulCatch, setSuccessfulCatch] = useState(false);
+    const [selectedNumber, setSelectedNumber] = useState(null);
+    const [successfulCatch, setSuccessfulCatch] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -48,40 +47,27 @@ export const FishingMechanic = props => {
     }, [direction]);
 
     const handleClick = () => {
-        setSelectedNumber(ScaleNumber)
-
-        console.log(props.lowerNumber)
-        console.log(props.higherNumber)
-
-        if (ScaleNumber > props.lowerNumber && ScaleNumber < props.higherNumber) {
-            setSuccessfulCatch(true)
-            console.log('You caught a fish!');
-        // if (ScaleNumber > 20 && ScaleNumber < 80) {
-        //     setSuccessfulCatch(true)
-        //     console.log('You caught a fish!');
+        setSelectedNumber(scaleNumber);
+        if (scaleNumber > lowerNumber && scaleNumber < higherNumber) {
+            setSuccessfulCatch(true);
+            onCatch(true);
         } else {
-            setSuccessfulCatch(false)
-            console.log('You did not catch a fish!');
+            setSuccessfulCatch(false);
+            onCatch(false);
         }
-    }
+    };
 
     return (
         <>
-            <FishingMechanicStyled
-                {...props}
-            >
-                {ScaleNumber}
-                <Marker
-                    style={{ bottom: `${ScaleNumber}%` }}
-
-
-                />
+            <FishingMechanicStyled lowerNumber={lowerNumber} higherNumber={higherNumber}>
+                {scaleNumber}
+                <Marker style={{ bottom: `${scaleNumber}%` }} />
             </FishingMechanicStyled>
-            <button onClick={handleClick}>Button</button>
+            <button onClick={handleClick}>Catch</button>
             <p>{selectedNumber}</p>
-            <p>{SuccessfulCatch.toString()}</p>
+            <p>{successfulCatch.toString()}</p>
         </>
     );
-}
+};
 
 export default FishingMechanic;
