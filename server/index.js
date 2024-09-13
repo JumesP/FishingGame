@@ -56,7 +56,7 @@ const initializeUser = async () => {
     if (userData) {
         const userFullData = await UserClass.getUserByID(userData);
         console.log("User Full Data: ", userFullData);
-        user = new UserClass(userFullData[0]["UserID"], userFullData[0]["Username"], userFullData[0]["TankID"], userFullData[0]["InventoryID"]);
+        user = new UserClass(userFullData[0]["UserID"], userFullData[0]["Username"], userFullData[0]["TankID"], userFullData[0]["InventoryID"], userFullData[0]["Experience"], userFullData[0]["Coins"]);
         console.log("Initialized user:", user);
     } else {
         console.log('No userData available to initialize user');
@@ -117,9 +117,10 @@ app.post('/api/saveFishToDB', async (req, res) => {
 });
 
 app.post('/api/sellFishToDB', async (req, res) => {
-    const { fish } = req.body;
+    const fish = req.body;
+
     try {
-        const result =
+        const result = await user.increaseCoins(fish.value);
         res.json(result);
     } catch (err) {
         console.log(err);

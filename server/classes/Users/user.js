@@ -3,12 +3,14 @@ const getRandomFish = require("../../FishingLogic/CatchProbability").default;
 const Fish = require("../fish");
 
 class User {
-  constructor(UserID, username, tankID, inventoryID) {
+  constructor(UserID, username, tankID, inventoryID, Experience, Coins) {
     this.UserID = UserID;
     this.username = username;
     // this.level = level;
     this.tankID = tankID;
     this.InventoryID = inventoryID
+    this.Experience = Experience;
+    this.Coins = Coins;
   }
 
   // getter
@@ -47,8 +49,8 @@ class User {
     // add fish to database
     return openDatabase().then(async (db) => {
       await db.run(
-        "INSERT INTO Fish (Type, Weight, Length, Value, Health, TankID) VALUES (?, ?, ?, ?, ?, ?)",
-        [type, weight, length, value, health, this.tankID]
+          "INSERT INTO Fish (Type, Weight, Length, Value, Health, TankID) VALUES (?, ?, ?, ?, ?, ?)",
+          [type, weight, length, value, health, this.tankID]
       );
       const result = await db.all("SELECT * FROM Fish WHERE TankID = ?", this.tankID);
       console.log(result);
@@ -100,24 +102,43 @@ class User {
   // get users Inventory
 
   // updates users current layout
-    updateCurrentLayout(rodItemID, baitItemID, petItemID, boatItemID) {
-      return openDatabase().then(async (db) => {
-        try {
-          const query = `
+  updateCurrentLayout(rodItemID, baitItemID, petItemID, boatItemID) {
+    return openDatabase().then(async (db) => {
+          try {
+            const query = `
             UPDATE CurrentInventory
             SET CurrentRodsItemID = ?, CurrentBaitsItemID = ?, CurrentPetsItemID = ?, CurrentBoatsItemID = ?
             WHERE InventoryID = ?;
           `;
-          await db.run(query, rodItemID, baitItemID, petItemID, boatItemID, this.InventoryID);
-          return true;
-        } catch (error) {
-          console.error("Error updating current layout:", error);
-          throw error;
-        } finally {
-          await db.close();
+            await db.run(query, rodItemID, baitItemID, petItemID, boatItemID, this.InventoryID);
+            return true;
+          } catch (error) {
+            console.error("Error updating current layout:", error);
+            throw error;
+          } finally {
+            await db.close();
+          }
         }
+    );
+  }
+
+  increaseCoins(amount) {
+    return openDatabase().then(async (db) => {
+      try {
+        const query = `
+            UPDATE Users
+            SET Coins = Coins + ?
+            WHERE UserID = ?;
+          `;
+        await db.run(query, amount, this.UserID);
+        return true;
+      } catch (error) {
+        console.error("Error updating coins:", error);
+        throw error;
+      } finally {
+        await db.close();
       }
-      );
+    });
   }
 
   // static

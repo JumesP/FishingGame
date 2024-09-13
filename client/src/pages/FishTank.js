@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import FishTank from "../components/molecules/fishTank";
 import Fish from "../components/atoms/fish";
 import UserDetais from "../components/atoms/userDetais";
+import Profile from "../components/molecules/profile";
 
 const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
@@ -22,6 +23,7 @@ const Main = () => {
 				<>
 					{backendData.user && (
 						<UserDetais user={backendData.user}/>
+						// ADD PROFILE HERE!!!
 					)}
 
 					<FishTank

@@ -26,7 +26,9 @@ const UserDetails = props => {
 		"UserID": "UserID: " + props.user.UserID,
 		"username": "Username: " + props.user.username,
 		"tankID": "TankID: " + props.user.tankID,
-		"inventoryID": "InventoryID: " + props.user.inventoryID
+		"inventoryID": "InventoryID: " + props.user.InventoryID,
+		"experience": "Experience: " + props.user.Experience,
+		"coins": "Coins: " + props.user.Coins,
 	}
 
 	const userDetailsClasses = classNames([
@@ -40,11 +42,12 @@ const UserDetails = props => {
 		>
 			<h1 className="title">{content.title}</h1>
 			<p>--------------</p>
-			<p className="name">{content.name}</p>
+			<p className="name">{content.UserID}</p>
 			<p className="username">{content.username}</p>
-			<p className="age">{content.age}</p>
-			<p className="level">{content.level}</p>
 			<p className="tankID">{content.tankID}</p>
+			<p className="inventoryID">{content.inventoryID}</p>
+			<p className="experience">{content.experience}</p>
+			<p className="coins">{content.coins}</p>
 		</UserDetailsStyled>
 	)
 }

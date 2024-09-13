@@ -35,7 +35,7 @@ const JustCaughtModal = (props) => {
     const handleSell = async () => {
         // Handle selling the fish
         try {
-            const response = await fetch('http://localhost:5001/api/saveFishToDB', {
+            const response = await fetch('http://localhost:5001/api/sellFishToDB', {
                 method: 'POST',
                 body: JSON.stringify(fish),
                 headers: { 'Content-Type': 'application/json' }
