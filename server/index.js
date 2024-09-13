@@ -104,9 +104,22 @@ app.post('/api/catchFish', async (req, res) => {
     }
 });
 
-app.get('/api/catchFishNoDB', async (req, res) => {
+app.post('/api/saveFishToDB', async (req, res) => {
+    const fish = req.body; // No need to use JSON.parse
+    console.log(fish);
+    let fishData = new FishClass(fish.type, fish.weight, fish.length, fish.value, fish.health);
     try {
-        const result = getRandomFish("Standard Rod");
+        const result = await fishData.addFishToTank(user.tankID);
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+app.post('/api/sellFishToDB', async (req, res) => {
+    const { fish } = req.body;
+    try {
+        const result =
         res.json(result);
     } catch (err) {
         console.log(err);

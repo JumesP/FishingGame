@@ -18,6 +18,7 @@ const JustCaughtModalStyled = styled.div`
 
 const JustCaughtModal = (props) => {
     const { fish, onClose, resetRodCast } = props;
+    // console.log("fish: " + JSON.stringify(fish));
 
     const content = {
         name: props.fish.name,
@@ -31,18 +32,47 @@ const JustCaughtModal = (props) => {
     // ADDED DATABASE FUNCTIONALITY TO EITHER SELL OR SAVE THE FISH!!!!
 
 
-    const handleSell = () => {
+    const handleSell = async () => {
         // Handle selling the fish
-        alert('Fish sold!');
-        resetRodCast(); // Call the function to reset isRodCast
-        onClose();
+        try {
+            const response = await fetch('http://localhost:5001/api/saveFishToDB', {
+                method: 'POST',
+                body: JSON.stringify(fish),
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save fish');
+            }
+
+            alert('Fish sold!');
+            resetRodCast(); // Call the function to reset isRodCast
+            onClose();
+        } catch (error) {
+            console.error('Error saving fish:', error);
+            alert('Failed to save fish.');
+        }
     };
 
-    const handleSave = () => {
-        // Handle saving the fish
-        alert('Fish saved!');
-        resetRodCast(); // Call the function to reset isRodCast
-        onClose();
+    const handleSave = async () => {
+        try {
+            const response = await fetch('http://localhost:5001/api/saveFishToDB', {
+                method: 'POST',
+                body: JSON.stringify(fish),
+                headers: { 'Content-Type': 'application/json' }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to save fish');
+            }
+
+            alert('Fish saved!');
+            resetRodCast(); // Call the function to reset isRodCast
+            onClose();
+        } catch (error) {
+            console.error('Error saving fish:', error);
+            alert('Failed to save fish.');
+        }
     };
 
     return (
