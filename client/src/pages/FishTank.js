@@ -5,6 +5,8 @@ import Fish from "../components/atoms/fish";
 import UserDetais from "../components/atoms/userDetais";
 import Profile from "../components/molecules/profile";
 
+import './css/FishTank.scss'
+
 const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
 	const [userData, setUserData] = useState(null);
@@ -16,7 +18,7 @@ const Main = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className="FishTankMain">
 			{console.log(backendData)}
 			{(typeof backendData.fish === 'undefined') ?
 				<p>Loading...</p> :

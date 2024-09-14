@@ -4,7 +4,20 @@ import styled from 'styled-components';
 import JustCaughtModal from '../../molecules/justCaughtModal';
 import FishingMechanic from '../../molecules/fishingMechanic';
 
-const CatchAFishStyled = styled.div``;
+const CatchAFishStyled = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    button {
+        padding: 10px;
+        margin: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: 1px black solid;
+        border-radius: 5px;
+    }
+`;
 
 const CatchAFish = ({ equipment, fish, caughtFish, isModalOpen, castRod, catchFish, closeModal, isRodCast, lowerNumber, higherNumber, isFMOpen, resetRodCast }) => {
     return (

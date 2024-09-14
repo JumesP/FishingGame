@@ -4,7 +4,7 @@ import FishTank from "../components/molecules/fishTank";
 import ArrayOfCards from "../components/molecules/ArrayOfCards";
 import Fish from "../components/atoms/fish";
 
-import './Main.css'
+import './css/Main.scss'
 import NextandBack from "../components/molecules/NextandBack";
 
 const Main = () => {

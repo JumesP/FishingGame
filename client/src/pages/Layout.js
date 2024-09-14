@@ -1,7 +1,7 @@
 import { Outlet, Link } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 import Cookies from 'js-cookie';
-import './Layout.css';
+import './css/Layout.scss';
 
 
 const Layout = () => {
