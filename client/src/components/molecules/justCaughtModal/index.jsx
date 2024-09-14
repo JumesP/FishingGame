@@ -1,5 +1,5 @@
 // Update the JustCaughtModal component in `client/src/components/molecules/justCaughtModal/index.jsx`
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 const JustCaughtModalStyled = styled.div`
@@ -7,6 +7,11 @@ const JustCaughtModalStyled = styled.div`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
     background-color: white;
     border: 1px solid black;
     border-radius: 5px;
@@ -14,18 +19,23 @@ const JustCaughtModalStyled = styled.div`
     z-index: 100;
     width: 80%;
     height: fit-content;
+  
 `;
 
 const JustCaughtModal = (props) => {
     const { fish, onClose, resetRodCast } = props;
-    // console.log("fish: " + JSON.stringify(fish));
 
+    const JustCaughtModalClasses = `
+        JustCaughtModal
+    `;
+
+    const contentImg = "/images/" + props.fish.type + ".png" || "https://via.placeholder.com/150";
     const content = {
-        name: props.fish.name,
-        price: props.fish.price,
+        type: props.fish.type,
+        // img: "/images/" + props.fish.type + ".png" || "https://via.placeholder.com/150",
+        value: props.fish.value,
         weight: props.fish.weight,
         length: props.fish.length,
-        value: props.fish.value,
         health: props.fish.health,
     }
 
@@ -76,21 +86,23 @@ const JustCaughtModal = (props) => {
     };
 
     return (
-        <JustCaughtModalStyled>
+        <JustCaughtModalStyled
+            className={JustCaughtModalClasses}
+        >
             <button onClick={onClose}>Close</button>
             <hr />
             <div className="JCcontent">
-                <img src={fish.url} alt="Fish" className="JCFish" />
+                <img src={contentImg} alt="Fish" className="JCFish" />
                 <ul>
-                    {Object.entries(fish).map(([key, value], index) => (
+                    {Object.entries(content).map(([key, value], index) => (
                         <li key={index}>{key}: {value}</li>
                     ))}
                 </ul>
             </div>
             <hr />
             <div className="buttonContainer">
-                <button onClick={handleSell}>Sell</button>
-                <button onClick={handleSave}>Save</button>
+                <button onClick={handleSell} className="SellorSave">Sell</button>
+                <button onClick={handleSave} className="SellorSave">Save</button>
             </div>
         </JustCaughtModalStyled>
     );
