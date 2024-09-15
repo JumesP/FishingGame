@@ -9,12 +9,23 @@
 }
 
 .left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: #999999;
     width: 50%;
     height: 100%;
+    padding: 50px;
 }
 
+// Right Side
+
 .right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //justify-content: center;
     background-color: #666666;
     width: 50%;
     height: 100%;
