@@ -132,10 +132,10 @@ app.get('/api/populate', async (req, res) => {
     try {
         const users = user;
         const fishResult = await users.populateFishTank();
-        // const rewardResult = FiveGetRandomReward();
+        const rewardResult = FiveGetRandomReward();
         res.json({
             "fish": fishResult,
-            // "reward": rewardResult,
+            "reward": rewardResult,
             "user": users,
         });
     } catch (err) {
