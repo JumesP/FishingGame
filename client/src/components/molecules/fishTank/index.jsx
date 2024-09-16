@@ -5,8 +5,8 @@ import styled from "styled-components";
 const FishTankStyled = styled.div`
   position: relative;
   background-color: aqua;
-  width: 600px;
-  height: 400px;
+  width: ${props => props.width || '600px'};
+  height: ${props => props.height || '400px'};
   border: 3px solid black;
 `;
 
