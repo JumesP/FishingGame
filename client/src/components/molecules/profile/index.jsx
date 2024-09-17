@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
+import ProfileCI from "../../atoms/profileCI";
 
 const ProfileStyled = styled.div`
 	display: grid;
@@ -25,6 +26,31 @@ const Profile = props => {
 		'profile',
 	])
 
+	console.log(typeof props.user.items[1]);
+
+	let items = {};
+
+	if (typeof props.user.items[1] !== 'undefined') {
+		// if the currentInventories object is being parsed
+		items = [
+			<ProfileCI Item={props.user.items[0]} />,
+			<ProfileCI Item={props.user.items[1]} />,
+			<ProfileCI Item={props.user.items[2]} />,
+			<ProfileCI Item={props.user.items[3]} />,
+		];
+	} else {
+		// if a simple list of objects are being parsed
+		console.log("Object");
+		items = [
+			<div>{props.user.items.rod}</div>,
+			<div>{props.user.items.bait}</div>,
+			<div>{props.user.items.pet}</div>,
+			<div>{props.user.items.boat}</div>,
+		]
+	}
+
+	// console.log(props.user.items.includes('rod'))
+
 	return (
 		<ProfileStyled
 			className={ProfileClasses}
@@ -45,11 +71,7 @@ const Profile = props => {
 				<p>{props.user.gems}</p>
 			</div>
 			<div className="currentLayout">
-				<div>{props.user.items.rod}</div> {/* image of rod*/}
-				<div>{props.user.items.bait}</div>
-				<div>{props.user.items.pet}</div>
-				<div>{props.user.items.boat}</div>
-
+				{items}
 			</div>
 			<button>Logout</button>
 		</ProfileStyled>
