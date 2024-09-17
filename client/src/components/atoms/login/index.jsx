@@ -24,11 +24,14 @@ const Login = ({ username, setUsername, password, setPassword, handleSubmit }) =
     ])
 
     return (
-        <LoginStyled>
+        <LoginStyled
+            className={LoginClasses}
+        >
             <h1>Login</h1>
             <form onSubmit={handleSubmit}>
                 <label>
                     Username:
+                    &emsp;
                     <input
                         type="text"
                         name="username"
@@ -38,6 +41,7 @@ const Login = ({ username, setUsername, password, setPassword, handleSubmit }) =
                 </label>
                 <label>
                     Password:
+                    &emsp;
                     <input
                         type="password"
                         name="password"
