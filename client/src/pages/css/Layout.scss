@@ -4,11 +4,19 @@ body {
     font-family: Inter, Arial, sans-serif;
     background-color: #596b50;
     color: #ffffff;
+    height: 100dvh;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 nav {
     background-color: #333333;
-    margin-bottom: 15px;
+    //margin-bottom: 15px;
+    border-bottom: 5px black solid;
 }
 
 nav ul {
@@ -29,7 +37,7 @@ nav a {
 }
 
 nav a:hover {
-    color: white;
+    color: black;
 }
 
 nav a:active {

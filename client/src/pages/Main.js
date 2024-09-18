@@ -63,6 +63,7 @@ const Main = () => {
 					<div className="right">
 						<NextandBack />
 						<Profile user={user} />
+						<NextandBack />
 					</div>
 				</>
 			}

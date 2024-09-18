@@ -17,7 +17,7 @@ const Layout = () => {
 
 
 	return (
-		<div>
+		<>
 			<nav>
 				<ul>
 					<li>
@@ -41,7 +41,7 @@ const Layout = () => {
 				</ul>
 			</nav>
 			<Outlet />
-		</div>
+		</>
   );
 }
 

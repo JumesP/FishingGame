@@ -3,7 +3,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 94vh;
+    //height: 94vh;
+    height: 100%;
     background-color: #282c34;
     color: white;
 }
@@ -13,10 +14,11 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #999999;
-    width: 50%;
+    background-color: #596b50;
+    width: 80%;
     height: 100%;
     padding: 50px;
+    border-right: 1px solid black;
 }
 
 // Right Side
@@ -25,8 +27,12 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    //justify-content: center;
+    justify-content: space-between;
     background-color: #666666;
-    width: 50%;
+    width: 20%;
     height: 100%;
+    border-left: 1px solid black;
 }
+
+// media queries
+
