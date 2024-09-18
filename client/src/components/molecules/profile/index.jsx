@@ -24,9 +24,17 @@ const Profile = props => {
 	const ProfileClasses = classNames([
 		(props.width) ? `w-${props.width}` : null,
 		'profile',
-	])
+	]);
 
-	console.log(typeof props.user.items[1]);
+	console.log(props.user)
+
+	const userDetails = {
+		username: props.user.username,
+		level: props.user.level,
+		experience: props.user.experience,
+		coins: props.user.coins,
+		gems: props.user.gems,
+	}
 
 	let items = {};
 
@@ -58,10 +66,8 @@ const Profile = props => {
 			<h1>Profile</h1>
 			<div className="profileLeft">
 				<p>Username:</p>
-				<p>Level:</p>
 				<p>Experience:</p>
 				<p>Coins:</p>
-				<p>Gems:</p>
 			</div>
 			<div className="profileRight">
 				<p>{props.user.username}</p>

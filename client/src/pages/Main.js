@@ -6,6 +6,7 @@ import Fish from "../components/atoms/fish";
 
 import './css/Main.scss'
 import NextandBack from "../components/molecules/NextandBack";
+import Profile from "../components/molecules/profile";
 
 const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
@@ -31,8 +32,19 @@ const Main = () => {
 		"profile": null,
 		"equipment": null, // current layout
 	}
-
+	console.log("Here is the backend data: ");
 	console.log(backendData);
+	console.log("Here is the backend data");
+	// console.log(backendData.currentInventory);
+
+	const user= backendData.user ? {
+		username: backendData.user.username,
+		experience: backendData.user.Experience,
+		coins: backendData.user.Coins,
+		items: backendData.currentInventory
+	} : {};
+
+	console.log("backend Data: " + backendData);
 
 	return (
 		<div className="main">
@@ -50,6 +62,7 @@ const Main = () => {
 					</div>
 					<div className="right">
 						<NextandBack />
+						<Profile user={user} />
 					</div>
 				</>
 			}
