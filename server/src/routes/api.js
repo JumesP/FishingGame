@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const getRandomFish = require("../FishingLogic/CatchProbability");
-const FishClass = require("../classes/fish");
-const UserClass = require("../classes/Users/user");
-const AccountClass = require("../classes/Users/accounts");
+const getRandomFish = require("../utils/FishingLogic/CatchProbability");
+const FishClass = require("../../classes/fish");
+const UserClass = require("../../classes/Users/user");
+const AccountClass = require("../../classes/Users/accounts");
 
 let user;
 let userData;

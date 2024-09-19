@@ -1,5 +1,5 @@
 const openDatabase = require("../db");
-const getRandomFish = require("../FishingLogic/CatchProbability").default;
+const getRandomFish = require("../src/utils/FishingLogic/CatchProbability").default;
 
 class Fish {
 	// Health: 10,
