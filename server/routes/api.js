@@ -63,8 +63,11 @@ router.get('/populate', async (req, res) => {
         }
         const users = user;
         const fishResult = await users.populateFishTank();
+        const currentInventory = await users.getCurrentLayout();
+
         res.json({
             "fish": fishResult,
+            "currentInventory": currentInventory,
             "user": users,
         });
     } catch (err) {
@@ -116,6 +119,37 @@ router.post('/sellFishToDB', async (req, res) => {
         res.json(result);
     } catch (err) {
         console.log(err);
+    }
+});
+
+router.get('/currentInventory', async (req, res) => {
+    try {
+        const result = await user.getCurrentLayout();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+router.get('/updateCurrentInventory', async (req, res) => {
+    try {
+        await user.updateCurrentLayout(6,3,2,1);
+        const result = await user.getCurrentLayout();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+router.post('/Login', async (req, res) => {
+    const { username, password } = req.body;
+    console.log(username, password);
+    try {
+        console.log("fetching username and password");
+        const result = await AccountClass.Login(username, password);
+        console.log("results: "+ result);
+        res.json(result);
+    } catch (err) {
+        console.log(err.message);
+        res.status(401).json({ error: 'Invalid username or password' });
     }
 });
 
