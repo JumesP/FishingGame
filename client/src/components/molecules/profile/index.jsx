@@ -26,18 +26,7 @@ const Profile = props => {
 		'profile',
 	]);
 
-	console.log(props.user)
-
-	const userDetails = {
-		username: props.user.username,
-		level: props.user.level,
-		experience: props.user.experience,
-		coins: props.user.coins,
-		gems: props.user.gems,
-	}
-
-	let items = {};
-
+	let items
 	if (typeof props.user.items[1] !== 'undefined') {
 		// if the currentInventories object is being parsed
 		items = [
@@ -48,7 +37,6 @@ const Profile = props => {
 		];
 	} else {
 		// if a simple list of objects are being parsed
-		console.log("Object");
 		items = [
 			<div>{props.user.items.rod}</div>,
 			<div>{props.user.items.bait}</div>,
@@ -56,8 +44,6 @@ const Profile = props => {
 			<div>{props.user.items.boat}</div>,
 		]
 	}
-
-	// console.log(props.user.items.includes('rod'))
 
 	return (
 		<ProfileStyled

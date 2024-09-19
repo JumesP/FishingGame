@@ -1,9 +1,6 @@
-// require('dotenv').config();
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const path = require('path');
 
 const FishClass = require('./classes/fish.js');
 const UserClass = require('./classes/Users/user.js');
