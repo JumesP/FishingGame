@@ -141,6 +141,25 @@ class User {
     });
   }
 
+  increaseExperience(amount) {
+    return openDatabase().then(async (db) => {
+      try {
+        const query = `
+            UPDATE Users
+            SET Experience = Experience + ?
+            WHERE UserID = ?;
+          `;
+        await db.run(query, amount, this.UserID);
+        return true;
+      } catch (error) {
+        console.error("Error updating experience:", error);
+        throw error;
+      } finally {
+        await db.close();
+      }
+    });
+  }
+
   // static
 
   // get TankID by UserID
