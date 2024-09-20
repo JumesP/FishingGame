@@ -3,189 +3,298 @@ const getRandomFish = require("../../src/utils/FishingLogic/CatchProbability").d
 const Fish = require("../fish");
 
 class User {
-  constructor(UserID, username, tankID, inventoryID, Experience, Coins) {
-    this.UserID = UserID;
-    this.username = username;
-    // this.level = level;
-    this.tankID = tankID;
-    this.InventoryID = inventoryID
-    this.Experience = Experience;
-    this.Coins = Coins;
-  }
+    constructor(UserID, username, password, Experience, Coins) {
+        this.UserID = UserID;
+        this.Username = username;
+        this.Password = password;
+        this.Experience = Experience;
+        this.Coins = Coins;
+    }
 
-  // getter
-  getUserID() {
-    console.log(this.UserID);
-    return this.UserID;
-  }
+    // getter
+    getUserID() {
+        console.log(this.UserID);
+        return this.UserID;
+    }
 
-  getUsername() {
-    console.log(this.username);
-    return this.username;
-  }
+    getUsername() {
+        console.log(this.Username);
+        return this.Username;
+    }
 
-  getTankID() {
-    console.log(this.tankID);
-    return this.tankID;
-  }
+    // setter
 
-  // setter
+    // methods
+    getInfo() {
+        return { UserID: this.UserID, Username: this.Username, Password: this.Password, Experience: this.Experience, Coins: this.Coins };
+    }
 
-  // methods
-  getInfo() {
-    return { UserID: this.UserID, tankID: this.tankID, inventoryID: this.InventoryID };
-  }
+    catchFish() {
+        // pick a fish
+        const type = getRandomFish("Standard Rod");
+        const weight = Math.floor(Math.random() * 10) + 1;
+        const value = Math.floor(Math.random() * 100) + 1;
+        const length = Math.floor(Math.random() * 10) + 1;
+        const health = Math.floor(Math.random() * 100) + 1;
 
-  catchFish() {
-    // pick a fish
-    const type = getRandomFish("Standard Rod");
-    const weight = Math.floor(Math.random() * 10) + 1;
-    const value = Math.floor(Math.random() * 100) + 1;
-    const length = Math.floor(Math.random() * 10) + 1;
-    const health = Math.floor(Math.random() * 100) + 1;
+        const fish = new Fish(type, health, length, value);
 
-    const fish = new Fish(type, health, length, value);
+        // add fish to database
+        return openDatabase().then(async (db) => {
+            await db.run(
+                "INSERT INTO Fish (Type, Weight, Length, Value, Health, UserID) VALUES (?, ?, ?, ?, ?, ?)",
+                [type, weight, length, value, health, this.UserID]
+            );
+            const result = await db.all("SELECT * FROM Fish WHERE UserID = ?", this.UserID);
+            console.log(result);
+            return result;
+        });
+    }
 
-    // add fish to database
-    return openDatabase().then(async (db) => {
-      await db.run(
-          "INSERT INTO Fish (Type, Weight, Length, Value, Health, TankID) VALUES (?, ?, ?, ?, ?, ?)",
-          [type, weight, length, value, health, this.tankID]
-      );
-      const result = await db.all("SELECT * FROM Fish WHERE TankID = ?", this.tankID);
-      console.log(result);
-      return result;
-    });
-  }
+    // get all users fish
+    getFishTankByID() {
+        return openDatabase().then(async (db) => {
+            const result = await db.all("SELECT * FROM Fish WHERE UserID = ?", this.UserID);
+            console.log(result);
+            return result;
+        });
+    }
 
-  // get all users fish
-  getFishTankByID() {
-    return openDatabase().then(async (db) => {
-      const result = await db.all("SELECT * FROM Fish WHERE TankID = ?", this.tankID);
-      console.log(result);
-      return result;
-    });
-  }
+    // get types of fish
+    populateFishTank() {
+        return openDatabase().then(async (db) => {
+            const fishList = await db.all("SELECT Type FROM Fish WHERE UserID = ?", this.UserID);
+            const result = fishList.map((fish) => fish.Type);
+            console.log(result);
+            return result;
+        });
+    }
 
-  // get types of fish
-  populateFishTank() {
-    return openDatabase().then(async (db) => {
-      const fishList = await db.all("SELECT Type FROM Fish WHERE TankID = ?", this.tankID);
-      const result = fishList.map((fish) => fish.Type);
-      console.log(result);
-      return result;
-    });
-  }
+    addItemToInventory(item) {
+        return openDatabase().then(async (db) => {
+            try {
+                const result = await db.run(
+                    "INSERT INTO Inventory (UserID, ItemName, Enchants, Rarity, Durability, Type) VALUES (?, ?, ?, ?, ?, ?)",
+                    [this.UserID, item.ItemName, item.Enchants, item.Rarity, item.Durability, item.Type]
+                );
+                const itemID = result.lastID;
+                console.log(`Inserted item with ID: ${itemID}`);
+                return itemID;
+            } catch (error) {
+                console.error("Error adding item to inventory:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
 
-  // get users currentLayout
-  getCurrentLayout() {
-    return openDatabase().then(async (db) => {
-      // const result = await db.all("SELECT Layout FROM Users WHERE ID = ?", this.tankID);
+    getCurrentLayout() {
+        return openDatabase().then(async (db) => {
+            let query
+            let result
+            query = "select * from CurrentInventory where UserID = ?;"
+            result = await db.all(query, this.UserID);
+            console.log(result);
 
-      const query =
-          `  
-          select I.InventoryID, ItemID, ItemName, Enchants, Rarity, Durability, Type
-          from CurrentInventory CI, Inventory I
-          where I.InventoryID = CI.InventoryID and I.InventoryID = ?;
-          `
+            const itemIDs = [result[0].CurrentRodsItemID, result[0].CurrentBaitsItemID, result[0].CurrentPetsItemID, result[0].CurrentBoatsItemID];
 
-      const result = await db.all(query, this.InventoryID);
-      console.log(result);
-      return result;
+            query = "select * from Inventory where ItemID in (?, ?, ?, ?);"
+            result = await db.all(query, itemIDs);
 
+            console.log(result);
 
-      // this will return rod object, bait object, pet object and boat object in a list
+            return result;
 
-    });
-  }
+            // this will return rod object, bait object, pet object and boat object in a list
+        });
+    }
 
-  // get users Inventory
-
-  // updates users current layout
-  updateCurrentLayout(rodItemID, baitItemID, petItemID, boatItemID) {
-    return openDatabase().then(async (db) => {
-          try {
-            const query = `
-            UPDATE CurrentInventory
-            SET CurrentRodsItemID = ?, CurrentBaitsItemID = ?, CurrentPetsItemID = ?, CurrentBoatsItemID = ?
-            WHERE InventoryID = ?;
-          `;
-            await db.run(query, rodItemID, baitItemID, petItemID, boatItemID, this.InventoryID);
-            return true;
-          } catch (error) {
-            console.error("Error updating current layout:", error);
-            throw error;
-          } finally {
-            await db.close();
-          }
+    // server/classes/Users/user.js
+    async giveUserDefaultItems() {
+        const defaultItems = {
+            rod: {
+                ItemName: "Hands",
+                Enchants: null,
+                Rarity: "Common",
+                Durability: null,
+                Type: "rod"
+            },
+            bait: {
+                ItemName: "Standard Bait",
+                Enchants: null,
+                Rarity: "Common",
+                Durability: null,
+                Type: "bait"
+            },
+            pet: {
+                ItemName: "Standard Pet",
+                Enchants: null,
+                Rarity: "Common",
+                Durability: null,
+                Type: "pet"
+            },
+            boat: {
+                ItemName: "Standard Boat",
+                Enchants: null,
+                Rarity: "Common",
+                Durability: null,
+                Type: "boat"
+            }
         }
-    );
-  }
 
-  increaseCoins(amount) {
-    return openDatabase().then(async (db) => {
-      try {
-        const query = `
-            UPDATE Users
-            SET Coins = Coins + ?
-            WHERE UserID = ?;
-          `;
-        await db.run(query, amount, this.UserID);
-        return true;
-      } catch (error) {
-        console.error("Error updating coins:", error);
-        throw error;
-      } finally {
-        await db.close();
-      }
-    });
-  }
+        let itemIds = []
 
-  increaseExperience(amount) {
-    return openDatabase().then(async (db) => {
-      try {
-        const query = `
-            UPDATE Users
-            SET Experience = Experience + ?
-            WHERE UserID = ?;
-          `;
-        await db.run(query, amount, this.UserID);
-        return true;
-      } catch (error) {
-        console.error("Error updating experience:", error);
-        throw error;
-      } finally {
-        await db.close();
-      }
-    });
-  }
+        // add each defaultItem to the users inventory
 
-  // static
+        for (const key in defaultItems) {
+            if (defaultItems.hasOwnProperty(key)) {
+                const item = defaultItems[key];
+                itemIds += await this.addItemToInventory(item);
+            }
+        }
 
-  // get TankID by UserID
-  static getTankIDbyUserID(userID) {
-    return openDatabase().then(async (db) => {
-      const result = await db.all("SELECT TankID FROM Users WHERE ID = ?", userID);
-      console.log(result);
-      return result;
-    });
-  }
+        console.log(this.getUserID())
+        console.log(this.getInfo())
 
-  static getInventoryIDbyUserID(userID) {
-    return openDatabase().then(async (db) => {
-      const result = await db.all("SELECT InventoryID FROM Users WHERE ID = ?", userID);
-      console.log(result);
-      return result;
-    });
-  }
+        const results = this.updateCurrentLayout(itemIds[0], itemIds[1], itemIds[2], itemIds[3]);
+        console.log(results);
+        return results;
+    }
 
-  static getUserByID(userID) {
-    return openDatabase().then(async (db) => {
-      const result = await db.all("SELECT * FROM Users WHERE UserID = ?", userID);
-      console.log(result);
-      return result;
-    });
-  }
+    updateCurrentLayout(rodItemID, baitItemID, petItemID, boatItemID) {
+        return openDatabase().then(async (db) => {
+            try {
+                const query = `
+                    UPDATE CurrentInventory
+                    SET CurrentRodsItemID = ?, CurrentBaitsItemID = ?, CurrentPetsItemID = ?, CurrentBoatsItemID = ?
+                    WHERE UserID = ?;
+                `;
+                await db.run(query, rodItemID, baitItemID, petItemID, boatItemID, this.UserID);
+                return true;
+            } catch (error) {
+                console.error("Error updating current layout:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
+
+    increaseCoins(amount) {
+        return openDatabase().then(async (db) => {
+            try {
+                const query = `
+                    UPDATE Users
+                    SET Coins = Coins + ?
+                    WHERE UserID = ?;
+                `;
+                await db.run(query, amount, this.UserID);
+                return true;
+            } catch (error) {
+                console.error("Error updating coins:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
+
+    increaseExperience(amount) {
+        return openDatabase().then(async (db) => {
+            try {
+                const query = `
+                    UPDATE Users
+                    SET Experience = Experience + ?
+                    WHERE UserID = ?;
+                `;
+                await db.run(query, amount, this.UserID);
+                return true;
+            } catch (error) {
+                console.error("Error updating experience:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
+
+    // static gets
+
+    static getUserByID(userID) {
+        return openDatabase().then(async (db) => {
+            const result = await db.all("SELECT * FROM Users WHERE UserID = ?", userID);
+            console.log(result);
+            return result;
+        });
+    }
+
+    static Login(username, password) {
+        return openDatabase().then(async (db) => {
+            const result = await db.all("SELECT * FROM Users WHERE Username = ? AND Password = ?", [username, password]);
+            console.log(result);
+            return result;
+        });
+    }
+
+    static async createAccount(username, password) {
+        let result;
+        return openDatabase().then(async (db) => {
+
+            // check to see if username is in use? - ADD LATER!
+
+            // add username and password to Users table
+            await db.run(
+                "INSERT INTO Users (Username, Password, Experience, Coins) VALUES (?, ?, 0, 0)",
+                [username, password]
+            );
+            result = await db.all("SELECT * FROM Users WHERE Username = ?", username);
+            console.log("resulst: ", result);
+
+            // insert Account into Users table
+            const UserID = result[0].UserID;
+            console.log("UserID: ", UserID);
+
+            return result[0];
+        });
+    }
+
+    useCreatedAccountForUserInit() {
+        // add default items to users account
+        const results = this.giveUserDefaultItems();
+
+        // assign default items to current layout
+
+
+        return results
+    }
+
+    updateCurrentLayoutByUserID(rodItemID, baitItemID, petItemID, boatItemID) {
+        return openDatabase().then(async (db) => {
+            try {
+                const query = `
+                    UPDATE CurrentInventory
+                    SET CurrentRodsItemID = ?, CurrentBaitsItemID = ?, CurrentPetsItemID = ?, CurrentBoatsItemID = ?
+                    WHERE UserID = ?;
+                `;
+                await db.run(query, rodItemID, baitItemID, petItemID, boatItemID, this.UserID);
+                return true;
+            } catch (error) {
+                console.error("Error updating current layout:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
+
+    static async getUserByUsername(username) {
+        return openDatabase().then(async (db) => {
+            const result = await db.all("SELECT * FROM Users WHERE Username = ?", username);
+            console.log(result);
+            return result;
+        });
+    }
 }
 
 module.exports = User;

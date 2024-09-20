@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Cookies from 'js-cookie';
 import sendCookieDataToBackend from "../utils/sendCookieDataToBackend";
 import LoginForm from '../components/atoms/login';
+import SignupForm from '../components/atoms/signup';
 
 const Login = () => {
     const [username, setUsername] = useState('');
@@ -41,8 +42,39 @@ const Login = () => {
         }
     };
 
+    const handleSignup = async ({ username, password }) => {
+    console.log(username, password);
+
+    try {
+        console.log('sending signup request');
+        const response = await fetch('http://localhost:5001/api/Signup', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+        });
+        if (response.ok) {
+            const data = await response.json();
+            console.log('User signed up:', data);
+            // Save user data to cookies
+            if (data.UserID) {
+                Cookies.set('UserID', JSON.stringify(data.UserID), { expires: 7 }); // Expires in 7 days
+                console.log('UserID cookie set:', Cookies.get('UserID'));
+            } else {
+                console.error('UserID not found in response data');
+            }
+        } else {
+            throw new Error('Network response was not ok');
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
     return (
-        <div>
+        <>
             <h1>Login</h1>
             <LoginForm
                 username={username}
@@ -61,7 +93,9 @@ const Login = () => {
             ) : (
                 <p>No data</p>
             )}
-        </div>
+            <h1>Sign Up</h1>
+            <SignupForm handleSignup={handleSignup} />
+        </>
     );
 };
 

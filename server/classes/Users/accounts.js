@@ -37,33 +37,9 @@ class Account {
 
     // static methods
 
-    static Login(username, password) {
-        return openDatabase().then(async (db) => {
-            const result = await db.all("SELECT * FROM Accounts WHERE Username = ? AND Password = ?", [username, password]);
-            console.log(result);
-            return result;
-        });
-    }
 
-    static async createAccount(username, password) {
-        return openDatabase().then(async (db) => {
-            await db.run(
-                "INSERT INTO Accounts (Username, Password) VALUES (?, ?)",
-                [username, password]
-            );
-            const result = await db.all("SELECT * FROM Users WHERE Username = ?", username);
-            console.log(result);
-            return result;
-        });
-    }
 
-    static async getAccountByUsername(username) {
-        return openDatabase().then(async (db) => {
-            const result = await db.all("SELECT * FROM Users WHERE Username = ?", username);
-            console.log(result);
-            return result;
-        });
-    }
+
 }
 
 module.exports = Account;

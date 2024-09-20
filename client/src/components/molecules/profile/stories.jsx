@@ -31,8 +31,8 @@ Default2.args = {
 		experience: 0,
 		coins: 69,
 		gems: 0,
-		items: [
-			{
+		items: {
+			rod: {
 				"InventoryID": 1,
 				"ItemID": 1,
 				"ItemName": "Fishing Rod",
@@ -41,7 +41,7 @@ Default2.args = {
 				"Durability": null,
 				"Type": "rod"
 			},
-			{
+			bait: {
 				"InventoryID": 1,
 				"ItemID": 2,
 				"ItemName": "Shrimp",
@@ -50,7 +50,7 @@ Default2.args = {
 				"Durability": 100,
 				"Type": "bait"
 			},
-			{
+			pet: {
 				"InventoryID": 1,
 				"ItemID": 3,
 				"ItemName": "Dog",
@@ -59,7 +59,7 @@ Default2.args = {
 				"Durability": null,
 				"Type": "pet"
 			},
-			{
+			boat: {
 				"InventoryID": 1,
 				"ItemID": 5,
 				"ItemName": "Rowboat",
@@ -68,6 +68,6 @@ Default2.args = {
 				"Durability": null,
 				"Type": "boat"
 			}
-		]
+		}
 	}
 }

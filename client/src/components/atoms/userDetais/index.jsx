@@ -24,9 +24,7 @@ const UserDetails = props => {
 	const content = {
 		"title": "User Details",
 		"UserID": "UserID: " + props.user.UserID,
-		"username": "Username: " + props.user.username,
-		"tankID": "TankID: " + props.user.tankID,
-		"inventoryID": "InventoryID: " + props.user.InventoryID,
+		"username": "Username: " + props.user.Username,
 		"experience": "Experience: " + props.user.Experience,
 		"coins": "Coins: " + props.user.Coins,
 	}

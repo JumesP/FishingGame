@@ -38,13 +38,14 @@ const Main = () => {
 	// console.log(backendData.currentInventory);
 
 	const user= backendData.user ? {
-		username: backendData.user.username,
-		experience: backendData.user.Experience,
-		coins: backendData.user.Coins,
-		items: backendData.currentInventory
+		Username: backendData.user.Username,
+		Experience: backendData.user.Experience,
+		Coins: backendData.user.Coins,
+		Items: backendData.currentInventory
 	} : {};
 
 	console.log("backend Data: " + backendData);
+	console.log(user);
 
 	return (
 		<div className="main">

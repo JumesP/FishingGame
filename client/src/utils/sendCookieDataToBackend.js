@@ -1,7 +1,13 @@
+// client/src/utils/sendCookieDataToBackend.js
 import Cookies from 'js-cookie';
 
 const sendCookieDataToBackend = async () => {
-    const userCookie = Cookies.get('UserID');
+    let userCookie = Cookies.get('UserID'); // supposed to be const
+    console.log('Retrieved UserID cookie:', userCookie);
+    if (userCookie === undefined) {
+        console.error('No user cookie found');
+        userCookie = 1; // horrible practice - FIX ASAP
+    }
     if (userCookie) {
         try {
             const userData = JSON.parse(userCookie);

@@ -2,8 +2,6 @@ const openDatabase = require("../db");
 const getRandomFish = require("../src/utils/FishingLogic/CatchProbability").default;
 
 class Fish {
-	// Health: 10,
-	// value: 10,
 	constructor(type, weight, length, value, health) {
 		this.type = type;
 		this.weight = weight;
@@ -28,13 +26,13 @@ class Fish {
 		return {type: this.type, weight: this.weight, length: this.length, value: this.value, health: this.health}
 	}
 
-	addFishToTank(tankID) {
+	addFishToTank(UserID) {
 		return openDatabase().then(async (db) => {
 			await db.run(
-				'INSERT INTO Fish (Type, Weight, Length, Value, Health, TankID) VALUES (?, ?, ?, ?, ?, ?)',
-				[this.type, this.weight, this.length, this.value, this.health, tankID]
+				'INSERT INTO Fish (Type, Weight, Length, Value, Health, UserID) VALUES (?, ?, ?, ?, ?, ?)',
+				[this.type, this.weight, this.length, this.value, this.health, UserID]
 			);
-			const result = await db.all('SELECT * FROM Fish WHERE TankID = ?', tankID);
+			const result = await db.all('SELECT * FROM Fish WHERE UserID = ?', UserID);
 			console.log(result);
 			return result;
 		});
@@ -64,9 +62,9 @@ class Fish {
 		return new Fish(type, weight, length, value, health);
 	}
 
-	static getAllFishByTankID(tankID) {
+	static getAllFishByUserID(UserID) {
 		return openDatabase().then(async (db) => {
-			const result = await db.all('SELECT * FROM Fish WHERE TankID = ?', tankID);
+			const result = await db.all('SELECT * FROM Fish WHERE UserID = ?', UserID);
 			console.log(result);
 			return result;
 		});
