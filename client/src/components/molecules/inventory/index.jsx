@@ -13,7 +13,7 @@ const InventoryStyled = styled.div`
   margin: auto;
 `;
 
-const Inventory = props => {
+const InventoryViewer = props => {
 
     const InventoryClasses = classNames([
         'inventory',
@@ -42,4 +42,4 @@ const Inventory = props => {
     )
 }
 
-export default Inventory;
+export default InventoryViewer;
