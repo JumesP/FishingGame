@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
+import FishCollectionItem from "../../fishCollectionItem";
 
 const FishCollectionStyled = styled.div`
   display: flex;
@@ -22,20 +23,18 @@ const FishCollection = props => {
     const divs = [];
     for (let i = 0; i < 56; i++) {
         divs.push(
-            <div key={i} className="FCfish">
-                <div className="FCfishImage">
-                    <img src={"images/blue.png"} alt="fish" />
-                </div>
-                <div className="FCfishHeader">Blue Fish</div>
-                <div className="FCfishDetails">
-                    <p>$1</p>
-                    <p>10♡</p>
-                    <p>5g</p>
-                    <p>32 cm</p>
-                </div>
-                <button>Details</button>
-                {/*<p>{i + 1}</p>*/}
-            </div>
+            <FishCollectionItem
+                fish={{
+                    image: "images/blue.png",
+                    header: "Blue Fish",
+                    details: {
+                        price: "$1",
+                        health: "10♡",
+                        weight: "5g",
+                        length: "32 cm",
+                    },
+                }}
+            />
         );
     }
 
