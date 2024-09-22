@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
-import FishCollectionItem from "../../fishCollectionItem";
+import FishCollectionItem from "../../atoms/fishCollectionItem";
 
 const FishCollectionStyled = styled.div`
   display: flex;
