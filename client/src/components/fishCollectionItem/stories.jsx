@@ -1,12 +1,11 @@
-import fishCollectionItem from "./index";
-import Card from "../atoms/card";
+import FishCollectionItem from "./index";
 
 export default {
     title: 'Atoms/Fish Collection Item',
-    component: fishCollectionItem,
+    component: FishCollectionItem,
 }
 
-const Template = (args) => <fishCollectionItem {...args} />;
+const Template = props => <FishCollectionItem {...props} />;
 export const Default = Template.bind({});
 Default.args = {
     fish: {
