@@ -8,9 +8,13 @@
   border: black 2px solid;
   border-radius: 4px;
   margin: 1px;
-  min-height: 200px;
+  min-height: 150px;
 
   text-align: center;
+}
+
+.inventoryItem > * {
+  font-size: 0.5rem;
 }
 
 .inventoryItemImage {
@@ -18,8 +22,8 @@
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
   background-color: #333333;
-  height: 150px;
-  width: 146px;
+  height: 75px;
+  //width: 146px;
 }
 
 .inventoryItemImage > img {

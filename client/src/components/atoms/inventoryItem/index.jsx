@@ -9,6 +9,9 @@ const InventoryItemStyled = styled.div`
 `;
 
 const InventoryItem = ({ item, ...props }) => {
+
+    console.log(item)
+
     const content = {
         image: item.image,
         title: item.header,

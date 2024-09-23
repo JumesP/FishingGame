@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
+import InventoryItem from "../../atoms/inventoryItem";
 
 const InventoryStyled = styled.div`
   display: flex;
@@ -8,9 +9,9 @@ const InventoryStyled = styled.div`
   background-color: #999999;
   border: 5px solid black;
   border-radius: 25px;
-  height: 600px;
-  width: 500px;
   margin: auto;
+  width: 80%;
+  height: fit-content;
 `;
 
 const InventoryViewer = props => {
@@ -21,7 +22,18 @@ const InventoryViewer = props => {
 
     const divs = [];
     for (let i = 0; i < 56; i++) {
-        divs.push(<div key={i} className="items">{i + 1}</div>);
+        divs.push(
+            <InventoryItem key={i} item={{
+                image: 'images/rod.png',
+                header: 'Common Rod',
+                details: {
+                    enchants: '🥽',
+                    rarity: 'Common',
+                    durability: '100%',
+                    type: 'Tool',
+                }
+            }} />
+        )
     }
 
     return(
