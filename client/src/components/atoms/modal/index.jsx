@@ -23,19 +23,42 @@ const OverlayStyled = styled.div`
   z-index: 999;
 `;
 
-const Modal = ({ item, onClose }) => {
-  return (
-    <>
-      <OverlayStyled onClick={onClose} />
-      <ModalStyled>
-        <h2>{item.header}</h2>
-        <p>What would you like to do with this item?</p>
-        <button onClick={() => alert('Equipped!')}>Equip</button>
-        <button onClick={() => alert('Sold!')}>Sell</button>
-        <button onClick={onClose}>Close</button>
-      </ModalStyled>
-    </>
-  );
+const Modal = ({ item, onClose, onEquip, onSell }) => {
+
+    const content = {
+        image: item.image,
+        title: item.title,
+        details: {
+            enchants: item.details.enchants,
+            rarity: item.details.rarity,
+            durability: item.details.durability,
+            type: item.details.type,
+        }
+
+    }
+
+    return (
+        <>
+            <OverlayStyled onClick={onClose} />
+            <ModalStyled>
+                <div>
+                    <h2>{content.title}</h2>
+                    <img src={content.image} alt=""/>
+                    <div className="">
+                        {Object.values(content.details).map((detail, index) => (
+                            <p key={index}>{detail}</p>
+                        ))}
+                    </div>
+                </div>
+                <p>What would you like to do with this item?</p>
+                <div>
+                    <button onClick={onEquip}>Equip</button>
+                    <button onClick={onSell}>Sell</button>
+                    <button onClick={onClose}>Close</button>
+                </div>
+            </ModalStyled>
+        </>
+    );
 };
 
 export default Modal;
