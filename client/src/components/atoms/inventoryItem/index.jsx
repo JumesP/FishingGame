@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 
 const InventoryItemStyled = styled.div`
   max-width: fit-content;
+  font-size: 0.8rem;
 `;
 
 const InventoryItem = ({ item, ...props }) => {
@@ -12,7 +13,7 @@ const InventoryItem = ({ item, ...props }) => {
         image: item.image,
         title: item.header,
         details: [
-            item.details.enchants,
+            item.details.enchants, // maybe make the enchants overlap the image?
             item.details.rarity,
             item.details.durability,
             item.details.type,

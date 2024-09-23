@@ -8,11 +8,11 @@ export default {
 
 const Template = (args) => <InventoryItem {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const CommonRod = Template.bind({});
+CommonRod.args = {
   item: {
     image: 'images/rod.png',
-    header: 'Default Item',
+    header: 'Common Rod',
     details: {
       enchants: 'None',
       rarity: 'Common',
@@ -22,30 +22,31 @@ Default.args = {
   },
 };
 
-export const RareItem = Template.bind({});
-RareItem.args = {
+export const RareRod = Template.bind({});
+RareRod.args = {
   item: {
-    image: 'images/rare_item.png',
-    header: 'Rare Item',
+    image: 'images/rod.png',
+    header: 'Rare Rod',
     details: {
-      enchants: 'Sharpness V',
+      enchants: '🥽',
       rarity: 'Rare',
       durability: '80%',
-      type: 'Weapon',
+      type: 'rod',
     },
   },
 };
 
-export const LegendaryItem = Template.bind({});
-LegendaryItem.args = {
+export const LegendaryRod = Template.bind({});
+LegendaryRod.args = {
   item: {
-    image: 'images/legendary_item.png',
-    header: 'Legendary Item',
+    image: 'images/rod.png',
+    header: 'Legendary Rod',
     details: {
-      enchants: 'Unbreaking III, Mending',
+      // enchants: 'Unbreaking III, Mending',
+      enchants: '🏋️🏋️🏋️ + ⛑️',
       rarity: 'Legendary',
       durability: '95%',
-      type: 'Armor',
+      type: 'rod',
     },
   },
 };
