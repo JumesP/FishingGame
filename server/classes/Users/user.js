@@ -150,15 +150,18 @@ class User {
         for (const key in defaultItems) {
             if (defaultItems.hasOwnProperty(key)) {
                 const item = defaultItems[key];
-                itemIds += await this.addItemToInventory(item);
+                itemIds.push(await this.addItemToInventory(item));
             }
         }
+
+        console.log(itemIds);
 
         console.log(this.getUserID())
         console.log(this.getInfo())
 
+        await this.createCurrentLayout();
         const results = this.updateCurrentLayout(itemIds[0], itemIds[1], itemIds[2], itemIds[3]);
-        console.log(results);
+        console.log("if true: this items have been added to the users current loadout:" + results);
         return results;
     }
 
@@ -174,6 +177,24 @@ class User {
                 return true;
             } catch (error) {
                 console.error("Error updating current layout:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
+
+    createCurrentLayout() {
+        return openDatabase().then(async (db) => {
+            try {
+                const query = `
+                    INSERT INTO CurrentInventory (UserID, CurrentRodsItemID, CurrentBaitsItemID, CurrentPetsItemID, CurrentBoatsItemID)
+                    VALUES (?, ?, ?, ?, ?);
+                `;
+                await db.run(query, this.UserID, null, null, null, null);
+                return true;
+            } catch (error) {
+                console.error("Error creating current layout:", error);
                 throw error;
             } finally {
                 await db.close();
