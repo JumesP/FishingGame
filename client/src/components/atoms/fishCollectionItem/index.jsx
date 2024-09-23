@@ -11,12 +11,12 @@ const FishCollectionItem = ({ fish, ...props }) => {
     const content = {
         image: fish.image,
         title: fish.header,
-        details: [
-            fish.details.price,
-            fish.details.health,
-            fish.details.weight,
-            fish.details.length,
-        ],
+        details: {
+            price: fish.details.price,
+            health: fish.details.health,
+            weight: fish.details.weight,
+            length: fish.details.length,
+        },
     };
 
     const FishCollectionItemClasses = classNames([
@@ -33,7 +33,7 @@ const FishCollectionItem = ({ fish, ...props }) => {
             </div>
             <div className="FCfishHeader">{content.title}</div>
             <div className="FCfishDetails">
-                {content.details.map((detail, index) => (
+                {Object.values(content.details).map((detail, index) => (
                     <p key={index}>{detail}</p>
                 ))}
             </div>
