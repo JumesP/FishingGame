@@ -11,6 +11,69 @@ const ModalStyled = styled.div`
   border: 2px solid black;
   border-radius: 10px;
   z-index: 1000;
+  text-align: center;
+  
+  & h2 {
+    font-weight: bold;
+    font-size: 1.15em;
+  }
+
+  & > .content {
+    border: 1px solid black;
+    background-color: #bbbbbb;
+  }
+  
+  & > .content > * {
+    padding: 10px;
+  }
+
+  & > .content > hr {
+    width: 90%;
+    margin: auto;
+    border: 1px solid black;
+    padding: 0;
+  }
+
+  & > .content > h2 {
+    margin-bottom: 5px;
+  }
+
+  & > .content > img {
+  }
+
+  & > .content > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+    text-align: left;
+  }
+
+  & > .content > div > p {
+    margin: 0;
+  }
+
+  & > .actions {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  
+  & > .actions > * {
+    margin: 5px;
+  }
+
+  & > .actions > h2 {
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  & > .actions > button {
+    border: 1px solid black;
+    width: 30%;
+    border-radius: 5px;
+    padding: 0 15px 0 15px;
+  }
 `;
 
 const OverlayStyled = styled.div`
@@ -24,41 +87,47 @@ const OverlayStyled = styled.div`
 `;
 
 const Modal = ({ item, onClose, onEquip, onSell }) => {
+  const content = {
+    image: item.image,
+    title: item.title,
+    details: {
+      enchants: item.details.enchants,
+      rarity: item.details.rarity,
+      durability: item.details.durability,
+      type: item.details.type,
+    },
+  };
 
-    const content = {
-        image: item.image,
-        title: item.title,
-        details: {
-            enchants: item.details.enchants,
-            rarity: item.details.rarity,
-            durability: item.details.durability,
-            type: item.details.type,
-        }
-
-    }
-
-    return (
-        <>
-            <OverlayStyled onClick={onClose} />
-            <ModalStyled>
-                <div>
-                    <h2>{content.title}</h2>
-                    <img src={content.image} alt=""/>
-                    <div className="">
-                        {Object.values(content.details).map((detail, index) => (
-                            <p key={index}>{detail}</p>
-                        ))}
-                    </div>
-                </div>
-                <p>What would you like to do with this item?</p>
-                <div>
-                    <button onClick={onEquip}>Equip</button>
-                    <button onClick={onSell}>Sell</button>
-                    <button onClick={onClose}>Close</button>
-                </div>
-            </ModalStyled>
-        </>
-    );
+  return (
+    <>
+      <OverlayStyled onClick={onClose} />
+      <ModalStyled>
+        <div className="content">
+          <h2>{content.title}</h2>
+          <hr />
+          <img src={content.image} alt="" />
+          <hr />
+          <div>
+            {Object.entries(content.details).map(([key, value], index) => (
+              <React.Fragment key={index}>
+                <p style={{ textAlign: 'right', paddingRight: '10px' }}><strong>{key}:</strong></p>
+                <p style={{ textAlign: 'left', paddingLeft: '10px' }}>{value}</p>
+              </React.Fragment>
+            ))}
+          </div>
+        </div>
+        <div className="actions">
+            <h2>What would you like to do with this item?</h2>
+            <button onClick={onEquip}>---</button>
+            <button onClick={onSell}>---</button>
+            <button onClick={onClose}>---</button>
+            <button onClick={onEquip}>Equip</button>
+            <button onClick={onSell}>Sell</button>
+            <button onClick={onClose}>Close</button>
+        </div>
+      </ModalStyled>
+    </>
+  );
 };
 
 export default Modal;
