@@ -1,62 +1,46 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import classNames from "classnames";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 const InventoryItemStyled = styled.div`
   max-width: fit-content;
   font-size: 0.8rem;
 `;
 
-const InventoryItem = ({ item, ...props }) => {
+const InventoryItem = ({ item, onDetailsClick }) => {
+  const InventoryItemClasses = classNames([
+    'inventoryItem',
+  ]);
 
-    console.log(item)
-
-    const content = {
-        image: item.image,
-        title: item.header,
-        details: [
-            item.details.enchants, // maybe make the enchants overlap the image?
-            item.details.rarity,
-            item.details.durability,
-            item.details.type,
-        ],
-    };
-
-    const InventoryItemClasses = classNames([
-        'inventoryItem',
-    ]);
-
-    return (
-        <InventoryItemStyled
-            className={InventoryItemClasses}
-            {...props}
-        >
-            <div className="inventoryItemImage">
-                <img src={content.image} alt="item" />
-            </div>
-            <div className="inventoryItemHeader">{content.title}</div>
-            <div className="inventoryItemDetails">
-                {content.details.map((detail, index) => (
-                    <p key={index}>{detail}</p>
-                ))}
-            </div>
-            <button>Details</button>
-        </InventoryItemStyled>
-    );
-}
+  return (
+    <InventoryItemStyled className={InventoryItemClasses}>
+      <div className="inventoryItemImage">
+        <img src={item.image} alt="item" />
+      </div>
+      <div className="inventoryItemHeader">{item.header}</div>
+      <div className="inventoryItemDetails">
+        {Object.values(item.details).map((detail, index) => (
+          <p key={index}>{detail}</p>
+        ))}
+      </div>
+      <button onClick={() => onDetailsClick(item)}>Details</button>
+    </InventoryItemStyled>
+  );
+};
 
 InventoryItem.propTypes = {
-    item: PropTypes.shape({
-        image: PropTypes.string.isRequired,
-        header: PropTypes.string.isRequired,
-        details: PropTypes.shape({
-            enchants: PropTypes.string.isRequired,
-            rarity: PropTypes.string.isRequired,
-            durability: PropTypes.string.isRequired,
-            type: PropTypes.string.isRequired,
-        }).isRequired,
+  item: PropTypes.shape({
+    image: PropTypes.string.isRequired,
+    header: PropTypes.string.isRequired,
+    details: PropTypes.shape({
+      enchants: PropTypes.string.isRequired,
+      rarity: PropTypes.string.isRequired,
+      durability: PropTypes.string.isRequired,
+      type: PropTypes.string.isRequired,
     }).isRequired,
+  }).isRequired,
+  onDetailsClick: PropTypes.func.isRequired,
 };
 
 export default InventoryItem;

@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import classNames from "classnames";
 import styled from "styled-components";
 import InventoryItem from "../../atoms/inventoryItem";
+import Modal from "../../atoms/modal";
 
 const InventoryStyled = styled.div`
   display: flex;
@@ -15,43 +16,58 @@ const InventoryStyled = styled.div`
 `;
 
 const InventoryViewer = props => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
 
-    const InventoryClasses = classNames([
-        'inventory',
-    ])
+  const handleDetailsClick = (item) => {
+    setSelectedItem(item);
+    setIsModalOpen(true);
+  };
 
-    const divs = [];
-    for (let i = 0; i < 56; i++) {
-        divs.push(
-            <InventoryItem key={i} item={{
-                image: 'images/rod.png',
-                header: 'Common Rod',
-                details: {
-                    enchants: '🥽',
-                    rarity: 'Common',
-                    durability: '100%',
-                    type: 'Tool',
-                }
-            }} />
-        )
-    }
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    setSelectedItem(null);
+  };
 
-    return(
-        <InventoryStyled
-            className={InventoryClasses}
-            {...props}
-        >
-            <h1>Inventory:</h1>
-            <div className="inventoryItems">
-                {divs}
-            </div>
-            <div className="pageSelector">
-                <button>&lt;</button>
-                <button>&gt;</button>
-            </div>
+  const InventoryClasses = classNames([
+    'inventory',
+  ]);
 
-        </InventoryStyled>
-    )
-}
+  const divs = [];
+  for (let i = 0; i < 56; i++) {
+    divs.push(
+      <InventoryItem
+        key={i}
+        item={{
+          image: 'images/rod.png',
+          header: 'Common Rod',
+          details: {
+            enchants: '🥽',
+            rarity: 'Common',
+            durability: '100%',
+            type: 'Tool',
+          }
+        }}
+        onDetailsClick={handleDetailsClick}
+      />
+    );
+  }
+
+  return (
+    <InventoryStyled className={InventoryClasses} {...props}>
+      <h1>Inventory:</h1>
+      <div className="inventoryItems">
+        {divs}
+      </div>
+      <div className="pageSelector">
+        <button>&lt;</button>
+        <button>&gt;</button>
+      </div>
+      {isModalOpen && selectedItem && (
+        <Modal item={selectedItem} onClose={handleCloseModal} />
+      )}
+    </InventoryStyled>
+  );
+};
 
 export default InventoryViewer;
