@@ -1,3 +1,4 @@
+// client/src/components/atoms/inventoryItem/index.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from "classnames";
@@ -13,18 +14,29 @@ const InventoryItem = ({ item, onDetailsClick }) => {
     'inventoryItem',
   ]);
 
+  const content = {
+    image: item.image,
+    title: item.header,
+    details: {
+      enchants: item.details.enchants,
+      rarity: item.details.rarity,
+      durability: item.details.durability,
+      type: item.details.type,
+    },
+  };
+
   return (
     <InventoryItemStyled className={InventoryItemClasses}>
       <div className="inventoryItemImage">
-        <img src={item.image} alt="item" />
+        <img src={content.image} alt="item" />
       </div>
-      <div className="inventoryItemHeader">{item.header}</div>
+      <div className="inventoryItemHeader">{content.title}</div>
       <div className="inventoryItemDetails">
-        {Object.values(item.details).map((detail, index) => (
+        {Object.values(content.details).map((detail, index) => (
           <p key={index}>{detail}</p>
         ))}
       </div>
-      <button onClick={() => onDetailsClick(item)}>Details</button>
+      <button onClick={() => onDetailsClick(content)}>Details</button>
     </InventoryItemStyled>
   );
 };
