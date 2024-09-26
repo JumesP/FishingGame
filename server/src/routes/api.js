@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const getRandomFish = require("../utils/FishingLogic/CatchProbability");
 const FishClass = require("../../classes/fish");
 const UserClass = require("../../classes/Users/user");
+
+const getRandomFish = require("../utils/FishingLogic/CatchProbability");
+const FiveGetRandomReward = require("../utils/FishingLogic/TreasureProbability").default;
 
 let user;
 let userData;
@@ -85,6 +87,18 @@ router.get('/populate', async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+router.get('/reward', (req, res) => {
+    try {
+        const reward = FiveGetRandomReward();
+
+        res.json({
+            "reward": reward,
+        })
+    } catch (err) {
+        console.log(err);
     }
 });
 

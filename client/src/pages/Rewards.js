@@ -6,14 +6,14 @@ const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
 
 	useEffect(() => {
-		fetch('/api/populate')
+		fetch('/api/reward')
 			.then((res) => res.json())
 			.then((data) => setBackendData(data));
 	}, []);
 
 	return (
 		<div>
-			{(typeof backendData.fish === 'undefined') ?
+			{(typeof backendData.reward === 'undefined') ?
 				<p>Loading...</p> :
 				<>
 					<ArrayOfCards cards={backendData.reward} />
