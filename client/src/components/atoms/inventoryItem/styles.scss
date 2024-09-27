@@ -23,13 +23,13 @@
   border-top-right-radius: 2px;
   background-color: #333333;
   height: 75px;
-  //width: 146px;
+  width: 100px;
 }
 
 .inventoryItemImage > img {
   height: 100%;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
 }
