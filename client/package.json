@@ -28,7 +28,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "prettier": "npx prettier --write ."
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +64,7 @@
     "autoprefixer": "^10.4.20",
     "eslint-plugin-storybook": "^0.8.0",
     "postcss": "^8.4.39",
+    "prettier": "^3.3.3",
     "prop-types": "^15.8.1",
     "react-router-dom": "^6.26.1",
     "sass": "^1.77.8",
