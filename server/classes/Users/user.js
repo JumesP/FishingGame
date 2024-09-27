@@ -184,7 +184,58 @@ class User {
         });
     }
 
-    createCurrentLayout() {
+    updateSingleItemInCurrentLayout(item) {
+
+        const itemID = item.ItemID;
+        const itemType = item.Type;
+
+        return openDatabase().then(async (db) => {
+            try {
+                let query;
+                switch (itemType) {
+                    case "rod":
+                        query = `
+                            UPDATE CurrentInventory
+                            SET CurrentRodsItemID = ?
+                            WHERE UserID = ?;
+                        `;
+                        break;
+                    case "bait":
+                        query = `
+                            UPDATE CurrentInventory
+                            SET CurrentBaitsItemID = ?
+                            WHERE UserID = ?;
+                        `;
+                        break;
+                    case "pet":
+                        query = `
+                            UPDATE CurrentInventory
+                            SET CurrentPetsItemID = ?
+                            WHERE UserID = ?;
+                        `;
+                        break;
+                    case "boat":
+                        query = `
+                            UPDATE CurrentInventory
+                            SET CurrentBoatsItemID = ?
+                            WHERE UserID = ?;
+                        `;
+                        break;
+                    default:
+                        throw new Error("Invalid item type");
+                }
+                await db.run(query, itemID, this.UserID);
+                return true;
+            } catch (error) {
+                console.error("Error updating single item in current layout:", error);
+                throw error;
+            } finally {
+                await db.close();
+            }
+        });
+    }
+
+    createCurrentLayout() { // for new users
         return openDatabase().then(async (db) => {
             try {
                 const query = `
