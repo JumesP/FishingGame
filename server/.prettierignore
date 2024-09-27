@@ -1,5 +1,6 @@
 *.css
 *.scss
+*.json
 
 .storybook/main.js
 .storybook/preview.js
