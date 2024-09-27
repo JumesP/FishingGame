@@ -1,4 +1,3 @@
-// client/src/components/atoms/inventoryItem/index.jsx
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from "classnames";
@@ -14,6 +13,14 @@ const InventoryItem = ({ item, onDetailsClick }) => {
     'inventoryItem',
   ]);
 
+  if (item.details.enchants === null) {
+    item.details.enchants = "None";
+  }
+
+  if (item.details.durability === null) {
+    item.details.durability = "N/A";
+  }
+
   const content = {
     image: item.image,
     title: item.header,
@@ -24,6 +31,8 @@ const InventoryItem = ({ item, onDetailsClick }) => {
       type: item.details.type,
     },
   };
+
+  console.log(content);
 
   return (
     <InventoryItemStyled className={InventoryItemClasses}>

@@ -168,6 +168,15 @@ router.post('/updateCurrentInventory', async (req, res) => {
     }
 });
 
+router.get('/getInventory', async (req, res) => {
+    try {
+        const result = await user.getInventory();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 router.post('/Login', async (req, res) => {
     const { username, password } = req.body;
     console.log(username, password);

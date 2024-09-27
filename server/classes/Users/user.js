@@ -89,6 +89,14 @@ class User {
         });
     }
 
+    getInventory() {
+        return openDatabase().then(async (db) => {
+            const result = await db.all("SELECT * FROM Inventory WHERE UserID = ?", this.UserID);
+            console.log(result);
+            return result;
+        });
+    }
+
     getCurrentLayout() {
         return openDatabase().then(async (db) => {
             let query
