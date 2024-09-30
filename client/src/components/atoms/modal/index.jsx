@@ -2,78 +2,16 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ModalStyled = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: white;
-  padding: 20px;
-  border: 2px solid black;
-  border-radius: 10px;
-  z-index: 1000;
-  text-align: center;
-  
-  & h2 {
-    font-weight: bold;
-    font-size: 1.15em;
-  }
-
-  & > .content {
-    border: 1px solid black;
-    background-color: #bbbbbb;
-  }
-  
-  & > .content > * {
-    padding: 10px;
-  }
-
-  & > .content > hr {
-    width: 90%;
-    margin: auto;
-    border: 1px solid black;
-    padding: 0;
-  }
-
-  & > .content > h2 {
-    margin-bottom: 5px;
-  }
-
-  & > .content > img {
-  }
-
-  & > .content > div {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    justify-content: space-between;
-    text-align: left;
-  }
-
-  & > .content > div > p {
-    margin: 0;
-  }
-
-  & > .actions {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  & > .actions > * {
-    margin: 5px;
-  }
-
-  & > .actions > h2 {
-    margin-top: 20px;
-    width: 100%;
-  }
-
-  & > .actions > button {
-    border: 1px solid black;
-    width: 30%;
-    border-radius: 5px;
-    padding: 0 15px 0 15px;
-  }
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 20px;
+	border: 2px solid black;
+	border-radius: 10px;
+	z-index: 1000;
+	text-align: center;
 `;
 
 const OverlayStyled = styled.div`
