@@ -51,6 +51,9 @@
 
 .inventoryItemDetails > p {
   width: 50%;
+  &::first-letter {
+    text-transform: capitalize;
+  }
 }
 
 .inventoryItem > button {
