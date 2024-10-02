@@ -9,6 +9,7 @@ import FishTank from './pages/FishTank';
 import Rewards from "./pages/Rewards";
 import Catch from "./pages/Catch";
 import Login from "./pages/Login";
+import Inventory from "./pages/Inventory";
 
 import sendCookieDataToBackend from './utils/sendCookieDataToBackend';
 
@@ -19,18 +20,19 @@ function App() {
     sendCookieDataToBackend();
 
     return (
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            <Route index element={<Landing />} />
-            <Route path="/Main" element={<Main />} />
-            <Route path="/FishTank" element={<FishTank />} />
-            <Route path="/Rewards" element={<Rewards />} />
-            <Route path="/Catch" element={<Catch />} />
-            <Route path="/Login" element={<Login />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+        <BrowserRouter>
+            <Routes>
+                  <Route path="/" element={<Layout />}>
+                        <Route index element={<Landing />} />
+                        <Route path="/Main" element={<Main />} />
+                        <Route path="/FishTank" element={<FishTank />} />
+                        <Route path="/Inventory" element={<Inventory />} />
+                        <Route path="/Rewards" element={<Rewards />} />
+                        <Route path="/Catch" element={<Catch />} />
+                        <Route path="/Login" element={<Login />} />
+                  </Route>
+            </Routes>
+        </BrowserRouter>
     );
 }
 

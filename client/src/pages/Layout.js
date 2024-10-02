@@ -21,22 +21,25 @@ const Layout = () => {
 			<nav>
 				<ul>
 					<li>
-					<Link to="/">Home</Link>
+						<Link to="/">Home</Link>
 					</li>
 					<li>
-					<Link to="/FishTank">Fish Tank</Link>
+						<Link to="/FishTank">Fish Tank</Link>
 					</li>
 					<li>
-					<Link to="/Main">Main</Link>
+						<Link to="/Main">Main</Link>
 					</li>
 					<li>
-					<Link to="/Rewards">Rewards</Link>
+						<Link to="/Inventory">Inventory</Link>
 					</li>
 					<li>
-					<Link to="/Catch">Catch</Link>
+						<Link to="/Rewards">Rewards</Link>
 					</li>
 					<li>
-					<Link to="/Login">{loginText}</Link>
+						<Link to="/Catch">Catch</Link>
+					</li>
+					<li>
+						<Link to="/Login">{loginText}</Link>
 					</li>
 				</ul>
 			</nav>

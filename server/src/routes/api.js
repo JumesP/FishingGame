@@ -168,6 +168,27 @@ router.post('/updateCurrentInventory', async (req, res) => {
     }
 });
 
+router.post('/updateCurrentInventorySingle', async (req, res) => {
+    let { item } = req.body;
+    item = JSON.parse(item);
+    try {
+        await user.updateSingleItemInCurrentLayout(item.object);
+        const result = await user.getCurrentLayout();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
+router.get('/getInventory', async (req, res) => {
+    try {
+        const result = await user.getInventory();
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+});
+
 router.post('/Login', async (req, res) => {
     const { username, password } = req.body;
     console.log(username, password);
