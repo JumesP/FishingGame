@@ -301,7 +301,7 @@ class User {
 		const itemID = item.ItemID;
 		const itemType = item.Type;
 
-        console.log("itemID: ", itemID, "itemType: ", itemType);
+		console.log("itemID: ", itemID, "itemType: ", itemType);
 
 		return openDatabase().then(async (db) => {
 			try {

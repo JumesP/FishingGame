@@ -1,8 +1,8 @@
 import Inventory from "./index";
 
 export default {
-    title: "Molecules/Inventory",
-    component: Inventory,
+	title: "Molecules/Inventory",
+	component: Inventory,
 };
 
 const Template = (args) => <Inventory {...args} />;

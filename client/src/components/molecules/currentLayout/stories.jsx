@@ -3,7 +3,7 @@ import CurrentLayout from "./index";
 export default {
 	title: "Molecules/CurrentLayout",
 	component: CurrentLayout,
-}
+};
 
 const Template = (args) => <CurrentLayout {...args} />;
 
@@ -118,5 +118,5 @@ Default.args = {
 				rarity: "mythical",
 			},
 		],
-	}
-}
+	},
+};

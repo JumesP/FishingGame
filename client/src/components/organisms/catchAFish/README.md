@@ -24,4 +24,3 @@ add either fish or money to the user's inventory
 ### 3b. if you dont catch the fish
 
 back to the cast your rod screen
-

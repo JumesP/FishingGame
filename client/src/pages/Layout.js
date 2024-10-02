@@ -1,20 +1,17 @@
 import { Outlet, Link } from "react-router-dom";
-import React, { useState, useEffect } from 'react';
-import Cookies from 'js-cookie';
-import './css/Layout.scss';
-
+import React, { useState, useEffect } from "react";
+import Cookies from "js-cookie";
+import "./css/Layout.scss";
 
 const Layout = () => {
-
 	const [loginText, setLoginText] = useState("Login");
 
 	useEffect(() => {
-		const userCookie = Cookies.get('UserID');
+		const userCookie = Cookies.get("UserID");
 		if (userCookie) {
 			setLoginText(`Hi, ${userCookie}`);
 		}
 	}, []);
-
 
 	return (
 		<>
@@ -45,7 +42,7 @@ const Layout = () => {
 			</nav>
 			<Outlet />
 		</>
-  );
-}
+	);
+};
 
 export default Layout;

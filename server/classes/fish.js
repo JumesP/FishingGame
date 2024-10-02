@@ -1,5 +1,6 @@
 const openDatabase = require("../db");
-const getRandomFish = require("../src/utils/FishingLogic/CatchProbability").default;
+const getRandomFish =
+	require("../src/utils/FishingLogic/CatchProbability").default;
 
 class Fish {
 	constructor(type, weight, length, value, health) {
@@ -11,33 +12,48 @@ class Fish {
 	}
 	// getter
 	health() {
-		console.log(this.health)
+		console.log(this.health);
 	}
 
 	// setter
 
 	// methods
 	catch() {
-		console.log("Caught a " + this.type)
-		return "Caught a " + this.type
+		console.log("Caught a " + this.type);
+		return "Caught a " + this.type;
 	}
 
 	getInfo() {
-		return {type: this.type, weight: this.weight, length: this.length, value: this.value, health: this.health}
+		return {
+			type: this.type,
+			weight: this.weight,
+			length: this.length,
+			value: this.value,
+			health: this.health,
+		};
 	}
 
 	addFishToTank(UserID) {
 		return openDatabase().then(async (db) => {
 			await db.run(
-				'INSERT INTO Fish (Type, Weight, Length, Value, Health, UserID) VALUES (?, ?, ?, ?, ?, ?)',
-				[this.type, this.weight, this.length, this.value, this.health, UserID]
+				"INSERT INTO Fish (Type, Weight, Length, Value, Health, UserID) VALUES (?, ?, ?, ?, ?, ?)",
+				[
+					this.type,
+					this.weight,
+					this.length,
+					this.value,
+					this.health,
+					UserID,
+				],
 			);
-			const result = await db.all('SELECT * FROM Fish WHERE UserID = ?', UserID);
+			const result = await db.all(
+				"SELECT * FROM Fish WHERE UserID = ?",
+				UserID,
+			);
 			console.log(result);
 			return result;
 		});
 	}
-
 
 	// static getAllFishByUserID(userID) {
 	//
@@ -64,21 +80,25 @@ class Fish {
 
 	static getAllFishByUserID(UserID) {
 		return openDatabase().then(async (db) => {
-			const result = await db.all('SELECT * FROM Fish WHERE UserID = ?', UserID);
+			const result = await db.all(
+				"SELECT * FROM Fish WHERE UserID = ?",
+				UserID,
+			);
 			console.log(result);
 			return result;
 		});
 	}
 	static getFishValueByID(fishID) {
 		return openDatabase().then(async (db) => {
-			const result = await db.all("SELECT Value FROM Fish WHERE FishID = ?", fishID);
+			const result = await db.all(
+				"SELECT Value FROM Fish WHERE FishID = ?",
+				fishID,
+			);
 			console.log(result);
 			return result;
 		});
 	}
-
-};
-
+}
 
 // const salmon = new Fish(10,10,10)
 //
@@ -88,4 +108,4 @@ class Fish {
 // salmon.health
 
 // export default Fish;
-module.exports = Fish
+module.exports = Fish;
