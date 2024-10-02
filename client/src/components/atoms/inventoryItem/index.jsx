@@ -30,9 +30,8 @@ const InventoryItem = ({ item, onDetailsClick }) => {
       durability: item.details.durability,
       type: item.details.type,
     },
+    object: item.object,
   };
-
-  console.log(content);
 
   return (
     <InventoryItemStyled className={InventoryItemClasses}>

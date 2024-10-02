@@ -29,6 +29,25 @@ const InventoryViewer = props => {
         setSelectedItem(null);
     };
 
+    const handleEquip = () => {
+        if (selectedItem !== null) {
+            console.log("selected item: ", JSON.stringify(selectedItem, null, 2)); // Serialize selectedItem for logging
+            let item = JSON.stringify(selectedItem, null, 2);
+            fetch('/api/updateCurrentInventorySingle', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ item }) // Correctly serialize selectedItem
+            })
+                .then(response => response.json())
+                .then(data => console.log(data))
+                .catch(error => console.error('Error:', error));
+        } else {
+            console.log("selected item is null");
+        }
+    };
+
     const InventoryClasses = classNames([
         'inventory',
     ]);
@@ -64,7 +83,8 @@ const InventoryViewer = props => {
                         rarity: props.inventory[i].Rarity,
                         durability: props.inventory[i].Durability,
                         type: props.inventory[i].Type,
-                    }
+                    },
+                    object: props.inventory[i],
                 }}
                 onDetailsClick={handleDetailsClick}
             />
@@ -82,7 +102,7 @@ const InventoryViewer = props => {
                 <button>&gt;</button>
             </div>
             {isModalOpen && selectedItem && (
-                <Modal item={selectedItem} onClose={handleCloseModal} />
+                <Modal item={selectedItem} onClose={handleCloseModal} onEquip={handleEquip} />
             )}
         </InventoryStyled>
     );
