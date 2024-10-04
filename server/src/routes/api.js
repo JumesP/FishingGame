@@ -3,7 +3,10 @@ const router = express.Router();
 const FishClass = require("../../classes/fish");
 const UserClass = require("../../classes/Users/user");
 
-const getRandomFish = require("../utils/FishingLogic/CatchProbability");
+const {
+	getRandomFish,
+	generateHigherandLowerNums,
+} = require("../utils/FishingLogic/CatchProbability");
 const FiveGetRandomReward =
 	require("../utils/FishingLogic/TreasureProbability").default;
 
@@ -14,7 +17,7 @@ let userIDReceived = false;
 const initializeUser = async (UserID) => {
 	if (UserID) {
 		const userFullData = await UserClass.getUserByID(UserID);
-		console.log("User Full Data: ", userFullData);
+		// console.log("User Full Data: ", userFullData);
 		user = new UserClass(
 			userFullData[0]["UserID"],
 			userFullData[0]["Username"],
@@ -22,7 +25,7 @@ const initializeUser = async (UserID) => {
 			userFullData[0]["Experience"],
 			userFullData[0]["Coins"],
 		);
-		console.log("Initialized user:", user);
+		// console.log("Initialized user:", user);
 		return user;
 	} else {
 		console.log("No userData available to initialize user");
@@ -38,8 +41,8 @@ router.post("/receiveUserID", (req, res) => {
 			const { UserID } = req.body;
 			userData = UserID;
 			userIDReceived = true;
-			console.log("Received UserID:", UserID);
-			console.log("Set userData:", userData);
+			// console.log("Received UserID:", UserID);
+			// console.log("Set userData:", userData);
 			initializeUser(userData);
 			res.status(200).json({ message: "UserID received successfully" });
 		} catch (error) {
@@ -75,7 +78,7 @@ router.route("/").get(function (req, res) {
 });
 
 router.get("/populate", async (req, res) => {
-	console.log(user);
+	// console.log(user);
 	try {
 		if (!user) {
 			throw new Error("User is not initialized");
@@ -111,6 +114,10 @@ router.get("/fish", (req, res) => {
 	res.json({ fish: getRandomFish() });
 });
 
+router.get("/FishBarHnL", async (req, res) => {
+	res.json(generateHigherandLowerNums());
+});
+
 router.get("/getfish", async (req, res) => {
 	try {
 		const result = await user.getFishTankByID();
@@ -122,7 +129,7 @@ router.get("/getfish", async (req, res) => {
 
 router.post("/catchFish", async (req, res) => {
 	const { equipment } = req.body;
-	console.log(equipment);
+	// console.log(equipment);
 	try {
 		// make this remove durability
 		const result = await FishClass.catchFish("Standard Rod");
@@ -134,7 +141,7 @@ router.post("/catchFish", async (req, res) => {
 
 router.post("/saveFishToDB", async (req, res) => {
 	const fish = req.body; // No need to use JSON.parse
-	console.log(fish);
+	// console.log(fish);
 	let fishData = new FishClass(
 		fish.type,
 		fish.weight,

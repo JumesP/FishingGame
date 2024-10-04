@@ -7,6 +7,8 @@ const Catch = () => {
 	const [allFish, setAllFish] = useState(null);
 	const [caughtFish, setCaughtFish] = useState(null);
 	const [equipment, setEquipment] = useState([]);
+	const [higherNumber, setHigherNumber] = useState(80);
+	const [lowerNumber, setLowerNumber] = useState(60);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isRodCast, setIsRodCast] = useState(false);
 	const [isFMOpen, setIsFMOpen] = useState(false);
@@ -17,6 +19,20 @@ const Catch = () => {
 			.then((response) => response.json())
 			.then((data) => setEquipment(data));
 	}, []);
+
+	useEffect(() => {
+		// Fetch higher and lower nums
+		fetch("http://localhost:5001/api/FishBarHnL")
+			.then((response) => response.json())
+			.then((data) => {
+				console.log(data);
+				setLowerNumber(data.lowerNum);
+				setHigherNumber(data.higherNum); // Correct casing here
+			});
+
+		console.log("Lower Number: " + lowerNumber);
+		console.log("Higher Number: " + higherNumber);
+	}, [isRodCast]);
 
 	const castRod = () => {
 		setIsRodCast(true);
@@ -75,8 +91,8 @@ const Catch = () => {
 				closeModal={closeModal}
 				isRodCast={isRodCast}
 				isFMOpen={isFMOpen}
-				lowerNumber={60}
-				higherNumber={80}
+				lowerNumber={lowerNumber}
+				higherNumber={higherNumber}
 				resetRodCast={resetRodCast} // Pass the function as a prop
 			/>
 			{allFish && (

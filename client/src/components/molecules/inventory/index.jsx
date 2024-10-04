@@ -44,7 +44,7 @@ const InventoryViewer = (props) => {
 				body: JSON.stringify({ item }), // Correctly serialize selectedItem
 			})
 				.then((response) => response.json())
-				.then((data) => console.log(data))
+				// .then((data) => console.log(data))
 				.catch((error) => console.error("Error:", error));
 		} else {
 			console.log("selected item is null");

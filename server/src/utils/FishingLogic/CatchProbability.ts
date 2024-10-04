@@ -103,6 +103,11 @@ export default function getRandomFish(rodName: string): Fish {
 	return "none" as Fish;
 }
 
-getRandomFish("Standard Rod");
-getRandomFish("Standard Rod");
-getRandomFish("Standard Rod");
+export function generateHigherandLowerNums() {
+	var difference = 7.5; // maybe between 10 and 20
+	var randomNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
+	const lowerNum = Math.round(Math.max(0, randomNum - difference)); // Ensure lowerNum is at least 0 and round it
+	const higherNum = Math.round(Math.min(100, randomNum + difference)); // Ensure higherNum is at most 100 and round it
+	console.log(lowerNum, randomNum, higherNum);
+	return { lowerNum, randomNum, higherNum };
+}

@@ -18,7 +18,7 @@ class User {
 				"SELECT * FROM Users WHERE UserID = ?",
 				userID,
 			);
-			console.log(result);
+			// console.log(result);
 			return result;
 		});
 	}
@@ -175,7 +175,7 @@ class User {
 				"SELECT * FROM Inventory WHERE UserID = ?",
 				this.UserID,
 			);
-			console.log(result);
+			// console.log(result);
 			return result;
 		});
 	}
@@ -186,7 +186,7 @@ class User {
 			let result;
 			query = "select * from CurrentInventory where UserID = ?;";
 			result = await db.all(query, this.UserID);
-			console.log(result);
+			// console.log(result);
 
 			const itemIDs = [
 				result[0].CurrentRodsItemID,
@@ -198,7 +198,7 @@ class User {
 			query = "select * from Inventory where ItemID in (?, ?, ?, ?);";
 			result = await db.all(query, itemIDs);
 
-			console.log(result);
+			// console.log(result);
 
 			return result;
 

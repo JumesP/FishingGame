@@ -50,6 +50,9 @@ const FishingMechanic = (props) => {
 
 	const handleClick = () => {
 		setSelectedNumber(scaleNumber);
+		console.log("lower number: " + lowerNumber);
+		console.log("higher number: " + higherNumber);
+		console.log("selected number: " + scaleNumber);
 		if (scaleNumber > lowerNumber && scaleNumber < higherNumber) {
 			setSuccessfulCatch(true);
 			onCatch(true);
