@@ -9,6 +9,8 @@ const Catch = () => {
 	const [equipment, setEquipment] = useState([]);
 	const [higherNumber, setHigherNumber] = useState(80);
 	const [lowerNumber, setLowerNumber] = useState(60);
+	const [higherLegNumber, setHigherLegNumber] = useState(0);
+	const [lowerLegNumber, setLowerLegNumber] = useState(0);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [isRodCast, setIsRodCast] = useState(false);
 	const [isFMOpen, setIsFMOpen] = useState(false);
@@ -26,12 +28,16 @@ const Catch = () => {
 			.then((response) => response.json())
 			.then((data) => {
 				console.log(data);
-				setLowerNumber(data.lowerNum);
-				setHigherNumber(data.higherNum); // Correct casing here
+				setLowerNumber(data[0].lowerNum);
+				setHigherNumber(data[0].higherNum); // Correct casing here
+				setLowerLegNumber(data[1].lowerLegNum);
+				setHigherLegNumber(data[1].higherLegNum);
 			});
 
 		console.log("Lower Number: " + lowerNumber);
 		console.log("Higher Number: " + higherNumber);
+		console.log("Lower Leg Number: " + lowerLegNumber);
+		console.log("Higher Leg Number: " + higherLegNumber);
 	}, [isRodCast]);
 
 	const castRod = () => {
@@ -93,6 +99,8 @@ const Catch = () => {
 				isFMOpen={isFMOpen}
 				lowerNumber={lowerNumber}
 				higherNumber={higherNumber}
+				lowerLegNumber={lowerLegNumber}
+				higherLegNumber={higherLegNumber}
 				resetRodCast={resetRodCast} // Pass the function as a prop
 			/>
 			{allFish && (

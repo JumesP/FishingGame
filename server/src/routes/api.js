@@ -5,7 +5,7 @@ const UserClass = require("../../classes/Users/user");
 
 const {
 	getRandomFish,
-	generateHigherandLowerNums,
+	generateZones,
 } = require("../utils/FishingLogic/CatchProbability");
 const FiveGetRandomReward =
 	require("../utils/FishingLogic/TreasureProbability").default;
@@ -115,7 +115,9 @@ router.get("/fish", (req, res) => {
 });
 
 router.get("/FishBarHnL", async (req, res) => {
-	res.json(generateHigherandLowerNums());
+	const results = generateZones();
+	// console.log(results);
+	res.json(results);
 });
 
 router.get("/getfish", async (req, res) => {

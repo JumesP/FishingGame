@@ -30,6 +30,8 @@ const CatchAFish = ({
 	isRodCast,
 	lowerNumber,
 	higherNumber,
+	lowerLegNumber,
+	higherLegNumber,
 	isFMOpen,
 	resetRodCast,
 }) => {
@@ -45,6 +47,8 @@ const CatchAFish = ({
 				<FishingMechanic
 					lowerNumber={lowerNumber}
 					higherNumber={higherNumber}
+					lowerLegNumber={lowerLegNumber}
+					higherLegNumber={higherLegNumber}
 					onCatch={catchFish}
 				/>
 			)}
