@@ -61,12 +61,6 @@ const FishingMechanic = (props) => {
 	}, [direction]);
 
 	useEffect(() => {
-		console.log("\n\n\nrod placement generator");
-		console.log("lower number: " + lowerNumber);
-		console.log("higher number: " + higherNumber);
-		console.log("lower leg number: " + lowerLegNumber);
-		console.log("higher leg number: " + higherLegNumber);
-		console.log("rod placement generator over");
 		if (fishingMechanicRef.current) {
 			if (higherNumber < lowerLegNumber) {
 				// Legenary fish is above ragular catch
