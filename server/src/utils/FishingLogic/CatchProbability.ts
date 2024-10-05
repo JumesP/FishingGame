@@ -66,9 +66,21 @@ const Ultimate_Rod: fish_chances = {
 	whale: 5,
 };
 
-export default function getRandomFish(rodName: string): Fish {
+type equipment = {
+	UserID: number;
+	ItemID: number;
+	ItemName: string;
+	Enchants: null;
+	Rarity: string;
+	Durability: null | number;
+	Type: "rod" | "bait" | "pet" | "boat";
+};
+
+export default function getRandomFish(equipment: equipment): Fish {
 	let randomNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
+	const rodName = equipment.ItemName;
 	let rod: fish_chances;
+
 	switch (rodName) {
 		case "Standard Rod":
 			rod = Standard_Rod;
@@ -89,7 +101,6 @@ export default function getRandomFish(rodName: string): Fish {
 			rod = Standard_Rod;
 			break;
 	}
-
 	console.log(randomNum);
 	for (const fish in rod) {
 		if (rod.hasOwnProperty(fish)) {

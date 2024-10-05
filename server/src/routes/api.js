@@ -129,12 +129,18 @@ router.get("/getfish", async (req, res) => {
 	}
 });
 
+const findObjectWithValue = (list, key, value) => {
+	return list.find((obj) => obj[key] === value);
+};
+
 router.post("/catchFish", async (req, res) => {
 	const { equipment } = req.body;
-	// console.log(equipment);
+	const rod = findObjectWithValue(equipment, "Type", "rod");
+	console.log(equipment);
+	console.log(rod);
 	try {
 		// make this remove durability
-		const result = await FishClass.catchFish("Standard Rod");
+		const result = await FishClass.catchFish(rod);
 		res.json(result);
 	} catch (err) {
 		console.log(err);

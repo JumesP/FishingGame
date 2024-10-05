@@ -52,8 +52,9 @@ var Ultimate_Rod = {
     shark: 5,
     whale: 5,
 };
-function getRandomFish(rodName) {
+function getRandomFish(equipment) {
     var randomNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
+    var rodName = equipment.ItemName;
     var rod;
     switch (rodName) {
         case "Standard Rod":
@@ -75,6 +76,8 @@ function getRandomFish(rodName) {
             rod = Standard_Rod;
             break;
     }
+    console.log(rodName);
+    console.log(rod);
     console.log(randomNum);
     for (var fish in rod) {
         if (rod.hasOwnProperty(fish)) {
@@ -92,7 +95,6 @@ function generateHigherandLowerNums() {
     var randomNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
     var lowerNum = Math.round(Math.max(0, randomNum - difference)); // Ensure lowerNum is at least 0 and round it
     var higherNum = Math.round(Math.min(100, randomNum + difference)); // Ensure higherNum is at most 100 and round it
-    // console.log(lowerNum, randomNum, higherNum);
     return { lowerNum: lowerNum, randomNum: randomNum, higherNum: higherNum };
 }
 function generateLegendaryZone() {
@@ -100,24 +102,17 @@ function generateLegendaryZone() {
     var randomLegNum = Math.floor(Math.random() * 10000) / 100; // Random number between 0 and 100
     var lowerLegNum = Math.round(Math.max(0, randomLegNum - difference)); // Ensure lowerNum is at least 0 and round it
     var higherLegNum = Math.round(Math.min(100, randomLegNum + difference)); // Ensure higherNum is at most 100 and round it
-    // console.log(lowerLegNum, randomLegNum, higherLegNum);
     return { lowerLegNum: lowerLegNum, randomLegNum: randomLegNum, higherLegNum: higherLegNum };
 }
 function generateZones() {
     // This will generate and return both zones
     // If legendary zone overlaps the higher and lower zone, it will be rerolled
-    // console.log("\n\n\nGenerating Zones");
     var _a;
     var _b = generateHigherandLowerNums(), lowerNum = _b.lowerNum, randomNum = _b.randomNum, higherNum = _b.higherNum;
     var _c = generateLegendaryZone(), lowerLegNum = _c.lowerLegNum, randomLegNum = _c.randomLegNum, higherLegNum = _c.higherLegNum;
     while (lowerLegNum < higherNum && higherLegNum > lowerNum) {
-        // console.log(lowerLegNum, randomLegNum, higherLegNum);
         (_a = generateLegendaryZone(), lowerLegNum = _a.lowerLegNum, randomLegNum = _a.randomLegNum, higherLegNum = _a.higherLegNum);
-        // console.log("Rerolling Legendary Zone");
     }
-    // console.log("\n\nFinal Numbers: ");
-    // console.log(lowerNum, randomNum, higherNum);
-    // console.log(lowerLegNum, randomLegNum, higherLegNum);
     return [
         { lowerNum: lowerNum, randomNum: randomNum, higherNum: higherNum },
         { lowerLegNum: lowerLegNum, randomLegNum: randomLegNum, higherLegNum: higherLegNum },
