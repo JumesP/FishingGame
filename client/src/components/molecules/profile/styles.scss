@@ -32,13 +32,32 @@
 
 .profile > .currentLayout {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
+  justify-content: center;
+  align-items: center;
   grid-column-end: span 2;
   border: 2px solid #000;
   padding: 10px 0 10px 0;
 }
 
-.profile > button {
+.profile > .currentLayout > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3px 5px 3px 5px;
+
+  /*@media (max-width: 768px) {
+    padding: 3px 5px 3px 5px;
+  }*/
+
+  @media (max-width: 2200px) {
+    padding: 3px 15px 3px 15px;
+  }
+}
+
+.profile > button { //logout button
     margin-top: 20px;
     padding: 10px 20px;
     background: #f5f5f5;
