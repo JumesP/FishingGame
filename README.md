@@ -89,6 +89,15 @@ update additions:
 - catching fishes mechanic
 - save and sell fishes
 
+### Inventory Update! - 3-10-2024:
+
+![Screenshot 2024-10-09 at 09.36.38.png](../../../../var/folders/jc/r12s6r2x64n7b_pmpzw43h0c0000gn/T/TemporaryItems/NSIRD_screencaptureui_dEiu3W/Screenshot%202024-10-09%20at%2009.36.38.png)
+
+![Screenshot 2024-10-09 at 09.36.57.png](../../../../var/folders/jc/r12s6r2x64n7b_pmpzw43h0c0000gn/T/TemporaryItems/NSIRD_screencaptureui_ANFU8J/Screenshot%202024-10-09%20at%2009.36.57.png)
+
+update additions:
+- manage inventory
+- equip equipment
 
 ## Todos:
 
