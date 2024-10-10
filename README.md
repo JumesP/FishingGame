@@ -79,6 +79,7 @@ Then you can access the website at:
 ### Fishes in the Tank Update - 01-08-2024:
 https://github.com/user-attachments/assets/19c46136-8840-4224-8c1e-5ca821daaea2
 
+<br/><hr/>
 
 ### Account Update! - 13-09-2024:
 you can now catch a fish and add it to your user account!
@@ -89,15 +90,19 @@ update additions:
 - catching fishes mechanic
 - save and sell fishes
 
+<br/><hr/>
+
 ### Inventory Update! - 3-10-2024:
 
-![Screenshot 2024-10-09 at 09.36.38.png](../../../../var/folders/jc/r12s6r2x64n7b_pmpzw43h0c0000gn/T/TemporaryItems/NSIRD_screencaptureui_dEiu3W/Screenshot%202024-10-09%20at%2009.36.38.png)
+<img width="1666" alt="Inventory View" src="https://github.com/user-attachments/assets/cddd3997-f585-46e0-b706-d8bb71230ec1">
 
-![Screenshot 2024-10-09 at 09.36.57.png](../../../../var/folders/jc/r12s6r2x64n7b_pmpzw43h0c0000gn/T/TemporaryItems/NSIRD_screencaptureui_ANFU8J/Screenshot%202024-10-09%20at%2009.36.57.png)
+<img width="879" alt="Specfic Item" src="https://github.com/user-attachments/assets/2e07f1b5-fc9c-4bdd-9b84-bb1e4d1b1525">
 
 update additions:
 - manage inventory
 - equip equipment
+
+<br/><hr/>
 
 ## Todos:
 
