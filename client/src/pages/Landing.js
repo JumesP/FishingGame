@@ -3,7 +3,7 @@ import "./css/Landing.scss";
 
 const Landing = () => {
 	return (
-		<div id="fishTank">
+		<div id="fishTank" className="landing">
 			{/*<h1 className="text-3xl font-bold underline">*/}
 			{/*	Welcome to the Fish Tank!*/}
 			{/*</h1>*/}
