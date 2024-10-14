@@ -1,38 +1,43 @@
 import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import styled from "styled-components";
+import getImage from "../../../utils/imageGenerator";
 
 const ProfileCIStyled = styled.div`
+	position: relative;
 	height: 75px;
 	width: 75px;
 	border: 1px solid #000;
 	margin: 0 10px;
+
+	.occupacitor {
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		background-color: #282c34;
+		opacity: 35%;
+	}
+
+	img {
+		height: 100%;
+		width: 100%;
+		opacity: 100%;
+		position: absolute;
+	}
 `;
 
 const ProfileCI = ({ Item }) => {
-	const data = {
-		ItemName: Item.ItemName,
-		Enchants: Item.Enchants,
-		Rarity: Item.Rarity,
-		Durability: Item.Durability,
-		Type: Item.Type,
-	};
-
-	const dataImg = {
-		rod: "/images/rod.png",
-		bait: "/images/bait.png",
-		pet: "/images/pet.png",
-		boat: "/images/boat.png",
-	};
+	const image = getImage(Item);
 
 	const ProfileCIClasses = classNames([
-		data.Rarity ? `rarity-${data.Rarity.toLowerCase()}` : "rarity-common",
+		Item.Rarity ? `rarity-${Item.Rarity.toLowerCase()}` : "rarity-common",
 		"profileCI",
 	]);
 
 	return (
 		<ProfileCIStyled className={ProfileCIClasses}>
-			<img src={dataImg[data.Type]} alt="Item" />
+			<div className="occupacitor"></div>
+			<img src={image} alt="Item" />
 		</ProfileCIStyled>
 	);
 };

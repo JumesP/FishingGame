@@ -3,6 +3,7 @@ import classNames from "classnames";
 import styled from "styled-components";
 import InventoryItem from "../../atoms/inventoryItem";
 import Modal from "../../atoms/modal";
+import getImage from "../../../utils/imageGenerator";
 
 const InventoryStyled = styled.div`
 	display: flex;
@@ -55,24 +56,9 @@ const InventoryViewer = (props) => {
 
 	const divs = [];
 	for (let i = 0; i < props.inventory.length; i++) {
-		let image;
-		switch (props.inventory[i].Type) {
-			case "rod":
-				if (props.inventory[i].ItemName === "Hands") {
-					image = "images/hands.png";
-					break;
-				}
-				image = "images/rod.png";
-				break;
-			case "bait":
-				image = "images/bait.png";
-				break;
-			case "pet":
-				image = "images/pet.png";
-				break;
-			case "boat":
-				image = "images/boat.png";
-				break;
+		const image = getImage(props.inventory[i]);
+		if (image === null) {
+			continue;
 		}
 
 		divs.push(
