@@ -43,3 +43,11 @@ nav a:hover {
 nav a:active {
     color: red;
 }
+
+@media screen and (max-width: 540px) {
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
