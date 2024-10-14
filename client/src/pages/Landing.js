@@ -1,6 +1,9 @@
+import Fish from "../components/atoms/fish";
+import "./css/Landing.scss";
+
 const Landing = () => {
 	return (
-		<div>
+		<div id="fishTank">
 			<h1 className="text-3xl font-bold underline">
 				Welcome to the Fish Tank!
 			</h1>
@@ -10,6 +13,9 @@ const Landing = () => {
 			</p>
 			<p>Click on the Fish Tank to see all the fish you own.</p>
 			<p>Click on the Fish to see the rewards you have earned.</p>
+			<Fish fishType="cod" path="/images/cod.png" />
+			<Fish fishType="salmon" path="/images/salmon.png" />
+			<Fish fishType="shark" path="/images/shark.png" />
 		</div>
 	);
 };
