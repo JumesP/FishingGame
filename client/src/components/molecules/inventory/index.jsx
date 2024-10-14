@@ -55,10 +55,14 @@ const InventoryViewer = (props) => {
 
 	const divs = [];
 	for (let i = 0; i < props.inventory.length; i++) {
-		let image = "images/rod.png";
+		let image;
 		switch (props.inventory[i].Type) {
 			case "rod":
-				image = "images/hands.png";
+				if (props.inventory[i].ItemName === "Hands") {
+					image = "images/hands.png";
+					break;
+				}
+				image = "images/rod.png";
 				break;
 			case "bait":
 				image = "images/bait.png";
