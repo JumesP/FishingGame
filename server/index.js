@@ -4,7 +4,6 @@ const cors = require("cors");
 
 const FishClass = require("./classes/fish.js");
 const UserClass = require("./classes/Users/user.js");
-const AccountClass = require("./classes/Users/accounts.js");
 const getRandomFish = require("./src/utils/FishingLogic/CatchProbability.js");
 const FiveGetRandomReward =
 	require("./src/utils/FishingLogic/TreasureProbability").default;
