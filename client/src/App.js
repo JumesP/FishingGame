@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 
 import Layout from "./pages/Layout";
 import Landing from "./pages/Landing";
@@ -16,18 +15,34 @@ import sendCookieDataToBackend from "./utils/sendCookieDataToBackend";
 import "./components/styles.scss";
 
 function App() {
-	sendCookieDataToBackend();
+	const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+	useEffect(() => {
+		// Replace this with your actual authentication check logic
+		const checkAuth = async () => {
+			const response = await sendCookieDataToBackend();
+			setIsAuthenticated(response.isAuthenticated);
+		};
+
+		checkAuth();
+	}, []);
 
 	return (
 		<BrowserRouter>
 			<Routes>
 				<Route path="/" element={<Layout />}>
 					<Route index element={<Landing />} />
-					<Route path="/Main" element={<Main />} />
-					<Route path="/FishTank" element={<FishTank />} />
-					<Route path="/Inventory" element={<Inventory />} />
-					<Route path="/Rewards" element={<Rewards />} />
-					<Route path="/Catch" element={<Catch />} />
+					{isAuthenticated ? (
+						<>
+							<Route path="/Main" element={<Main />} />
+							<Route path="/FishTank" element={<FishTank />} />
+							<Route path="/Inventory" element={<Inventory />} />
+							<Route path="/Rewards" element={<Rewards />} />
+							<Route path="/Catch" element={<Catch />} />
+						</>
+					) : (
+						<Route path="*" element={<Navigate to="/" />} />
+					)}
 					<Route path="/Login" element={<Login />} />
 				</Route>
 			</Routes>
