@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import sendCookieDataToBackend from "../utils/sendCookieDataToBackend";
 import LoginForm from "../components/atoms/login";
 import SignupForm from "../components/atoms/signup";
+import "./css/Login.scss";
 
 const Login = () => {
 	const [username, setUsername] = useState("");
@@ -76,8 +77,7 @@ const Login = () => {
 	};
 
 	return (
-		<>
-			<h1>Login</h1>
+		<div className="loginContainer">
 			<LoginForm
 				username={username}
 				setUsername={setUsername}
@@ -95,9 +95,8 @@ const Login = () => {
 			) : (
 				<p>No data</p>
 			)}
-			<h1>Sign Up</h1>
 			<SignupForm handleSignup={handleSignup} />
-		</>
+		</div>
 	);
 };
 
