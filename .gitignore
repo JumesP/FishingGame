@@ -139,4 +139,4 @@ dist
 .idea/workspace.xml
 
 output.css
-.dbdatabase.db
+database.db
