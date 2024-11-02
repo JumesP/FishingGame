@@ -5,7 +5,11 @@ const Landing = () => {
 	return (
 		<div id="fishTank" className="landing">
 			<Fish fishType="cod" path="/images/cod.png" />
+			<Fish fishType="cod" path="/images/cod.png" />
 			<Fish fishType="salmon" path="/images/salmon.png" />
+			<Fish fishType="salmon" path="/images/salmon.png" />
+			<Fish fishType="goldfish" path="/images/goldfish.png" />
+			<Fish fishType="goldfish" path="/images/goldfish.png" />
 			<Fish fishType="shark" path="/images/shark.png" />
 			<h1>Welcome to FishingGame</h1>
 			<p>
