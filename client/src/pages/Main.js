@@ -32,10 +32,6 @@ const Main = () => {
 		profile: null,
 		equipment: null, // current layout
 	};
-	// console.log("Here is the backend data: ");
-	// console.log(backendData);
-	// console.log("Here is the backend data");
-	// console.log(backendData.currentInventory);
 
 	const user = backendData.user
 		? {
@@ -45,9 +41,6 @@ const Main = () => {
 				Items: backendData.currentInventory,
 			}
 		: {};
-
-	// console.log("backend Data: " + backendData);
-	// console.log(user);
 
 	return (
 		<div className="main">
