@@ -24,8 +24,10 @@ const sendCookieDataToBackend = async () => {
 			);
 			if (response.ok) {
 				console.log("UserID sent successfully");
+				return true;
 			} else {
 				console.error("Failed to send UserID:", response.statusText);
+				return false;
 			}
 		} catch (error) {
 			console.error("Error parsing UserID:", error);

@@ -18,12 +18,16 @@ function App() {
 	const [isAuthenticated, setIsAuthenticated] = useState(false);
 
 	useEffect(() => {
-		// Replace this with your actual authentication check logic
 		const checkAuth = async () => {
-			const response = await sendCookieDataToBackend();
-			setIsAuthenticated(response.isAuthenticated);
+			try {
+				const response = await sendCookieDataToBackend();
+				console.log(response);
+				setIsAuthenticated(response); // Set to true if response exists, false otherwise
+			} catch (error) {
+				setIsAuthenticated(false); // Set to false if there is an error
+			}
 		};
-
+		console.log("Checking auth", isAuthenticated);
 		checkAuth();
 	}, []);
 
@@ -51,3 +55,5 @@ function App() {
 }
 
 export default App;
+
+// make it so it checks if the user is logged in each time the page changes, maybe make a new file
