@@ -41,7 +41,6 @@ Fish rarity table:
 
 `rarity`: `name`-`description`
 
-🟦: Comfort - Quicker Catches <br>
 🟦: Unbreaking - Less likely for a rod to lose durability <br>
 🟪: Reroll - Rerolls if lands on Cod or Salmon <br>
 🟨: Mending - Chance to catch a mending fish <br>
@@ -51,7 +50,6 @@ Fish rarity table:
 upgrade changes table:
 
 Unbreaking - % of using 0 durability this catch <br>
-Comfort - % of time saved <br>
 Re-roll - times allowed re-rolling a fish (types of fish allowed to reroll might be considered) <br>
 Mending - % of change of catching a mending fish (not decided if a normal fish is caught along side) (healing amount not decided) <br>
 Duel Rod - what rarity can be attached - includes colours and below <br>
@@ -60,7 +58,6 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Upgrades   | I   | II  | III | IV     | V       | Master                              |
 |------------|-----|-----|-----|--------|---------|-------------------------------------|
 | Unbreaking | 5%  | 10% | 15% | 20%    | 25%     | 50%                                 |
-| Comfort    | --  | --  | --  | --     | --      | --                                  |
 | Reroll     | 1   | 2%  | 3%  | 4%     | 5%      | Guarantee no Cod or Salmon          |
 | Mending    | 1%  | 2%  | 10% | 10%    | 10%     | 25% + reroll (if no along side fish) |
 | Duel Rod   | 🟩  | 🟦  | 🟪  | 🟨     | 🟥      | any 2 rods - 2x loot                |
