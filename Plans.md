@@ -1,10 +1,6 @@
 # Plans
 
-
-
-
-
-## Items and Fishes
+## Rarities
 
 Item Rarities:
 
@@ -15,16 +11,9 @@ Item Rarities:
 🟨: Legendary <br>
 🟥: Mystical <br>
 
+## Fishing
 
-
-### Fishes
-
-Fish Rarities:
-
-
-
-
-Fish rarity table:
+### Fish Rarities:
 
 | Fish     | Standard Rod | Premium Rod | Super Rod | Ultra Rod | Ultimate Rod | ??? |
 |----------|--------------|-------------|-----------|-----------|--------------|-----|
@@ -47,7 +36,7 @@ Fish rarity table:
 🟨: Duel Rod - Attach another rod to gain its stats | uses main rod, only uses duels catch rates <br>
 🟥: Focus - slows down marker while over catch area <br>
 
-upgrade changes table:
+### Upgrade changes table:
 
 Unbreaking - % of using 0 durability this catch <br>
 Re-roll - times allowed re-rolling a fish (types of fish allowed to reroll might be considered) <br>
