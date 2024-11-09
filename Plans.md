@@ -51,3 +51,6 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Mending    | 1%  | 2%  | 10% | 10%    | 10%     | 25% + reroll (if no along side fish) |
 | Duel Rod   | 🟩  | 🟦  | 🟪  | 🟨     | 🟥      | any 2 rods - 2x loot                |
 | Focus      | 5%  | 10% | 20% | 35% 5% | 50% 10% | 150?                                |
+
+
+## Farming
