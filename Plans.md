@@ -1,6 +1,9 @@
 # Plans
 
-## Rarities
+<hr>
+<hr>
+
+# Rarities
 
 Item Rarities:
 
@@ -11,11 +14,14 @@ Item Rarities:
 🟨: Legendary <br>
 🟥: Mystical <br>
 
-## Fishing
+<hr>
+<hr>
+
+# Fishing
 
 catch fish, keep them in your collection or sell them for money. Fishing has its own dedicated equipment, which can be upgraded and enchanted.
 
-### Fish Rarities:
+## Fish Rarities:
 
 | Fish     | Standard Rod | Premium Rod | Super Rod | Ultra Rod | Ultimate Rod | ??? |
 |----------|--------------|-------------|-----------|-----------|--------------|-----|
@@ -28,7 +34,67 @@ catch fish, keep them in your collection or sell them for money. Fishing has its
 | Whale    | 0.01%        | 1%          | 1%        | 2%        | 5%           |     |
 | ???      |              |             |           |           |              |     |
 
-### Upgrades / Enchants
+<hr>
+<hr>
+
+# Farming
+
+Grow crops, harvest them, sell them for money. Farming has its own dedicated equipment, which can be upgraded and enchanted. <br>
+Crops can be grown in a variety of ways, including in the ground, in pots, and in greenhouses.
+Crops can be used to craft different things that help you with fishing, farming, or other activities.
+
+## How it works:
+
+<strong>Seeds</strong> planted take time to grow, once grown, the default return in 1 crop and a 20% change of getting another seed. <br>
+Seeds can be gained from the shop or from harvesting crops. <br>
+
+
+
+## Crop Rarities (WIP):
+
+the way this table works is that
+
+| Crop     | Standard Hoe | Premium Hoe | Super Hoe | Ultra Hoe | Ultimate Hoe | ??? |
+|----------|--------------|-------------|-----------|-----------|--------------|-----|
+| Wheat    | 60%          | 40%         | 30%       | 20%       | 10%          |     |
+| Carrot   | 20%          | 30%         | 30%       | 30%       | 20%          |     |
+| Potato   | 10%          | 15%         | 20%       | 20%       | 20%          |     |
+| Corn     | 5%           | 10%         | 10%       | 15%       | 20%          |     |
+| Tomato   | 3%           | 5%          | 7%        | 10%       | 20%          |     |
+| Lettuce  | 2%           | 5%          | 3%        | 5%        | 10%          |     |
+| Pepper   | 0%           | 5%          | 5%        | 5%        | 10%          |     |
+| Cabbage  | 0%           | 0%          | 5%        | 5%        | 10%          |     |
+| ???      |              |             |           |           |              |     |
+
+<hr>
+<hr>
+
+# Equiptment
+
+Equiptment can be used to increase the chances of catching certain fish or growing certain crops. <br>
+Often recieved from treasure, purchasing from the shop, or by crafting. <br>
+Equiptment can be upgraded and enchanted to increase its effectiveness. <br>
+
+## Fishing
+
+### Current:
+- Rods
+- Bait
+- Pets
+- Boats
+
+### Potential Future additions:
+- Lures
+- Hooks
+- Line
+- Reels
+- Floats
+- Weights
+- Nets
+
+<hr>
+
+## Rod Upgrades / Enchants
 
 `rarity`: `name`-`description`
 
@@ -38,7 +104,7 @@ catch fish, keep them in your collection or sell them for money. Fishing has its
 🟨: Duel Rod - Attach another rod to gain its stats | uses main rod, only uses duels catch rates <br>
 🟥: Focus - slows down marker while over catch area <br>
 
-### Upgrade changes table:
+### Enchantment table:
 
 Unbreaking - % of using 0 durability this catch <br>
 Re-roll - times allowed re-rolling a fish (types of fish allowed to reroll might be considered) <br>
@@ -55,8 +121,55 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Focus      | 5%  | 10% | 20% | 35% 5% | 50% 10% | 150?                                |
 
 
+<hr>
+
 ## Farming
 
-Grow crops, harvest them, sell them for money. Farming has its own dedicated equipment, which can be upgraded and enchanted. <br>
-Crops can be grown in a variety of ways, including in the ground, in pots, and in greenhouses.
-Crops can be used to craft different things that help you with fishing, farming, or other activities.
+### Current:
+- Hoes
+- Fertilizer
+- Manager
+- Nutrients
+
+
+### Potential Future additions:
+- Watering Cans
+- Scarecrows
+- Tractors
+- Plows
+- Sprayers
+
+<hr>
+
+## Hoe Upgrades / Enchants
+
+`rarity`: `name`-`description`
+
+🟦: Unbreaking - Less likely for a rod to lose durability <br>
+🟪:  <br>
+🟨: Mending - <br>
+🟨: <br>
+🟥:  <br>
+
+## Enchant table:
+
+Unbreaking - % of using 0 durability this catch <br>
+Re-roll - times allowed re-rolling a fish (types of fish allowed to reroll might be considered) <br>
+Mending - % of change of catching a mending fish (not decided if a normal fish is caught along side) (healing amount not decided) <br>
+Duel Rod - what rarity can be attached - includes colours and below <br>
+Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
+
+| Upgrades   | I   | II  | III | IV     | V       | Master                              |
+|------------|-----|-----|-----|--------|---------|-------------------------------------|
+| Unbreaking | 5%  | 10% | 15% | 20%    | 25%     | 50%                                 |
+| Reroll     | 1   | 2%  | 3%  | 4%     | 5%      | Guarantee no Cod or Salmon          |
+| Mending    | 1%  | 2%  | 10% | 10%    | 10%     | 25% + reroll (if no along side fish) |
+| Duel Rod   | 🟩  | 🟦  | 🟪  | 🟨     | 🟥      | any 2 rods - 2x loot                |
+| Focus      | 5%  | 10% | 20% | 35% 5% | 50% 10% | 150?                                |
+
+
+### Plots
+
+- Pots
+- Greenhouses
+<hr>
