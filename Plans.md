@@ -79,6 +79,23 @@ Equiptment can be used to increase the chances of catching certain fish or growi
 Often recieved from treasure, purchasing from the shop, or by crafting. <br>
 Equiptment can be upgraded and enchanted to increase its effectiveness. <br>
 
+## General
+
+### Current:
+- Pets
+
+### Potential Future additions:
+- Tools
+- Clothing
+- Accessories
+
+<hr>
+
+
+
+<hr>
+<hr>
+
 ## Fishing
 
 ### Current:
