@@ -206,10 +206,6 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Upgrades   | I  | II  | III | IV     | V       | Master                               |
 |------------|----|-----|-----|--------|---------|--------------------------------------|
 | Unbreaking | 5% | 10% | 15% | 20%    | 25%     | 50%                                  |
-| Reroll     | 1  | 2%  | 3%  | 4%     | 5%      | Guarantee no Cod or Salmon           |
-| Mending    | 1% | 2%  | 10% | 10%    | 10%     | 25% + reroll (if no along side fish) |
-| Duel Rod   | 🟩 | 🟦  | 🟪  | 🟨     | 🟥      | any 2 rods - 2x loot                 |
-| Focus      | 5% | 10% | 20% | 35% 5% | 50% 10% | 150?                                 |
 
 <hr>
 
