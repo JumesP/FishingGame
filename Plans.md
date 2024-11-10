@@ -101,6 +101,8 @@ Equiptment can be upgraded and enchanted to increase its effectiveness. <br>
 
 ## Rod 
 
+Rods increase the chance of different fish being caught. <br>
+
 ## Upgrades / Enchants
 
 `rarity`: `name`-`description`
@@ -127,6 +129,17 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Duel Rod   | 🟩  | 🟦  | 🟪  | 🟨     | 🟥      | any 2 rods - 2x loot                |
 | Focus      | 5%  | 10% | 20% | 35% 5% | 50% 10% | 150?                                |
 
+<hr>
+
+## Bait
+
+Baits use is TBD <br>
+
+<hr>
+
+## Boat
+
+Boats use is TBD <br>
 
 <hr>
 <hr>
@@ -151,6 +164,8 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 <hr>
 
 ## Hoe 
+
+Hoes increase the chance of different seeds being collected from harvest (TBD) <br>
 
 ## Upgrades / Enchants
 
@@ -178,6 +193,7 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Duel Rod   | 🟩  | 🟦  | 🟪  | 🟨     | 🟥      | any 2 rods - 2x loot                |
 | Focus      | 5%  | 10% | 20% | 35% 5% | 50% 10% | 150?                                |
 
+<hr>
 
 ### Plots
 
@@ -193,3 +209,26 @@ Plots can be upgraded to increase the amount of crops that can be grown in them.
 | Fertilizers  | ❌            | ❌        | ✔️         | ✔️               | ✔️                 | ✔️   | ✔️  |
 | Managers     | ❌            | ❌        | ❌         | ❌               | ✔️                 | ✔️   | ✔️  |
 | Nutrients    | ❌            | ❌        | ❌         | ❌               | ❌                  | ✔️   | ✔️  |
+
+<hr>
+
+### Soil
+Soil can be used to ??? <br>
+
+<hr>
+
+### Fertilizer
+
+Fertilizer can be used to increase the growth speed of crops. <br>
+
+<hr>
+
+### Manager
+
+Managers can be hired to automatically harvest crops for you. <br>
+
+<hr>
+
+### Nuitrients
+
+Nuitrients can be used to increase the yield of crops. <br>
