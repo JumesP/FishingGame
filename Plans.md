@@ -2,6 +2,7 @@
 
 <hr>
 <hr>
+<hr>
 
 # Rarities
 
@@ -14,6 +15,7 @@ Item Rarities:
 🟨: Legendary <br>
 🟥: Mystical <br>
 
+<hr>
 <hr>
 <hr>
 
@@ -34,6 +36,7 @@ catch fish, keep them in your collection or sell them for money. Fishing has its
 | Whale    | 0.01%        | 1%          | 1%        | 2%        | 5%           |     |
 | ???      |              |             |           |           |              |     |
 
+<hr>
 <hr>
 <hr>
 
@@ -66,6 +69,7 @@ the way this table works is that
 | Cabbage  | 0%           | 0%          | 5%        | 5%        | 10%          |     |
 | ???      |              |             |           |           |              |     |
 
+<hr>
 <hr>
 <hr>
 
@@ -123,6 +127,7 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 | Focus      | 5%  | 10% | 20% | 35% 5% | 50% 10% | 150?                                |
 
 
+<hr>
 <hr>
 
 ## Farming
