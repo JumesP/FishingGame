@@ -149,6 +149,7 @@ Boats use is TBD <br>
 ### Current:
 - Hoes
 - Plots
+- Soil
 - Fertilizer
 - Manager
 - Nutrients
