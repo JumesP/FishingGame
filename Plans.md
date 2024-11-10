@@ -94,7 +94,8 @@ Equiptment can be upgraded and enchanted to increase its effectiveness. <br>
 - Reels
 - Floats
 - Weights
-- Nets
+- Nets - takes 2 hours to catch 100 fish units - each fish needs a value in fish units
+- Explosives - catch 10 fish at once, all will need to be sold
 
 <hr>
 
