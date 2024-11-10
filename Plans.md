@@ -215,14 +215,14 @@ Users can purchase plots of land to grow crops in. <br>
 Plots can be upgraded to increase the amount of crops that can be grown in them. <br>
 
 |              | Patch of Dirt | Plant Pot | Greenhouse | Large Greenhouse | Platinum Greenhouse | Plot | Farm |
-|--------------|---------------|-----------|------------|------------------|--------------------|------|-----|
-| Cost         | 1000          | 5000      | 10000      | 50000            | ?                  | ?    | ?   |
-| Plots        | 1             | 4         | 8          | 13               | 22                 | 44   | 138 |
-| Golden Plots | ❌            | ❌        | ❌         | ❌               | 1                  | 2    | 6   |
-| Liquid Space | 0             | 1         | 1          | 2                | 2                  | 4    | 12  |
-| Fertilizers  | ❌            | ❌        | ✔️         | ✔️               | ✔️                 | ✔️   | ✔️  |
-| Managers     | ❌            | ❌        | ❌         | ❌               | ✔️                 | ✔️   | ✔️  |
-| Nutrients    | ❌            | ❌        | ❌         | ❌               | ❌                  | ✔️   | ✔️  |
+|--------------|---------------|-----------|------------|------------------|---------------------|------|------|
+| Cost         | 1000          | 5000      | 10000      | 50000            | ?                   | ?    | ?    |
+| Plots        | 1             | 4         | 8          | 13               | 22                  | 44   | 138  |
+| Golden Plots | ❌             | ❌         | ❌          | ❌                | 1                   | 2    | 6    |
+| Liquid Space | 0             | 1         | 1          | 2                | 2                   | 4    | 12   |
+| Fertilizers  | ❌             | ❌         | ✔️         | ✔️               | ✔️                  | ✔️   | ✔️   |
+| Managers     | ❌             | ❌         | ❌          | ❌                | ✔️                  | ✔️   | ✔️   |
+| Nutrients    | ❌             | ❌         | ❌          | ❌                | ❌                   | ✔️   | ✔️   |
 
 <hr>
 
