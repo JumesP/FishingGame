@@ -94,7 +94,9 @@ Equiptment can be upgraded and enchanted to increase its effectiveness. <br>
 
 <hr>
 
-## Rod Upgrades / Enchants
+## Rod 
+
+## Upgrades / Enchants
 
 `rarity`: `name`-`description`
 
@@ -141,7 +143,9 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 
 <hr>
 
-## Hoe Upgrades / Enchants
+## Hoe 
+
+## Upgrades / Enchants
 
 `rarity`: `name`-`description`
 
