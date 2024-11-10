@@ -250,3 +250,84 @@ Managers can be hired to automatically harvest crops for you. <br>
 ### Nuitrients
 
 Nuitrients can be used to increase the yield of crops. <br>
+
+<hr>
+<hr>
+<hr>
+
+# Treasure and Trash
+
+Treasure and Trash can be found while fishing. <br>
+Treasure and Trash contain items that can be sold, used, or crafted with. <br>
+
+Treasure is considered a positive box while Trash is considered a negative box. <br>
+
+## Treasure Rarities:
+
+There are multiple treasures, each contain their own items. <br>
+Treasures can be found in different rarities, each containing different items. <br>
+
+Types of treasures include: <br>
+- Common Treasure Chest
+- Uncommon Treasure Chest
+- Rare Treasure Chest
+- Epic Treasure Chest
+- Legendary Treasure Chest
+- Mythical Treasure Chest
+- Seed Bag
+- Large Seed Bag
+
+### Standard Treasure Rarities(WIP):
+
+`rarity`% [`minimum amount`, `maximum amount`]
+
+|            | Common        | Uncommon       | Rare           | Epic            | Legendary        | Mythical         |
+|------------|---------------|----------------|----------------|-----------------|------------------|------------------|
+| Coins      | 100% [1, 200] | 99% [201, 400] | 95% [401, 800] | 85% [801, 1600] | 74% [1601, 3200] | 72% [3201, 6400] |
+| Rod        |               |                | 5% [1, 1]      | 10% [1, 1]      | 15% [1, 1]       | 15% [1, 2]       |
+| Bait       |               |                |                | 5% [1, 1]       | 10% [1, 2]       | 10% [1, 4]       |
+| Gems       |               | 1% [1, 1]      |                |                 |                  |                  |
+| Pet        |               |                |                |                 | 1% [1, 1]        | 2% [1, 2]        |
+| Mount      |               |                |                |                 |                  | 1% [1, 1]        |
+| Hoe        |               |                |                |                 |                  | 1% [1, 1]        |
+| Plot       |               |                |                |                 |                  | 1% [1, 1]        |
+| Soil       |               |                |                |                 |                  | 1% [1, 1]        |
+| Fertilizer |               |                |                |                 |                  | 1% [1, 1]        |
+| Manager    |               |                |                |                 |                  | 1% [1, 1]        |
+| Nutrients  |               |                |                |                 |                  | 1% [1, 1]        |
+| ???        |               |                |                |                 |                  |                  |
+
+## Trash Rarities:
+
+There are multiple trash, each contain their own items. <br>
+Trash can be found in different rarities, each containing different items. <br>
+
+Types of treasures include: <br>
+- Common Trash Chest
+- Uncommon Trash Chest
+- Rare Trash Chest
+- Epic Trash Chest
+- Legendary Trash Chest
+- Mythical Trash Chest
+- Seed Bag
+- Large Seed Bag
+
+### Standard Trash Rarities(WIP):
+
+`rarity`% [`minimum amount`, `maximum amount`]
+
+|            | Common        | Uncommon          | Rare              | Epic           | Legendary       | Mythical         |
+|------------|---------------|-------------------|-------------------|----------------|-----------------|------------------|
+| Coins      | 100% [1, 100] | 99.66% [101, 200] | 98.33% [201, 400] | 85% [401, 800] | 74% [801, 1600] | 72% [1601, 3200] |
+| Rod        |               |                   | 1.67% [1, 1]      | 3.33% [1, 1]   | 5% [1, 1]       | 5% [1, 2]        |
+| Bait       |               |                   |                   | 1.67% [1, 1]   | 3.33% [1, 2]    | 3.33% [1, 4]     |
+| Gems       |               | 0.33% [1, 1]      |                   |                |                 |                  |
+| Pet        |               |                   |                   |                | 0.33% [1, 1]    | 0.67% [1, 2]     |
+| Mount      |               |                   |                   |                |                 | 0.33% [1, 1]     |
+| Hoe        |               |                   |                   |                |                 |                  |
+| Plot       |               |                   |                   |                |                 |                  |
+| Soil       |               |                   |                   |                |                 |                  |
+| Fertilizer |               |                   |                   |                |                 |                  |
+| Manager    |               |                   |                   |                |                 |                  |
+| Nutrients  |               |                   |                   |                |                 |                  |
+| ???        |               |                   |                   |                |                 |                  |
