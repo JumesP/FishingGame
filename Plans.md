@@ -263,6 +263,8 @@ Treasure is considered a positive box while Trash is considered a negative box. 
 There are multiple treasures, each contain their own items. <br>
 Treasures can be found in different rarities, each containing different items. <br>
 
+Examine a Treasure Chest or Trash bag to see which of these it contains. <br>
+
 Types of treasures include: <br>
 - Common Treasure Chest
 - Uncommon Treasure Chest
@@ -270,10 +272,28 @@ Types of treasures include: <br>
 - Epic Treasure Chest
 - Legendary Treasure Chest
 - Mythical Treasure Chest
-- Seed Bag
-- Large Seed Bag
+- Standard Trash Seed Bag
+- Rare Trash Seed Bag
+- Super Trash Seed Bag
+- Large Standard Trash Seed Bag
+- Large Rare Trash Seed Bag
+- Large Super Trash Seed Bag
 
-### Standard Treasure Rarities(WIP):
+Types of treasures include: <br>
+- Common Trash Chest
+- Uncommon Trash Chest
+- Rare Trash Chest
+- Epic Trash Chest
+- Legendary Trash Chest
+- Mythical Trash Chest
+- Standard Trash Seed Bag
+- Rare Trash Seed Bag
+- Super Trash Seed Bag
+- Large Standard Trash Seed Bag
+- Large Rare Trash Seed Bag
+- Large Super Trash Seed Bag
+
+### Treasure Rarities(WIP):
 
 `rarity`% [`minimum amount`, `maximum amount`]
 
@@ -295,24 +315,18 @@ Types of treasures include: <br>
 | Fertilizer                     |               |                |                |                 |                  | 1% [1, 1]        |          |                |
 | Manager                        |               |                |                |                 |                  | 1% [1, 1]        |          |                |
 | Nutrients                      |               |                |                |                 |                  | 1% [1, 1]        |          |                |
-| ???                            |               |                |                |                 |                  |                  |          |                |
+| <strong>Seeds</strong>         | ---           | ---            | ---            | ---             | ---              | ---              |          |                |
+| Wheat                          |               |                |                |                 |                  |                  |          |                |
+| Carrot                         |               |                |                |                 |                  |                  |          |                |
+| Potato                         |               |                |                |                 |                  |                  |          |                |
+| Corn                           |               |                |                |                 |                  |                  |          |                |
+| Tomato                         |               |                |                |                 |                  |                  |          |                |
+| Lettuce                        |               |                |                |                 |                  |                  |          |                |
+| Pepper                         |               |                |                |                 |                  |                  |          |                |
+| Cabbage                        |               |                |                |                 |                  |                  |          |                |
 
-## Trash Rarities:
 
-There are multiple trash, each contain their own items. <br>
-Trash can be found in different rarities, each containing different items. <br>
-
-Types of treasures include: <br>
-- Common Trash Chest
-- Uncommon Trash Chest
-- Rare Trash Chest
-- Epic Trash Chest
-- Legendary Trash Chest
-- Mythical Trash Chest
-- Seed Bag
-- Large Seed Bag
-
-### Standard Trash Rarities(WIP):
+### Trash Rarities(WIP):
 
 `rarity`% [`minimum amount`, `maximum amount`]
 
@@ -336,3 +350,30 @@ Types of treasures include: <br>
 | Nutrients                      |               |                   |                   |                |                 |                  |          |                |
 | ???                            |               |                   |                   |                |                 |                  |          |                |
 | <strong>Seeds</strong>         | ---           | ---               | ---               | ---            | ---             | ---              |          |                |
+| Wheat                          |               |                   |                   |                |                 |                  |          |                |
+| Carrot                         |               |                   |                   |                |                 |                  |          |                |
+| Potato                         |               |                   |                   |                |                 |                  |          |                |
+| Corn                           |               |                   |                   |                |                 |                  |          |                |
+| Tomato                         |               |                   |                   |                |                 |                  |          |                |
+| Lettuce                        |               |                   |                   |                |                 |                  |          |                |
+| Pepper                         |               |                   |                   |                |                 |                  |          |                |
+| Cabbage                        |               |                   |                   |                |                 |                  |          |                |
+
+### Seed Bags
+
+Seeds bags contain 3-6 seeds, each seed is determined based on the percentages on this table. <br>
+Large seeds bags contain 8-11 seeds, each seed is determined based on the percentages on this table. <br>
+
+{note: not sure if i want 6 total seed bags, thats a lot of seed bags}
+
+| Crop    | Standard Seed Bag | Rare Seed Bag | Super Seed Bag |
+|---------|-------------------|---------------|----------------|
+| Wheat   | 50%               | 40%           | 30%            |
+| Carrot  | 20%               | 30%           | 30%            |
+| Potato  | 15%               | 15%           | 20%            |
+| Corn    | 10%               | 10%           | 10%            |
+| Tomato  | 3%                | 3%            | 7%             |
+| Lettuce | 1%                | 2%            | 3%             |
+| Pepper  | 1%                | 1%            | 2%             |
+| Cabbage | 0%                | 0%            | 1%             |
+| ???     |                   |               |                |
