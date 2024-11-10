@@ -13,6 +13,8 @@ Item Rarities:
 
 ## Fishing
 
+catch fish, keep them in your collection or sell them for money. Fishing has its own dedicated equipment, which can be upgraded and enchanted.
+
 ### Fish Rarities:
 
 | Fish     | Standard Rod | Premium Rod | Super Rod | Ultra Rod | Ultimate Rod | ??? |
@@ -54,3 +56,7 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 
 
 ## Farming
+
+Grow crops, harvest them, sell them for money. Farming has its own dedicated equipment, which can be upgraded and enchanted. <br>
+Crops can be grown in a variety of ways, including in the ground, in pots, and in greenhouses.
+Crops can be used to craft different things that help you with fishing, farming, or other activities.
