@@ -134,6 +134,7 @@ Focus - % of speed reduction - `standard catch`% `golden catch`% <br>
 
 ### Current:
 - Hoes
+- Plots
 - Fertilizer
 - Manager
 - Nutrients
