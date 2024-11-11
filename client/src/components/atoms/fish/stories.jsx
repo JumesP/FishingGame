@@ -9,12 +9,6 @@ const Template = (props) => {
 	return <Fish {...props} />;
 };
 
-export const Blue = Template.bind({});
-Blue.args = {
-	fishType: "blue",
-	path: "/images/blue.png",
-};
-
 export const Cod = Template.bind({});
 Cod.args = {
 	fishType: "cod",

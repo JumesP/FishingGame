@@ -1,7 +1,7 @@
 import FishTank from "./index";
 import Fish from "../../atoms/fish";
 
-import bluefish from "../../../../public/images/blue.png";
+import goldfish from "../../../../public/images/goldfish.png";
 import salmonfish from "../../../../public/images/salmon.png";
 import codfish from "../../../../public/images/cod.png";
 import sharkfish from "../../../../public/images/shark.png";
@@ -9,7 +9,7 @@ import whalefish from "../../../../public/images/whale.png";
 
 const fishImages = {
 	salmon: salmonfish,
-	blue: bluefish,
+	goldfish: goldfish,
 	cod: codfish,
 	shark: sharkfish,
 	whale: whalefish,
@@ -22,9 +22,9 @@ const user1Fish = [
 	"cod",
 	"cod",
 	"cod",
-	"blue",
-	"blue",
-	"blue",
+	"goldfish",
+	"goldfish",
+	"goldfish",
 ];
 
 const user2Fish = [
@@ -34,9 +34,9 @@ const user2Fish = [
 	"cod",
 	"cod",
 	"cod",
-	"blue",
-	"blue",
-	"blue",
+	"goldfish",
+	"goldfish",
+	"goldfish",
 	"shark",
 	"shark",
 	"whale",
@@ -72,9 +72,6 @@ FishTankWit10Fish.args = {
 		<Fish fishType="cod" />,
 		<Fish fishType="cod" />,
 		<Fish fishType="cod" />,
-		<Fish fishType="blue" />,
-		<Fish fishType="blue" />,
-		<Fish fishType="blue" />,
 	],
 };
 

@@ -9,8 +9,8 @@ const Template = (props) => <FishCollectionItem {...props} />;
 export const Default = Template.bind({});
 Default.args = {
 	fish: {
-		image: "images/blue.png",
-		header: "Blue Fish",
+		image: "images/cod.png",
+		header: "Cod Fish",
 		details: {
 			price: "$1",
 			health: "10♡",
