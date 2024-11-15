@@ -12,7 +12,6 @@ const Inventory = () => {
 
 	return (
 		<div>
-			<h1>Inventory</h1>
 			<InventoryViewer inventory={inventory} />
 		</div>
 	);
