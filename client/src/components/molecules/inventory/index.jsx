@@ -8,6 +8,7 @@ import getImage from "../../../utils/imageGenerator";
 const InventoryStyled = styled.div`
 	display: flex;
 	flex-direction: column;
+	text-align: center;
 	background-color: #999999;
 	border: 5px solid black;
 	border-radius: 25px;
