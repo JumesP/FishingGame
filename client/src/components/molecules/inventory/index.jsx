@@ -12,7 +12,7 @@ const InventoryStyled = styled.div`
 	background-color: #999999;
 	border: 5px solid black;
 	border-radius: 25px;
-	margin: auto;
+	margin: 1% auto 1% auto;
 	width: 80%;
 	height: fit-content;
 `;
