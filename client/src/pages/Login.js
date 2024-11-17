@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import sendCookieDataToBackend from "../utils/sendCookieDataToBackend";
 import LoginForm from "../components/atoms/login";
 import SignupForm from "../components/atoms/signup";
+import LogoutButton from "../components/atoms/logout";
 import "./css/Login.scss";
 
 const Login = () => {
@@ -76,6 +77,11 @@ const Login = () => {
 		}
 	};
 
+	const handleLogout = () => {
+		setUserData(null);
+		console.log("User logged out");
+	};
+
 	return (
 		<div className="loginContainer">
 			<LoginForm
@@ -96,6 +102,7 @@ const Login = () => {
 				<p>No data</p>
 			)}
 			<SignupForm handleSignup={handleSignup} />
+			<LogoutButton onLogout={handleLogout} />
 		</div>
 	);
 };
