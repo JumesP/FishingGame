@@ -26,10 +26,11 @@ function App() {
 			} catch (error) {
 				setIsAuthenticated(false); // Set to false if there is an error
 			}
+			console.log("Checking auth", isAuthenticated);
 		};
 		console.log("Checking auth", isAuthenticated);
 		checkAuth();
-	}, []);
+	});
 
 	return (
 		<BrowserRouter>
@@ -56,4 +57,3 @@ function App() {
 
 export default App;
 
-// make it so it checks if the user is logged in each time the page changes, maybe make a new file
