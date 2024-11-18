@@ -6,7 +6,7 @@ const sendCookieDataToBackend = async () => {
 	console.log("Retrieved UserID cookie:", userCookie);
 	if (userCookie === undefined) {
 		console.error("No user cookie found");
-		userCookie = 1; // horrible practice - FIX ASAP
+		// userCookie = 1; // horrible practice - FIX ASAP
 	}
 	if (userCookie) {
 		try {
