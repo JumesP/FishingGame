@@ -82,6 +82,20 @@ const Login = () => {
 		console.log("User logged out");
 	};
 
+	const checkUserLoggedIn = () => {
+		const userCookie = Cookies.get("UserID");
+		if (userCookie) {
+			const userData = JSON.parse(userCookie);
+			setUserData([{ UserID: userData }]);
+		}
+	};
+
+	useEffect(() => {
+		checkUserLoggedIn();
+	}, []);
+
+	console.log("userData:", userData);
+
 	return (
 		<div className="loginContainer">
 			<LoginForm
@@ -97,12 +111,12 @@ const Login = () => {
 					<p>Username: {userData[0].Username}</p>
 					<p>Password: {userData[0].Password}</p>
 					<p>UserID: {userData[0].UserID}</p>
+					<LogoutButton onLogout={handleLogout} />
 				</div>
 			) : (
 				<p>No data</p>
 			)}
 			<SignupForm handleSignup={handleSignup} />
-			<LogoutButton onLogout={handleLogout} />
 		</div>
 	);
 };
