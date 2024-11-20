@@ -37,6 +37,13 @@ const Login = () => {
 				console.log(userData);
 				// Send Cookies to Backend
 				sendCookieDataToBackend();
+				await fetch("http://localhost:5001/api/receiveUserID", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify({ UserID: data[0].UserID }),
+				});
 			} else {
 				throw new Error("Network response was not ok");
 			}
