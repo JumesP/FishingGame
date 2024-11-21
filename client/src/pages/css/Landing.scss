@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.landing > h1, .landing > p {
+  z-index: 10;
+}
+
 .landing > h1 {
   margin: 5% 0 1% 0;
   font-size: 2rem;
