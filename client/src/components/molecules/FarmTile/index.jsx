@@ -2,13 +2,18 @@ import React from "react";
 import classNames from "classnames";
 import styled from "styled-components";
 
+import Plots from "../../atoms/plots";
+
+// FARM TILES NEED TO BE DIFFERENT SIZES DEPENDING ON THE PLOT TYPE
+
 const FarmTileStyled = styled.div`
 	display: grid;
 	grid-template-rows: 1fr 3.75fr 1fr;
 	justify-items: center;
 	align-items: center;
 
-	background-color: #596b50;
+	//background-color: #596b50;
+	background-color: #666666;
 	border: 5px solid black;
 	border-radius: 50px;
 	box-shadow:
@@ -34,11 +39,13 @@ const FarmTileStyled = styled.div`
 		& > div {
 			width: 75px;
 			height: 75px;
+			background-color: #596b50;
 		}
 	}
-	.farmTileFarm {
+	.farmTileFarmContainer {
 		width: 100%;
 		height: 100%;
+		background-color: #596b50;
 	}
 	& > .farmTileName,
 	& > .farmTileName > p {
@@ -61,8 +68,9 @@ const FarmTile = (props) => {
 				<p>Manager</p>
 				<p>Nutrient</p>
 			</div>
-
-			<div className="farmTileFarm">Farm</div>
+			<div className="farmTileFarmContainer">
+				<Plots type="farm" />
+			</div>
 
 			<div className="farmTileName">
 				<p>Name: Farm 1 ✏️</p>
