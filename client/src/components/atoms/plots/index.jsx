@@ -5,7 +5,7 @@ import styled from "styled-components";
 import SinglePlot from "../singlePlot";
 
 const PlotsStyled = styled.div`
-	background-color: #333333;
+	background-color: #596b50;
 	display: grid;
 	justify-items: center;
 	padding: 10px;
