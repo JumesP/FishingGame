@@ -9,6 +9,7 @@ import Rewards from "./pages/Rewards";
 import Catch from "./pages/Catch";
 import Login from "./pages/Login";
 import Inventory from "./pages/Inventory";
+import Garden from "./pages/Garden";
 
 import sendCookieDataToBackend from "./utils/sendCookieDataToBackend";
 
@@ -44,6 +45,7 @@ function App() {
 							<Route path="/Inventory" element={<Inventory />} />
 							<Route path="/Rewards" element={<Rewards />} />
 							<Route path="/Catch" element={<Catch />} />
+							<Route path="/Garden" element={<Garden />} />
 						</>
 					) : (
 						<Route path="*" element={<Navigate to="/" />} />
@@ -56,4 +58,3 @@ function App() {
 }
 
 export default App;
-

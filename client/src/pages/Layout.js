@@ -36,6 +36,9 @@ const Layout = () => {
 						<Link to="/Catch">Catch</Link>
 					</li>
 					<li>
+						<Link to="/Garden">Garden</Link>
+					</li>
+					<li>
 						<Link to="/Login">{loginText}</Link>
 					</li>
 				</ul>
