@@ -4,7 +4,7 @@ import "./css/Landing.scss";
 const Landing = () => {
 	return (
 		<div id="fishTank" className="landing">
-			<h1>Welcome to FishingGame</h1>
+			<h1>🎣 Welcome to FishingGame 🎣</h1>
 			<p>
 				Here you can see all the fish you own and the rewards you have
 				earned.
