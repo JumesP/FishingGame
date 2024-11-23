@@ -11,7 +11,6 @@ const Landing = () => {
 			</p>
 			<p>Click on the Fish Tank to see all the fish you own.</p>
 			<p>Click on the Fish to see the rewards you have earned.</p>
-
 			<Fish fishType="cod" path="/images/cod.png" />
 			<Fish fishType="cod" path="/images/cod.png" />
 			<Fish fishType="salmon" path="/images/salmon.png" />
