@@ -161,7 +161,7 @@ const NewFarmModal = ({ handleBuy, ...props }) => {
 					<p>Fertilizers: {selectedFarm.fertilizers}</p>
 					<p>Managers: {selectedFarm.managers}</p>
 					<p>Nutrients: {selectedFarm.nutrients}</p>
-					<button onClick={props.handleBuy()}>Buy</button>
+					<button onClick={handleBuy}>Buy</button>
 				</div>
 			</NewFarmModalStyled>
 		</>
