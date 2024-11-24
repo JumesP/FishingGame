@@ -7,7 +7,7 @@ const FishCollectionItemStyled = styled.div`
 	max-width: fit-content;
 `;
 
-const FishCollectionItem = ({ fish, ...props }) => {
+const FishCollectionItem = ({ fish, onDetailsClick, ...props }) => {
 	const content = {
 		image: fish.image,
 		title: fish.header,
@@ -40,7 +40,7 @@ const FishCollectionItem = ({ fish, ...props }) => {
 				<p>{content.details.weight}g</p>
 				<p>{content.details.length} cm</p>
 			</div>
-			<button>Details</button>
+			<button onClick={() => onDetailsClick(content)}>Details</button>
 		</FishCollectionItemStyled>
 	);
 };
