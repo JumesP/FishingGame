@@ -94,6 +94,7 @@ const InventoryViewer = (props) => {
 					item={selectedItem}
 					onClose={handleCloseModal}
 					onEquip={handleEquip}
+					type="inventory"
 				/>
 			)}
 		</InventoryStyled>

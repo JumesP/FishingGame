@@ -2,6 +2,8 @@ import React from "react";
 import classNames from "classnames";
 import styled from "styled-components";
 
+// move the newGardenModal to this with seperate styles
+
 const ModalStyled = styled.div`
 	position: fixed;
 	top: 50%;
@@ -25,17 +27,38 @@ const OverlayStyled = styled.div`
 	z-index: 999;
 `;
 
-const Modal = ({ item, onClose, onEquip, onSell }) => {
-	const content = {
-		image: item.image,
-		title: item.title,
-		details: {
-			enchants: item.details.enchants,
-			rarity: item.details.rarity,
-			durability: item.details.durability,
-			type: item.details.type,
-		},
-	};
+const ModalTypes = ["item", "fish", "NewFarm"];
+
+const Modal = ({ type, item, onClose, onEquip, onSell }) => {
+	let content;
+
+	switch (type) {
+		case "item":
+			content = {
+				image: item.image,
+				title: item.title,
+				details: {
+					enchants: item.details.enchants,
+					rarity: item.details.rarity,
+					durability: item.details.durability,
+					type: item.details.type,
+				},
+			};
+			break;
+		case "fish":
+			content = {
+				image: item.image,
+				title: item.title,
+				details: {
+					type: item.details.type,
+					weight: item.details.weight,
+					length: item.details.length,
+					value: item.details.value,
+					health: item.details.health,
+				},
+			};
+			break;
+	}
 
 	const ModalClasses = classNames({
 		modal: true,
@@ -77,8 +100,8 @@ const Modal = ({ item, onClose, onEquip, onSell }) => {
 				</div>
 				<div className="actions">
 					<h2>What would you like to do with this item?</h2>
-					<button onClick={onEquip}>---</button>
-					<button onClick={onSell}>---</button>
+					<button onClick={onClose}>---</button>
+					<button onClick={onClose}>---</button>
 					<button onClick={onClose}>---</button>
 					<button onClick={onEquip}>Equip</button>
 					<button onClick={onSell}>Sell</button>
