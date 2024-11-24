@@ -9,7 +9,7 @@ const NewFarmModalStyled = styled.div`
 	left: 50%;
 	transform: translate(-50%, -50%);
 	background-color: white;
-	max-width: 80%;
+	max-width: 25%;
 	padding: 20px;
 	border: 2px solid black;
 	border-radius: 10px;
