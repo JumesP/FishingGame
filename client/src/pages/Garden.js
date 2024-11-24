@@ -12,33 +12,41 @@ const Garden = () => {
 	// }, []);
 
 	//	temp data
-	const tempData = {
-		Garden: "Farm 1",
-		Fertiliser: {
-			ItemName: "Fertilisers",
-			Image: "https://via.placeholder.com/50",
-			Enchants: 0,
-			Rarity: "Common",
-			Durability: 100,
-			Type: "Fertiliser",
+	const tempData = [
+		{
+			Garden: "Farm 1",
+			Fertiliser: {
+				ItemName: "Fertilisers",
+				Image: "https://via.placeholder.com/50",
+				Enchants: 0,
+				Rarity: "Common",
+				Durability: 100,
+				Type: "Fertiliser",
+			},
+			Manager: {
+				ItemName: "Managers",
+				Image: "https://via.placeholder.com/100",
+				Enchants: 0,
+				Rarity: "Common",
+				Durability: 100,
+				Type: "Manager",
+			},
+			Nutrient: {
+				ItemName: "Nutrients",
+				Image: "https://via.placeholder.com/150",
+				Enchants: 0,
+				Rarity: "Common",
+				Durability: 100,
+				Type: "Nutrient",
+			},
+			// content: [
+			// 	{
+			// 		name: "seed1",
+			// 		location: "A1",
+			// 	},
+			// ],
 		},
-		Manager: {
-			ItemName: "Managers",
-			Image: "https://via.placeholder.com/100",
-			Enchants: 0,
-			Rarity: "Common",
-			Durability: 100,
-			Type: "Manager",
-		},
-		Nutrient: {
-			ItemName: "Nutrients",
-			Image: "https://via.placeholder.com/150",
-			Enchants: 0,
-			Rarity: "Common",
-			Durability: 100,
-			Type: "Nutrient",
-		},
-	};
+	];
 
 	return (
 		<div className="allGardens">
