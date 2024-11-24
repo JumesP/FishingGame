@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import FarmTile from "../components/molecules/FarmTile";
+import GardenViewer from "../components/molecules/GardenViewer";
 import "./css/Garden.scss";
 
 const Garden = () => {
@@ -11,48 +11,7 @@ const Garden = () => {
 	// 		.then((data) => setGarden(data));
 	// }, []);
 
-	//	temp data
-	const tempData = [
-		{
-			Garden: "Farm 1",
-			Fertiliser: {
-				ItemName: "Fertilisers",
-				Image: "https://via.placeholder.com/50",
-				Enchants: 0,
-				Rarity: "Common",
-				Durability: 100,
-				Type: "Fertiliser",
-			},
-			Manager: {
-				ItemName: "Managers",
-				Image: "https://via.placeholder.com/100",
-				Enchants: 0,
-				Rarity: "Common",
-				Durability: 100,
-				Type: "Manager",
-			},
-			Nutrient: {
-				ItemName: "Nutrients",
-				Image: "https://via.placeholder.com/150",
-				Enchants: 0,
-				Rarity: "Common",
-				Durability: 100,
-				Type: "Nutrient",
-			},
-			// content: [
-			// 	{
-			// 		name: "seed1",
-			// 		location: "A1",
-			// 	},
-			// ],
-		},
-	];
-
-	return (
-		<div className="allGardens">
-			<FarmTile content={tempData} />
-		</div>
-	);
+	return <GardenViewer content={garden} />;
 };
 
 export default Garden;
