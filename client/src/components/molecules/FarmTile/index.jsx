@@ -60,17 +60,54 @@ const FarmTileStyled = styled.div`
 const FarmTile = (props) => {
 	const FarmTileClasses = classNames(["FarmTile"]);
 
-	const content = {};
+	console.log("FarmTile props: ", props);
+
+	const content = {
+		garden: props.content.Garden,
+		Fertiliser: {
+			name: props.content.Fertiliser.ItemName,
+			image: props.content.Fertiliser.Image,
+			Enchants: props.content.Fertiliser.Enchants,
+			Rarity: props.content.Fertiliser.Rarity,
+			Durability: props.content.Fertiliser.Durability,
+			Type: props.content.Fertiliser.Type,
+		},
+		Manager: {
+			name: props.content.Manager.ItemName,
+			image: props.content.Manager.Image,
+			Enchants: props.content.Manager.Enchants,
+			Rarity: props.content.Manager.Rarity,
+			Durability: props.content.Manager.Durability,
+			Type: props.content.Manager.Type,
+		},
+		Nutrient: {
+			name: props.content.Nutrient.ItemName,
+			image: props.content.Nutrient.Image,
+			Enchants: props.content.Nutrient.Enchants,
+			Rarity: props.content.Nutrient.Rarity,
+			Durability: props.content.Nutrient.Durability,
+			Type: props.content.Nutrient.Type,
+		},
+	};
 
 	return (
 		<FarmTileStyled {...props} className={FarmTileClasses} id="FarmTile">
 			<div className="farmTileEquipment">
-				<div>F</div>
-				<div>M</div>
-				<div>N</div>
-				<p>Fertiliser</p>
-				<p>Manager</p>
-				<p>Nutrient</p>
+				<img
+					src={content.Fertiliser.image}
+					alt={content.Fertiliser.name}
+				></img>
+				<img
+					src={content.Manager.image}
+					alt={content.Manager.name}
+				></img>
+				<img
+					src={content.Nutrient.image}
+					alt={content.Nutrient.name}
+				></img>
+				<p>{content.Fertiliser.name}</p>
+				<p>{content.Manager.name}</p>
+				<p>{content.Nutrient.name}</p>
 			</div>
 			<div className="farmTileFarmContainer">
 				<Plots type="farm" />
