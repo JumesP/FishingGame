@@ -64,7 +64,7 @@ const FarmTile = (props) => {
 	const backupContent = {
 		garden: "Farm 1",
 		Fertiliser: {
-			name: "Fertiliser",
+			ItemName: "Fertiliser",
 			image: "https://via.placeholder.com/150",
 			Enchants: 0,
 			Rarity: "Common",
@@ -72,7 +72,7 @@ const FarmTile = (props) => {
 			Type: "Fertiliser",
 		},
 		Manager: {
-			name: "Manager",
+			ItemName: "Manager",
 			image: "https://via.placeholder.com/150",
 			Enchants: 0,
 			Rarity: "Common",
@@ -80,7 +80,7 @@ const FarmTile = (props) => {
 			Type: "Manager",
 		},
 		Nutrient: {
-			name: "Nutrient",
+			ItemName: "Nutrient",
 			image: "https://via.placeholder.com/150",
 			Enchants: 0,
 			Rarity: "Common",
