@@ -161,7 +161,7 @@ class User {
 				console.log(`Inserted item with ID: ${itemID}`);
 				return itemID;
 			} catch (error) {
-				console.error("Error adding item to inventory:", error);
+				console.error("Error adding item to InventoryViewer:", error);
 				throw error;
 			} finally {
 				await db.close();
@@ -241,7 +241,7 @@ class User {
 
 		let itemIds = [];
 
-		// add each defaultItem to the users inventory
+		// add each defaultItem to the users InventoryViewer
 
 		for (const key in defaultItems) {
 			if (defaultItems.hasOwnProperty(key)) {

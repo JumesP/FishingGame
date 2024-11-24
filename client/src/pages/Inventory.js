@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import InventoryViewer from "../components/molecules/inventory/index";
+import InventoryViewer from "../components/molecules/InventoryViewer/index";
 
 const Inventory = () => {
 	const [inventory, setInventory] = useState([{}]);
