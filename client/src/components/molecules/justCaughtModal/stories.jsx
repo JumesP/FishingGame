@@ -15,7 +15,6 @@ Default.args = {
 	fish: {
 		url: "images/goldfish.png",
 		name: "goldfish",
-		price: 10,
 		weight: 5,
 		length: 10,
 		value: 10,

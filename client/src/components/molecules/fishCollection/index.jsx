@@ -25,7 +25,7 @@ const FishCollection = (props) => {
 					image: "images/blue.png",
 					header: "Blue Fish",
 					details: {
-						price: "$1",
+						value: "$1",
 						health: "10♡",
 						weight: "5g",
 						length: "32 cm",

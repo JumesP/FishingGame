@@ -12,7 +12,8 @@ const FishCollectionItem = ({ fish, ...props }) => {
 		image: fish.image,
 		title: fish.header,
 		details: {
-			price: fish.details.price,
+			type: fish.details.type,
+			value: fish.details.value,
 			health: fish.details.health,
 			weight: fish.details.weight,
 			length: fish.details.length,
@@ -31,9 +32,13 @@ const FishCollectionItem = ({ fish, ...props }) => {
 			</div>
 			<div className="FCfishHeader">{content.title}</div>
 			<div className="FCfishDetails">
-				{Object.values(content.details).map((detail, index) => (
-					<p key={index}>{detail}</p>
-				))}
+				{/*{Object.values(content.details).map((detail, index) => (*/}
+				{/*	<p key={index}>{detail}</p>*/}
+				{/*))}*/}
+				<p>${content.details.value}</p>
+				<p>{content.details.health}♡</p>
+				<p>{content.details.weight}g</p>
+				<p>{content.details.length} cm</p>
 			</div>
 			<button>Details</button>
 		</FishCollectionItemStyled>
@@ -45,7 +50,7 @@ FishCollectionItem.propTypes = {
 		image: PropTypes.string.isRequired,
 		header: PropTypes.string.isRequired,
 		details: PropTypes.shape({
-			price: PropTypes.string.isRequired,
+			value: PropTypes.string.isRequired,
 			health: PropTypes.string.isRequired,
 			weight: PropTypes.string.isRequired,
 			length: PropTypes.string.isRequired,

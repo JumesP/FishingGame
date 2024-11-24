@@ -12,10 +12,10 @@ Default.args = {
 		image: "images/cod.png",
 		header: "Cod Fish",
 		details: {
-			price: "$1",
-			health: "10♡",
-			weight: "5g",
-			length: "32 cm",
+			value: "1",
+			health: "10",
+			weight: "5",
+			length: "32",
 		},
 	},
 };
