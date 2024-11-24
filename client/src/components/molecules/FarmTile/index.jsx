@@ -59,36 +59,67 @@ const FarmTileStyled = styled.div`
 
 const FarmTile = (props) => {
 	const FarmTileClasses = classNames(["FarmTile"]);
+	let content;
 
-	console.log("FarmTile props: ", props);
-
-	const content = {
-		garden: props.content.Garden,
+	const backupContent = {
+		garden: "Farm 1",
 		Fertiliser: {
-			name: props.content.Fertiliser.ItemName,
-			image: props.content.Fertiliser.Image,
-			Enchants: props.content.Fertiliser.Enchants,
-			Rarity: props.content.Fertiliser.Rarity,
-			Durability: props.content.Fertiliser.Durability,
-			Type: props.content.Fertiliser.Type,
+			name: "Fertiliser",
+			image: "https://via.placeholder.com/150",
+			Enchants: 0,
+			Rarity: "Common",
+			Durability: 100,
+			Type: "Fertiliser",
 		},
 		Manager: {
-			name: props.content.Manager.ItemName,
-			image: props.content.Manager.Image,
-			Enchants: props.content.Manager.Enchants,
-			Rarity: props.content.Manager.Rarity,
-			Durability: props.content.Manager.Durability,
-			Type: props.content.Manager.Type,
+			name: "Manager",
+			image: "https://via.placeholder.com/150",
+			Enchants: 0,
+			Rarity: "Common",
+			Durability: 100,
+			Type: "Manager",
 		},
 		Nutrient: {
-			name: props.content.Nutrient.ItemName,
-			image: props.content.Nutrient.Image,
-			Enchants: props.content.Nutrient.Enchants,
-			Rarity: props.content.Nutrient.Rarity,
-			Durability: props.content.Nutrient.Durability,
-			Type: props.content.Nutrient.Type,
+			name: "Nutrient",
+			image: "https://via.placeholder.com/150",
+			Enchants: 0,
+			Rarity: "Common",
+			Durability: 100,
+			Type: "Nutrient",
 		},
 	};
+
+	if (!props.content) {
+		content = backupContent;
+	} else {
+		content = {
+			garden: props.content.Garden,
+			Fertiliser: {
+				name: props.content.Fertiliser.ItemName,
+				image: props.content.Fertiliser.Image,
+				Enchants: props.content.Fertiliser.Enchants,
+				Rarity: props.content.Fertiliser.Rarity,
+				Durability: props.content.Fertiliser.Durability,
+				Type: props.content.Fertiliser.Type,
+			},
+			Manager: {
+				name: props.content.Manager.ItemName,
+				image: props.content.Manager.Image,
+				Enchants: props.content.Manager.Enchants,
+				Rarity: props.content.Manager.Rarity,
+				Durability: props.content.Manager.Durability,
+				Type: props.content.Manager.Type,
+			},
+			Nutrient: {
+				name: props.content.Nutrient.ItemName,
+				image: props.content.Nutrient.Image,
+				Enchants: props.content.Nutrient.Enchants,
+				Rarity: props.content.Nutrient.Rarity,
+				Durability: props.content.Nutrient.Durability,
+				Type: props.content.Nutrient.Type,
+			},
+		};
+	}
 
 	return (
 		<FarmTileStyled {...props} className={FarmTileClasses} id="FarmTile">
