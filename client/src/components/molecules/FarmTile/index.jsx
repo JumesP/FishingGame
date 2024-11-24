@@ -4,8 +4,6 @@ import styled from "styled-components";
 
 import Plots from "../../atoms/plots";
 
-// FARM TILES NEED TO BE DIFFERENT SIZES DEPENDING ON THE PLOT TYPE
-
 const FarmTileStyled = styled.div`
 	display: grid;
 	grid-template-rows: 1fr 3.75fr 1fr;
@@ -19,9 +17,11 @@ const FarmTileStyled = styled.div`
 	box-shadow:
 		0 10px 20px 0 rgba(0, 0, 0, 0.2),
 		0 12px 40px 0 rgba(0, 0, 0, 0.19);
-	width: 400px;
+	min-width: 400px;
+	max-width: fit-content;
 	height: 600px;
-	padding: 5px;
+	//padding: 5px;
+	padding: 0.5%;
 	//& * {
 	//	border: 1px solid black;
 	//}
@@ -50,6 +50,10 @@ const FarmTileStyled = styled.div`
 	& > .farmTileName,
 	& > .farmTileName > p {
 		font-size: 2rem;
+	}
+	& > .farmTileEquipment > img {
+		width: 75px;
+		height: 75px;
 	}
 `;
 
