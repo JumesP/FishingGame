@@ -120,7 +120,7 @@ router.get("/FishBarHnL", async (req, res) => {
 	res.json(results);
 });
 
-router.get("/getfish", async (req, res) => {
+router.get("/getFish", async (req, res) => {
 	try {
 		const result = await user.getFishTankByID();
 		res.json(result);
