@@ -24,13 +24,13 @@ const Layout = () => {
 						<Link to="/FishTank">Fish Tank</Link>
 					</li>
 					<li>
-						<Link to="/Main">Main</Link>
-					</li>
-					<li>
 						<Link to="/Inventory">Inventory</Link>
 					</li>
 					<li>
-						<Link to="/Rewards">Rewards</Link>
+						<Link to="/FishManagement">FishManagement</Link>
+					</li>
+					<li>
+						<Link to="/Main">Main</Link>
 					</li>
 					<li>
 						<Link to="/Catch">Catch</Link>
@@ -39,10 +39,10 @@ const Layout = () => {
 						<Link to="/Garden">Garden</Link>
 					</li>
 					<li>
-						<Link to="/Shop">Shop</Link>
+						<Link to="/Rewards">Rewards</Link>
 					</li>
 					<li>
-						<Link to="/FishManagement">FishManagement</Link>
+						<Link to="/Shop">Shop</Link>
 					</li>
 					<li>
 						<Link to="/Login">{loginText}</Link>
