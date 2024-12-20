@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import Store from "../components/organisms/Store";
 
 const Shop = () => {
-	// const [shopItems, setShopItems] = useState([{}]);
-	//
+	const [shopItems, setShopItems] = useState([{}]);
+
 	// useEffect(() => {
 	// 	fetch("/api/getShopItems/")
 	// 		.then((res) => res.json())
@@ -21,7 +22,9 @@ const Shop = () => {
 	// 		))}
 	// 	</div>
 	// );
-	return <p>Welcome to the shop!</p>;
+	// return <p>Welcome to the shop!</p>;
+
+	return <Store items={shopItems} />;
 };
 
 export default Shop;
