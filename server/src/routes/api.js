@@ -134,8 +134,41 @@ router.get("/getFish", async (req, res) => {
 router.get("/getShopItems", async (req, res) => {
 	try {
 		const result = shop.getShopItems();
+		let items = [
+			{
+				image: "images/rod.png",
+				header: "Rare Rod",
+				details: {
+					enchants: "🥽",
+					rarity: "Rare",
+					durability: "80%",
+					type: "rod",
+				},
+			},
+			{
+				image: "images/rod.png",
+				header: "Legendary Rod",
+				details: {
+					enchants: "🏋️🏋️🏋️ + ⛑️",
+					rarity: "Legendary",
+					durability: "95%",
+					type: "rod",
+				},
+			},
+			{
+				image: "images/rod.png",
+				header: "Common Rod",
+				details: {
+					enchants: "None",
+					rarity: "Common",
+					durability: "100%",
+					type: "Tool",
+				},
+			},
+		];
 		console.log("results: " + result);
-		res.json(result);
+		// res.json(result);
+		res.json(items);
 	} catch (err) {
 		console.log(err);
 	}
