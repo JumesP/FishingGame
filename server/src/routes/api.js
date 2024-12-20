@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const FishClass = require("../../classes/fish");
 const UserClass = require("../../classes/Users/user");
+const ShopClass = require("../../classes/shop");
 
 const {
 	getRandomFish,
@@ -13,6 +14,7 @@ const FiveGetRandomReward =
 let user;
 let userData;
 let userIDReceived = false;
+let shop = new ShopClass([]);
 
 const initializeUser = async (UserID) => {
 	if (UserID) {
@@ -123,6 +125,16 @@ router.get("/FishBarHnL", async (req, res) => {
 router.get("/getFish", async (req, res) => {
 	try {
 		const result = await user.getFishTankByID();
+		res.json(result);
+	} catch (err) {
+		console.log(err);
+	}
+});
+
+router.get("/getShopItems", async (req, res) => {
+	try {
+		const result = shop.getShopItems();
+		console.log("results: " + result);
 		res.json(result);
 	} catch (err) {
 		console.log(err);
