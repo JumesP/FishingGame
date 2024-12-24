@@ -41,7 +41,7 @@ class Shop {
 	}
 
 	getShopItems() {
-		return [
+		const items = [
 			{
 				image: "images/rod.png",
 				header: "Rare Rod",
@@ -73,6 +73,8 @@ class Shop {
 				},
 			},
 		];
+
+		return JSON.stringify(items, null, 2);
 	}
 }
 
