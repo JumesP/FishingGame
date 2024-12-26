@@ -13,7 +13,7 @@ class Shop {
 				details: {
 					enchants: "🥽",
 					rarity: "Rare",
-					durability: "80%",
+					durability: "100%",
 					type: "rod",
 				},
 			},
@@ -23,7 +23,7 @@ class Shop {
 				details: {
 					enchants: "🏋️🏋️🏋️ + ⛑️",
 					rarity: "Legendary",
-					durability: "95%",
+					durability: "100%",
 					type: "rod",
 				},
 			},
