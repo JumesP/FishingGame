@@ -17,11 +17,11 @@ const ShopStyled = styled.div`
 	height: fit-content;
 `;
 
-const ShopViewer = (props) => {
+const ShopViewer = ({items, ...props}) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedItem, setSelectedItem] = useState(null);
 
-	console.log(props.items);
+	console.log(items);
 
 	const handleDetailsClick = (item) => {};
 	const handleCloseModal = () => {};
@@ -31,17 +31,17 @@ const ShopViewer = (props) => {
 	const ShopClasses = classNames(["shop"]);
 
 	const divs = [];
-	for (let i = 0; i < props.items.length; i++) {
-		const image = getImage(props.items[i]);
-		if (image === null) {
-			continue;
-		}
+	for (let i = 0; i < items.length; i++) {
+		// const image = getImage(props.items[i]);
+		// if (image === null) {
+		// 	continue;
+		// }
 
 		divs.push(
 			<ShopItem
 				key={i}
-				item={props.items[i]}
-				image={image}
+				item={items[i]}
+				image={items.image}
 				onClick={handleDetailsClick}
 			/>,
 		);

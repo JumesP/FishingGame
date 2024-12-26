@@ -10,24 +10,17 @@ const ShopItemStyled = styled.div`
 const ShopItem = ({ item, onDetailsClick }) => {
 	const ShopItemClasses = classNames(["shopItem"]);
 
-	if (item.details.enchants === null) {
-		item.details.enchants = "None";
-	}
-
-	if (item.details.durability === null) {
-		item.details.durability = "N/A";
-	}
-
+	const details = item.details || {};
 	const content = {
-		image: item.image,
-		title: item.header,
+		image: item.image || "default-image.png",
+		title: item.header || "No Title",
 		details: {
-			enchants: item.details.enchants,
-			rarity: item.details.rarity,
-			durability: item.details.durability,
-			type: item.details.type,
+			enchants: details.enchants || "None",
+			rarity: details.rarity || "Unknown",
+			durability: details.durability || "N/A",
+			type: details.type || "Unknown",
 		},
-		object: item.object,
+		object: item.object || {},
 	};
 
 	return (
