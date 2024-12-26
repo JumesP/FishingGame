@@ -8,10 +8,27 @@ type Item = {
 	durability: number;
 };
 
+// type Item = {
+// 	image: string
+// 	header: string;
+// 	details: {
+// 		type: "rod" | "bait" | "pet" | "boat";
+// 		rarity: "Common" | "Uncommon" | "Rare" | "Epic" | "Legendary" | "Mythical";
+// 		enchants: null | string;
+// 		durability: number;
+// 	};
+// 	UserID?: number;
+// 	ItemID?: number;
+// }
+
+
 export default function getImage(item: Item) {
-	console.log(item);
-	console.log(item.Enchants);
 	let image: string;
+
+	// if (item.image !== undefined) {
+	// 	return item.image;
+	// }
+
 	switch (item.Type) {
 		case "rod":
 			switch (item.Rarity) {
