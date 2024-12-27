@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import styled from "styled-components";
-import ShopItem from "../../atoms/shopItem";
+import ShopBundle from "../../atoms/shopBundle";
 import Modal from "../../atoms/modal";
 import getImage from "../../../utils/imageGenerator";
 
@@ -17,31 +17,37 @@ const ShopStyled = styled.div`
 	height: fit-content;
 `;
 
-const ShopViewer = ({items, ...props}) => {
+const ShopViewer = ({content, ...props}) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
-	const [selectedItem, setSelectedItem] = useState(null);
+	const [selectedBundle, setSelectedBundle] = useState(null);
 
-	console.log(items);
-
-	const handleDetailsClick = (item) => {};
+	const handleDetailsClick = (bundle) => {};
 	const handleCloseModal = () => {};
 
 	const HandlePurchase = () => {};
 
 	const ShopClasses = classNames(["shop"]);
 
+	const bundles = content?.bundle || [];
+
+	console.log(content);
+	console.log(content.bundle);
+	// console.log(content.bundle.length);
+
+	console.log(bundles)
+	console.log(bundles.length)
+
 	const divs = [];
-	for (let i = 0; i < items.length; i++) {
+	for (let i = 0; i < bundles.length; i++) {
 		// const image = getImage(props.items[i]);
 		// if (image === null) {
 		// 	continue;
 		// }
 
 		divs.push(
-			<ShopItem
+			<ShopBundle
 				key={i}
-				item={items[i]}
-				image={items.image}
+				bundle={content.bundle[i]}
 				onClick={handleDetailsClick}
 			/>,
 		);
@@ -55,14 +61,14 @@ const ShopViewer = ({items, ...props}) => {
 				<button>&lt;</button>
 				<button>&gt;</button>
 			</div>
-			{/*{isModalOpen && selectedItem && (*/}
-			{/*	<Modal*/}
-			{/*		item={selectedItem}*/}
-			{/*		onClose={handleCloseModal}*/}
-			{/*		onEquip={handleEquip}*/}
-			{/*		type="inventory"*/}
-			{/*	/>*/}
-			{/*)}*/}
+		// 	{/*{isModalOpen && selectedItem && (*/}
+		// 	{/*	<Modal*/}
+		// 	{/*		item={selectedItem}*/}
+		// 	{/*		onClose={handleCloseModal}*/}
+		// 	{/*		onEquip={handleEquip}*/}
+		// 	{/*		type="inventory"*/}
+		// 	{/*	/>*/}
+		// 	{/*)}*/}
 		</ShopStyled>
 	);
 };
