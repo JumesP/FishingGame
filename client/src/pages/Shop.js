@@ -2,17 +2,19 @@ import React, { useState, useEffect } from "react";
 import ShopViewer from "../components/molecules/ShopViewer";
 
 const Shop = () => {
-	const [shopItems, setShopItems] = useState([{}]);
+	const [shopBundles, setShopBundles] = useState([{}]);
 
 	useEffect(() => {
-		fetch("/api/getShopItems/")
+		fetch("/api/getShopBundles/")
 			.then((res) => res.json())
-			.then((data) => setShopItems(JSON.parse(data)));
+			.then((data) => setShopBundles(JSON.parse(data)));
 	}, []);
+
+	console.log(shopBundles);
 
 	return (
 		<div>
-			<ShopViewer items={shopItems} />
+			<ShopViewer content={shopBundles} />
 		</div>
 	);
 };
