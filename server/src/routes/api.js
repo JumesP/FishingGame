@@ -140,6 +140,15 @@ router.get("/getShopItems", async (req, res) => {
 	}
 });
 
+router.get("/getShopBundles", async (req, res) => {
+	try {
+		const result = shop.getShopBundles();
+		res.json(result);
+	} catch (err) {
+		console.log(err);
+	}
+});
+
 const findObjectWithValue = (list, key, value) => {
 	return list.find((obj) => obj[key] === value);
 };
