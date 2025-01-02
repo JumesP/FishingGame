@@ -65,10 +65,12 @@ const BundleStructure = {
 };
 
 const ShopBundle = ({ bundle, ...props }) => {
-	const ShopBundleClasses = classNames([
-		"shopBundle",
-		// bundle.BundleType ? `type-${bundle.BundleType}` : "type-SmallBundle",
-		"type-LargeBundle",
+	const ShopBundleClasses = classNames(["shopBundle"]);
+
+	const ShopBundleItemsClasses = classNames([
+		"bundleItems",
+		bundle.BundleType ? `type-${bundle.BundleType}` : "type-SmallBundle",
+		// "type-LargeBundle",
 	]);
 
 	console.log(bundle);
@@ -94,7 +96,7 @@ const ShopBundle = ({ bundle, ...props }) => {
 	return (
 		<ShopBundleStyled className={ShopBundleClasses} {...props}>
 			<h1 className="bundleTitle">{bundle.BundleName}</h1>
-			<div className="bundleItems">{divs}</div>
+			<div className={ShopBundleItemsClasses}>{divs}</div>
 			<button className="bundlePurchaseButton">
 				Add to Cart? <br /> {bundle.BundleCost} $
 			</button>
