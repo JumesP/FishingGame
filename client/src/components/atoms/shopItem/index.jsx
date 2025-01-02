@@ -9,7 +9,9 @@ const ShopItemStyled = styled.div`
 	border: 3px solid black;
 	border-radius: 10px;
 	background-color: #666666;
-	max-width: fit-content;
+	min-width: fit-content;
+	width: 100%;
+	height: 100%;
 	font-size: 0.8rem;
 `;
 
