@@ -3,6 +3,12 @@ import classNames from "classnames";
 import styled from "styled-components";
 
 const ShopItemStyled = styled.div`
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border: 3px solid black;
+	border-radius: 10px;
+	background-color: #666666;
 	max-width: fit-content;
 	font-size: 0.8rem;
 `;
@@ -25,11 +31,11 @@ const ShopItem = ({ item, onDetailsClick }) => {
 
 	return (
 		<ShopItemStyled className={ShopItemClasses}>
-			<div className="inventoryItemImage">
+			<div className="shopItemImage">
 				<img src={content.image} alt="item" />
 			</div>
-			<div className="inventoryItemHeader">{content.title}</div>
-			<div className="inventoryItemDetails">
+			<div className="shopItemHeader">{content.title}</div>
+			<div className="shopItemDetails">
 				{Object.values(content.details).map((detail, index) => (
 					<p key={index}>{detail}</p>
 				))}
