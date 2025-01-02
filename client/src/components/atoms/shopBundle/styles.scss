@@ -67,6 +67,26 @@
 //  }
 //}
 
+.bundleTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  padding: 10px;
+}
+
+.shopBundle {
+
+}
+
+.bundleItems {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
 //larger scope
 .type-LargeBundle, .FeaturedItem {
   //same size
@@ -87,7 +107,9 @@
 }
 
 .type-LargeBundle {
-
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
 }
 
 .type-MegaBundle {
@@ -98,3 +120,21 @@
 
 }
 
+.bundlePurchaseButton {
+  padding: 0.5rem 1rem;
+  border: none;
+  //border-radius: 5px;
+  background-color: green;
+  color: white;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+
+  &:hover {
+      background-color: darken(#999999, 10%);
+  }
+}
