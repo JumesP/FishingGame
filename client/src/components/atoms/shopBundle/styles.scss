@@ -70,7 +70,6 @@
 .bundleTitle {
   font-size: 1.5rem;
   font-weight: 700;
-  margin-bottom: 1rem;
   padding: 10px;
 }
 
@@ -80,16 +79,16 @@
 
 .bundleItems {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   justify-items: center;
-  gap: 15px;
-  margin-bottom: 15px;
+  gap: 30px;
+  margin: 15px;
 }
 
 //larger scope
 .type-LargeBundle, .FeaturedItem {
   //same size
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .type-MegaBundle, .type-LargeFeaturedItem {
@@ -99,17 +98,17 @@
 
 //focused
 .type-SingleItem {
-
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
 .type-SmallBundle {
-
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
 }
 
 .type-LargeBundle {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+
 }
 
 .type-MegaBundle {
@@ -117,7 +116,10 @@
 }
 
 .type-FeaturedItem {
-
+  & > * {
+    grid-column: 1 / 4;
+    grid-row: 1 / 3;
+  }
 }
 
 .bundlePurchaseButton {
@@ -135,6 +137,6 @@
   border-bottom-right-radius: 20px;
 
   &:hover {
-      background-color: darken(#999999, 10%);
+      background-color: lighten(green, 10%);
   }
 }
