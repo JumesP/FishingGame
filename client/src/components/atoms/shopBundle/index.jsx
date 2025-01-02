@@ -4,13 +4,13 @@ import styled from "styled-components";
 import ShopItem from "../../atoms/shopItem";
 
 const bundleType = {
-	"SingleItem": "SingleItem", // holds 1 item
-	"SmallBundle": "SmallBundle", // holds 3 items
-	"LargeBundle": "LargeBundle", // holds 6 items
-	"MegaBundle": "MegaBundle", // holds 12 items
-	"FeaturedItem": "FeaturedItem", // holds 1 item
-	"LargeFeaturedItem": "LargeFeaturedItem", // holds 1 item
-}
+	SingleItem: "SingleItem", // holds 1 item
+	SmallBundle: "SmallBundle", // holds 3 items
+	LargeBundle: "LargeBundle", // holds 6 items
+	MegaBundle: "MegaBundle", // holds 12 items
+	FeaturedItem: "FeaturedItem", // holds 1 item
+	LargeFeaturedItem: "LargeFeaturedItem", // holds 1 item
+};
 
 const ShopBundleStyled = styled.div`
 	display: flex;
@@ -25,45 +25,44 @@ const ShopBundleStyled = styled.div`
 `;
 
 const BundleStructure = {
-	"BundleName": "Premium Bundle",
-	"BundleCost": 99,
-	"BundleType": "LargeBundle",
-	"BundleItems":
-		[
-			{
-				image: "images/rod.png",
-				header: "Common Rod",
-				details: {
-					enchants: "None",
-					rarity: "Common",
-					durability: "100%",
-					type: "Tool",
-				},
+	BundleName: "Premium Bundle",
+	BundleCost: 99,
+	BundleType: "LargeBundle",
+	BundleItems: [
+		{
+			image: "images/rod.png",
+			header: "Common Rod",
+			details: {
+				enchants: "None",
+				rarity: "Common",
+				durability: "100%",
+				type: "Tool",
 			},
-			{
-				image: "images/rod.png",
-				header: "Rare Rod",
-				details: {
-					//enchants: 'Focus I',
-					enchants: "🥽",
-					rarity: "Rare",
-					durability: "80%",
-					type: "rod",
-				}
+		},
+		{
+			image: "images/rod.png",
+			header: "Rare Rod",
+			details: {
+				//enchants: 'Focus I',
+				enchants: "🥽",
+				rarity: "Rare",
+				durability: "80%",
+				type: "rod",
 			},
-			{
-				image: "images/rod.png",
-				header: "Legendary Rod",
-				details: {
-					// enchants: 'Unbreaking III, Mending',
-					enchants: "🏋️🏋️🏋️ + ⛑️",
-					rarity: "Legendary",
-					durability: "95%",
-					type: "rod",
-				}
-			}
-		]
-}
+		},
+		{
+			image: "images/rod.png",
+			header: "Legendary Rod",
+			details: {
+				// enchants: 'Unbreaking III, Mending',
+				enchants: "🏋️🏋️🏋️ + ⛑️",
+				rarity: "Legendary",
+				durability: "95%",
+				type: "rod",
+			},
+		},
+	],
+};
 
 const ShopBundle = ({ bundle, ...props }) => {
 	const ShopBundleClasses = classNames([
@@ -72,7 +71,7 @@ const ShopBundle = ({ bundle, ...props }) => {
 		"type-LargeBundle",
 	]);
 
-	console.log(bundle)
+	console.log(bundle);
 
 	const handleDetailsClick = (item) => {};
 
@@ -98,6 +97,6 @@ const ShopBundle = ({ bundle, ...props }) => {
 			<div className="inventoryItems">{divs}</div>
 		</ShopBundleStyled>
 	);
-}
+};
 
 export default ShopBundle;
