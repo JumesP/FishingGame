@@ -93,8 +93,11 @@ const ShopBundle = ({ bundle, ...props }) => {
 
 	return (
 		<ShopBundleStyled className={ShopBundleClasses} {...props}>
-			<h1>Bundle Items:</h1>
-			<div className="inventoryItems">{divs}</div>
+			<h1 className="bundleTitle">{bundle.BundleName}</h1>
+			<div className="bundleItems">{divs}</div>
+			<button className="bundlePurchaseButton">
+				Add to Cart? <br /> {bundle.BundleCost} $
+			</button>
 		</ShopBundleStyled>
 	);
 };
