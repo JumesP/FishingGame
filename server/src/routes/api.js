@@ -52,6 +52,14 @@ router.post("/receiveUserID", (req, res) => {
 });
 
 router.use(async (req, res, next) => {
+	console.log(req.path);
+	if (
+		req.path === "/Login" ||
+		req.path === "/Signup" ||
+		req.path === "/receiveUserID"
+	) {
+		return next();
+	}
 	if (!userIDReceived) {
 		return res.status(400).json({ error: "UserID not received yet" });
 	}
@@ -62,6 +70,13 @@ router.use(async (req, res, next) => {
 });
 
 router.use(async (req, res, next) => {
+	if (
+		req.path === "/Login" ||
+		req.path === "/Signup" ||
+		req.path === "/receiveUserID"
+	) {
+		return next();
+	}
 	if (!user) {
 		return res.status(400).json({ error: "User not initialized" });
 	}
