@@ -2,6 +2,14 @@
 
 .shopItem {
   background-color: variables.$common-color;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.025);
+      box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    }
 }
 
 .shopItem > * {
