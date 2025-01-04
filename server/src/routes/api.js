@@ -40,11 +40,8 @@ router.post("/receiveUserID", (req, res) => {
 	if (UserID === undefined) {
 	} else {
 		try {
-			const { UserID } = req.body;
 			userData = UserID;
 			userIDReceived = true;
-			// console.log("Received UserID:", UserID);
-			// console.log("Set userData:", userData);
 			initializeUser(userData);
 			res.status(200).json({ message: "UserID received successfully" });
 		} catch (error) {
