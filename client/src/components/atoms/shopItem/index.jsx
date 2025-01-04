@@ -8,7 +8,6 @@ const ShopItemStyled = styled.div`
 	align-items: center;
 	border: 3px solid black;
 	border-radius: 10px;
-	background-color: #666666;
 	min-width: fit-content;
 	width: 100%;
 	height: 100%;
@@ -16,7 +15,12 @@ const ShopItemStyled = styled.div`
 `;
 
 const ShopItem = ({ item, onDetailsClick }) => {
-	const ShopItemClasses = classNames(["shopItem"]);
+	const ShopItemClasses = classNames([
+		"shopItem",
+		item.details.rarity
+			? "rarity-" + item.details.rarity.toLowerCase()
+			: "",
+	]);
 
 	const details = item.details || {};
 	const content = {
