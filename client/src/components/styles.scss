@@ -31,3 +31,31 @@
     font-weight: 500;
     color: black;
 }
+
+.rarity-common {
+    background: variables.$common-color;
+}
+
+.rarity-uncommon {
+    background: variables.$uncommon-color;
+}
+
+.rarity-rare {
+    background: variables.$rare-color;
+}
+
+.rarity-epic {
+    background: variables.$epic-color;
+}
+
+.rarity-legendary {
+    background: variables.$legendary-color;
+}
+
+.rarity-mythical {
+    background: variables.$mythical-color;
+}
+
+.rarity-mystical {
+    background: variables.$mythical-color;
+}
