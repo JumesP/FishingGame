@@ -11,12 +11,23 @@ import Profile from "../components/molecules/profile";
 const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
 	const [userData, setUserData] = useState(null);
+	const [leftCounter, setLeftCounter] = useState(1);
+	const [rightCounter, setRightCounter] = useState(1);
 
 	useEffect(() => {
 		fetch("/api/populate")
 			.then((res) => res.json())
 			.then((data) => setBackendData(data));
 	}, []);
+
+	const user = backendData.user
+		? {
+				Username: backendData.user.Username,
+				Experience: backendData.user.Experience,
+				Coins: backendData.user.Coins,
+				Items: backendData.currentInventory,
+			}
+		: {};
 
 	const leftContent = {
 		FishTank: null,
@@ -33,14 +44,20 @@ const Main = () => {
 		equipment: null, // current layout
 	};
 
-	const user = backendData.user
-		? {
-				Username: backendData.user.Username,
-				Experience: backendData.user.Experience,
-				Coins: backendData.user.Coins,
-				Items: backendData.currentInventory,
-			}
-		: {};
+	const rightContentTemp = [
+		<Profile user={user} />,
+		<div className="right-0"></div>,
+		<div className="right-1"></div>,
+		<div className="right-2"></div>,
+	];
+
+	const increaseClick = (arg) => {
+		if (rightCounter === 2) {
+			setRightCounter(0);
+		} else {
+			setRightCounter(rightCounter + 1);
+		}
+	};
 
 	return (
 		<div className="main">
@@ -64,9 +81,29 @@ const Main = () => {
 						/>
 					</div>
 					<div className="right">
-						<NextandBack />
-						<Profile user={user} />
-						<NextandBack />
+						<NextandBack
+						// nextOnClick={() => rightContentChange("+")}
+						// backOnClick={() => rightContentChange("-")}
+						/>
+						<button onClick={() => increaseClick("click")}>
+							next
+						</button>
+
+						{rightContentTemp.map((element, index) => (
+							<div
+								key={index}
+								className={[
+									"right-container ",
+									rightCounter === index ? " active" : "",
+								]}
+							>
+								{element}
+							</div>
+						))}
+						<NextandBack
+						// nextOnClick={() => rightContentChange("+")}
+						// backOnClick={() => rightContentChange("-")}
+						/>
 					</div>
 				</>
 			)}
