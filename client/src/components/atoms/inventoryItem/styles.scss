@@ -11,6 +11,10 @@
   min-height: 150px;
 
   text-align: center;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 }
 
 .inventoryItem > * {
