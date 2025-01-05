@@ -9,7 +9,12 @@ const InventoryItemStyled = styled.div`
 `;
 
 const InventoryItem = ({ item, onDetailsClick }) => {
-	const InventoryItemClasses = classNames(["inventoryItem"]);
+	const InventoryItemClasses = classNames([
+		"inventoryItem",
+		item.details.rarity
+			? "rarity-" + item.details.rarity.toLowerCase()
+			: "rarity-common",
+	]);
 
 	if (item.details.enchants === null) {
 		item.details.enchants = "None";
