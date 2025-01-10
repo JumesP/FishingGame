@@ -7,18 +7,52 @@ import Fish from "../components/atoms/fish";
 import "./css/Main.scss";
 import NextandBack from "../components/molecules/NextandBack";
 import Profile from "../components/molecules/profile";
+import InventoryViewer from "../components/molecules/InventoryViewer";
+import FishManagement from "../components/molecules/FishViewer";
+import ShopViewer from "../components/molecules/ShopViewer";
+import GardenViewer from "../components/molecules/GardenViewer";
 
 const Main = () => {
 	const [backendData, setBackendData] = useState([{}]);
+	const [inventory, setInventory] = useState([{}]);
+	const [fish, setFish] = useState([{}]);
+	const [garden, setGarden] = useState([{}]);
+	const [shopBundles, setShopBundles] = useState([{}]);
+
 	const [userData, setUserData] = useState(null);
-	const [leftCounter, setLeftCounter] = useState(1);
-	const [rightCounter, setRightCounter] = useState(1);
+
+	const [leftCounter, setLeftCounter] = useState(0);
+	const [rightCounter, setRightCounter] = useState(0);
 
 	useEffect(() => {
 		fetch("/api/populate")
 			.then((res) => res.json())
 			.then((data) => setBackendData(data));
 	}, []);
+
+	useEffect(() => {
+		fetch("/api/getInventory/")
+			.then((res) => res.json())
+			.then((data) => setInventory(data));
+	}, []);
+
+	useEffect(() => {
+		fetch("/api/getFish/")
+			.then((res) => res.json())
+			.then((data) => setFish(data));
+	}, []);
+
+	useEffect(() => {
+		fetch("/api/getShopBundles/")
+			.then((res) => res.json())
+			.then((data) => setShopBundles(JSON.parse(data)));
+	}, []);
+
+	// useEffect(() => {
+	// 	fetch("/api/getGarden/")
+	// 		.then((res) => res.json())
+	// 		.then((data) => setGarden(data));
+	// }, []);
 
 	const user = backendData.user
 		? {
@@ -44,6 +78,24 @@ const Main = () => {
 		equipment: null, // current layout
 	};
 
+	const leftContentTemp = [
+		<FishTank
+			children={
+				backendData.fish &&
+				backendData.fish.map((fish, number) => (
+					<Fish fishType={fish} path={"/images/" + fish + ".png"} />
+				))
+			}
+			width="100%"
+			height="100%"
+		/>,
+		<InventoryViewer inventory={inventory} />,
+		<FishManagement fish={fish} />,
+		<ShopViewer content={shopBundles} />,
+		<GardenViewer content={garden} />,
+		<div className="right-1"> catch </div>,
+	];
+
 	const rightContentTemp = [
 		<Profile user={user} />,
 		<div className="right-0"></div>,
@@ -59,6 +111,14 @@ const Main = () => {
 		}
 	};
 
+	const increaseLeftClick = (arg) => {
+		if (leftCounter === 5) {
+			setLeftCounter(0);
+		} else {
+			setLeftCounter(leftCounter + 1);
+		}
+	};
+
 	return (
 		<div className="main">
 			{typeof backendData.fish === "undefined" ? (
@@ -66,6 +126,20 @@ const Main = () => {
 			) : (
 				<>
 					<div className="left">
+						<button onClick={() => increaseLeftClick("click")}>
+							next
+						</button>
+						{leftContentTemp.map((element, index) => (
+							<div
+								key={index}
+								className={[
+									"left-container ",
+									leftCounter === index ? " active" : "",
+								]}
+							>
+								{element}
+							</div>
+						))}
 					</div>
 					<div className="right">
 						<NextandBack
