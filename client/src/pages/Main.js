@@ -118,7 +118,7 @@ const Main = () => {
 	];
 
 	const increaseClick = (arg) => {
-		if (rightCounter === 2) {
+		if (rightCounter === 3) {
 			setRightCounter(0);
 		} else {
 			setRightCounter(rightCounter + 1);
