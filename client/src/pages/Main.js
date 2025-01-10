@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import FishTank from "../components/molecules/fishTank";
 import ArrayOfCards from "../components/molecules/ArrayOfCards";
