@@ -64,9 +64,23 @@ const Main = () => {
 		: {};
 
 	const leftContent = {
-		FishTank: null,
+		FishTank: (
+			<FishTank
+				children={
+					backendData.fish &&
+					backendData.fish.map((fish, number) => (
+						<Fish
+							fishType={fish}
+							path={"/images/" + fish + ".png"}
+						/>
+					))
+				}
+				width="100%"
+				height="100%"
+			/>
+		),
 		Catch: null,
-		Rewards: null,
+		Garden: null,
 		ManageFish: null, // accessible via FishTank
 		ManageInventory: null,
 		Shop: null,
