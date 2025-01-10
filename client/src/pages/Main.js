@@ -66,19 +66,6 @@ const Main = () => {
 			) : (
 				<>
 					<div className="left">
-						<FishTank
-							children={
-								backendData.fish &&
-								backendData.fish.map((fish, number) => (
-									<Fish
-										fishType={fish}
-										path={"/images/" + fish + ".png"}
-									/>
-								))
-							}
-							width="100%"
-							height="100%"
-						/>
 					</div>
 					<div className="right">
 						<NextandBack
