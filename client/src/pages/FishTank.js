@@ -34,6 +34,8 @@ const Main = () => {
 							<Fish
 								fishType={fish}
 								path={"/images/" + fish + ".png"}
+								// width="10" // can be assigned for smaller fish on mobile if ajusted accordingly
+								// height="10"
 							/>
 						))}
 					/>

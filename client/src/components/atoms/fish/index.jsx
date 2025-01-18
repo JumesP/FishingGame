@@ -5,8 +5,8 @@ import styled from "styled-components";
 const FishStyled = styled.div`
 	background: url(${(props) => props.path || "/images/blue.png"}) no-repeat;
 	background-size: contain;
-	width: ${(props) => props.width || "100px"};
-	height: ${(props) => props.height || "100px"};
+	width: ${(props) => props.width || "100"}px;
+	height: ${(props) => props.height || "100"}px;
 	position: absolute;
 `;
 
