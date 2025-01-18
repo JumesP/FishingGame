@@ -73,7 +73,7 @@ const FishManagement = (props) => {
 
 	return (
 		<FishManagementStyled className={FishManagementClasses} {...props}>
-			<h1>Fishs:</h1>
+			<h1>Fishes:</h1>
 			<div className="inventoryItems">{divs}</div>
 			<div className="pageSelector">
 				<button>&lt;</button>
