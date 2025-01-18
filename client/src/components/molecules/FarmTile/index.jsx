@@ -17,8 +17,8 @@ const FarmTileStyled = styled.div`
 	box-shadow:
 		0 10px 20px 0 rgba(0, 0, 0, 0.2),
 		0 12px 40px 0 rgba(0, 0, 0, 0.19);
-	min-width: 400px;
-	max-width: fit-content;
+	width: 400px;
+	min-width: fit-content;
 	height: 600px;
 	//padding: 5px;
 	padding: 0.5%;
