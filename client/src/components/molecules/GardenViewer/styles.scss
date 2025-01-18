@@ -1,0 +1,21 @@
+.garden_items {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  text-align: center;
+  justify-content: center;
+  justify-items: center;
+
+  background-color: #666666;
+
+  gap: 15px;
+  border: 1px solid #333333;
+  border-radius: 15px;
+
+  height: 100%;
+
+  margin: 0 10px 0 10px;
+  //width: 90%;
+  min-height: fit-content;
+  padding: 10px;
+}
