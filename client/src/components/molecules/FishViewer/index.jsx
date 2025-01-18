@@ -14,7 +14,7 @@ const FishManagementStyled = styled.div`
 	border: 5px solid black;
 	border-radius: 25px;
 	margin: 1% auto 1% auto;
-	width: 90%;
+	width: 95%; // eventually change to 100%
 	height: fit-content;
 `;
 
