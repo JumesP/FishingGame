@@ -63,6 +63,7 @@ const FarmTile = (props) => {
 
 	const backupContent = {
 		garden: "Farm 1",
+		type: "farm",
 		Fertiliser: {
 			ItemName: "Fertiliser",
 			image: "https://via.placeholder.com/150",
@@ -94,6 +95,7 @@ const FarmTile = (props) => {
 	} else {
 		content = {
 			garden: props.content.Garden,
+			type: props.content.type,
 			Fertiliser: {
 				name: props.content.Fertiliser.ItemName,
 				image: props.content.Fertiliser.Image,
@@ -141,11 +143,11 @@ const FarmTile = (props) => {
 				<p>{content.Nutrient.name}</p>
 			</div>
 			<div className="farmTileFarmContainer">
-				<Plots type="farm" />
+				<Plots type={content.type} />
 			</div>
 
 			<div className="farmTileName">
-				<p>Name: Farm 1 ✏️</p>
+				<p>Name: {content.garden} ✏️</p>
 			</div>
 		</FarmTileStyled>
 	);
