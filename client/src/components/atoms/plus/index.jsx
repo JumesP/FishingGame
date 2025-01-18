@@ -7,6 +7,9 @@ const PlusStyled = styled.button`
 	height: 250px;
 	width: 250px;
 	border: 5px dotted black;
+    margin: auto;
+	margin-top: 175px;
+	margin-bottom: 175px;
 
 	& > p {
 		margin: auto;
