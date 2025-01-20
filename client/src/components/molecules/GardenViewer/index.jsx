@@ -6,22 +6,21 @@ import Plus from "../../atoms/plus";
 import NewFarmModal from "../NewFarmModal";
 
 const GardenViewerStyled = styled.div`
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	text-align: center;
-	background-color: #999999;
-	border: 5px solid black;
-	border-radius: 25px;
-	margin: 1% auto 1% auto;
-	width: 90%;
-	height: fit-content;
-	gap: 15px;
-	padding: 1%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #999999;
+    border: 5px solid black;
+    border-radius: 25px;
+    margin: 1% auto 1% auto;
+    width: 95%;
+    height: fit-content;
 `;
 
 const GardenViewer = (props) => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	const GardenClassname = classNames(["garden"]);
 
 	const tempData = [
 		{
@@ -244,17 +243,20 @@ const GardenViewer = (props) => {
 	};
 
 	return (
-		<GardenViewerStyled>
-			{tempData.map((farm, index) => (
-				<FarmTile key={index} content={farm} />
-			))}
-			<Plus handlePlusClick={handlePlusClick} />
-			{isModalOpen && (
-				<NewFarmModal
-					onClose={handleCloseModal}
-					handleBuy={handleBuy}
-				/>
-			)}
+		<GardenViewerStyled className={GardenClassname}>
+			<h1>Farms:</h1>
+			<div className="garden_items">
+				{tempData.map((farm, index) => (
+					<FarmTile key={index} content={farm} />
+				))}
+				<Plus handlePlusClick={handlePlusClick} />
+			</div>
+			{/*{isModalOpen && (*/}
+			{/*	<NewFarmModal*/}
+			{/*		onClose={handleCloseModal}*/}
+			{/*		handleBuy={handleBuy}*/}
+			{/*	/>*/}
+			{/*)}*/}
 		</GardenViewerStyled>
 	);
 };
