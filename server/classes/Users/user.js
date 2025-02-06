@@ -50,7 +50,7 @@ class User {
 				"SELECT * FROM Users WHERE Username = ?",
 				username,
 			);
-			console.log("resulst: ", result);
+			console.log("results: ", result);
 
 			// insert Account into Users table
 			const UserID = result[0].UserID;
