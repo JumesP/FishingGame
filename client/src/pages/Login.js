@@ -9,6 +9,7 @@ import "./css/Login.scss";
 const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
+	const [errorMessage, setErrorMessage] = useState(false);
 	const [userData, setUserData] = useState(null);
 
 	const handleSubmit = async (event) => {
@@ -64,6 +65,16 @@ const Login = () => {
 				},
 				body: JSON.stringify({ username, password }),
 			});
+			let data2 = await response.json();
+
+			if (data2 === false) {
+				// Username already exists
+				setErrorMessage(true);
+				return
+			} else {
+				setErrorMessage(false);
+			}
+
 			if (response.ok) {
 				const data = await response.json();
 				console.log("User signed up:", data);
@@ -124,6 +135,7 @@ const Login = () => {
 				<p>No data</p>
 			)}
 			<SignupForm handleSignup={handleSignup} />
+			{errorMessage && <div className="error-message">Username Already Exists</div>}
 		</div>
 	);
 };
