@@ -39,7 +39,16 @@ class User {
 	static async createAccount(username, password) {
 		let result;
 		return openDatabase().then(async (db) => {
-			// check to see if username is in use? - ADD LATER!
+			// check to see if username is in use
+			result = await db.all(
+				"SELECT * FROM Users WHERE Username = ?",
+				[username],
+			);
+
+			if (result.length > 0) {
+				console.log("Username already exists");
+				return false
+			}
 
 			// add username and password to Users table
 			await db.run(
