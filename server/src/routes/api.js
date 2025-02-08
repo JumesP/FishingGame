@@ -279,6 +279,13 @@ router.post("/Signup", async (req, res) => {
 		let results = await UserClass.createAccount(username, password);
 		console.log("results: " + results);
 		console.log("UserID: " + results.UserID);
+
+		if (results === false) {
+			// Username already exists
+			res.json(false);
+			return
+		}
+
 		let UserID = results.UserID;
 
 		// Initialize the user with the new UserID
